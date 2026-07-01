@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Database Exam Prep - Ôn thi trắc nghiệm Cơ sở dữ liệu</title>
+  <meta name="description" content="Ứng dụng ôn thi trắc nghiệm môn Cơ sở dữ liệu với hơn 350 câu hỏi, hỗ trợ tự động kiểm tra đáp án, thi thử tính giờ và thêm câu hỏi mới.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- App Container -->
+  <div id="app" class="app-container">
+    
+    <!-- Header / Navbar -->
+    <header class="navbar">
+      <div class="nav-brand">
+        <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+          <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+          <path d="M3 12A9 3 0 0 0 21 12"></path>
+        </svg>
+        <span class="brand-text">DB Exam Prep</span>
+      </div>
+      
+      <!-- Nav Tabs -->
+      <nav class="nav-tabs">
+        <button id="tab-practice" class="nav-tab active" onclick="switchTab('practice')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          Luyện tập
+        </button>
+        <button id="tab-mock" class="nav-tab" onclick="switchTab('mock')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Thi thử
+        </button>
+        <button id="tab-bank" class="nav-tab" onclick="switchTab('bank')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+          Ngân hàng câu hỏi
+        </button>
+        <button id="tab-add" class="nav-tab" onclick="switchTab('add')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Thêm câu hỏi
+        </button>
+      </nav>
+      
+      <!-- Nav Controls -->
+      <div class="nav-controls">
+        <button id="theme-toggle" class="control-btn" title="Chuyển chế độ Sáng/Tối" aria-label="Theme toggle">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+      </div>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-layout">
+      
+      <!-- Left Sidebar (Question Grid for navigation) -->
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+          <h3>Tiến trình ôn tập</h3>
+          <div class="stats-overview">
+            <div class="stat-item">
+              <span class="stat-num" id="stat-completed">0/350</span>
+              <span class="stat-label">Hoàn thành</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num text-success" id="stat-correct-rate">0%</span>
+              <span class="stat-label">Chính xác</span>
+            </div>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progress-fill" style="width: 0%"></div>
+          </div>
+          <button class="btn btn-secondary btn-small" id="btn-sidebar-report" style="width: 100%; margin-top: 14px; padding: 8px 12px; font-size: 13px;" onclick="viewPracticeReportDirectly()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Xem kết quả ôn tập
+          </button>
+        </div>
+        
+        <div class="sidebar-filters">
+          <button class="filter-chip active" id="filter-all" onclick="filterSidebarGrid('all')">Tất cả</button>
+          <button class="filter-chip" id="filter-incorrect" onclick="filterSidebarGrid('incorrect')">Làm sai</button>
+          <button class="filter-chip" id="filter-flagged" onclick="filterSidebarGrid('flagged')">Đánh dấu</button>
+        </div>
+        
+        <!-- Interactive Question Number Grid -->
+        <div class="question-grid-scroll">
+          <div id="question-grid" class="question-grid">
+            <!-- Dynamically populated numbers 1-350 -->
+          </div>
+        </div>
+      </aside>
+      
+      <!-- Right/Main Display Panel -->
+      <section id="content-panel" class="content-panel">
+        
+        <!-- 1. PRACTICE MODE PANEL -->
+        <div id="panel-practice" class="mode-panel active">
+          <!-- Practice Study Screen -->
+          <div id="practice-study-screen" class="practice-screen active" style="width: 100%;">
+            <div class="panel-header">
+              <div class="question-meta">
+                <span class="badge" id="practice-question-badge">Câu 1</span>
+                <div class="question-actions" style="display: flex; gap: 12px;">
+                  <span class="flag-toggle-btn" id="practice-flag-btn" onclick="toggleFlagCurrentQuestion()" title="Đánh dấu câu hỏi khó">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    <span>Đánh dấu</span>
+                  </span>
+                  <span class="delete-toggle-btn" id="practice-delete-btn" onclick="deleteCurrentQuestion()" title="Xóa câu hỏi này">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+                    <span>Xóa câu</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Question Card -->
+            <div id="practice-card" class="question-card">
+              <div class="question-text" id="practice-question-text">
+                Đang tải câu hỏi...
+              </div>
+              
+              <div class="options-list" id="practice-options">
+                <!-- Dynamically populated options as radio cards -->
+              </div>
+              
+              <div id="feedback-panel" class="feedback-panel hidden">
+                <div class="feedback-status">
+                  <span class="feedback-title" id="feedback-title">Chưa chính xác</span>
+                </div>
+                <div class="feedback-explanation" id="feedback-explanation">
+                  <!-- Explanation text -->
+                </div>
+              </div>
+            </div>
+            
+            <div class="practice-controls">
+              <button id="btn-prev" class="btn btn-secondary" onclick="prevQuestion()" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                Câu trước
+              </button>
+              <button id="btn-check" class="btn btn-primary hidden" onclick="checkPracticeAnswer()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Kiểm tra
+              </button>
+              <button id="btn-redo" class="btn btn-secondary hidden" onclick="redoPracticeQuestion()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><polyline points="3 3 3 8 8 8"/></svg>
+                Làm lại
+              </button>
+              <button id="btn-next" class="btn btn-secondary" onclick="nextQuestion()">
+                Câu tiếp
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Practice Report Screen -->
+          <div id="practice-report-screen" class="practice-screen hidden" style="width: 100%;">
+            <div class="mock-welcome-card">
+              <h2>Kết Quả Ôn Luyện</h2>
+              
+              <div class="result-score-container">
+                <div class="score-circle">
+                  <span id="practice-report-score" class="score-percentage">0/350</span>
+                  <span class="score-label">Đúng</span>
+                </div>
+              </div>
+              
+              <div class="result-breakdown">
+                <div class="breakdown-item">
+                  <span class="breakdown-label">Tổng số câu hỏi</span>
+                  <span id="practice-total-count" class="breakdown-val">350</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-label">Số câu làm đúng</span>
+                  <span id="practice-correct-count" class="breakdown-val text-success">0</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-label">Số câu làm sai</span>
+                  <span id="practice-incorrect-count" class="breakdown-val text-danger">0</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-label">Tỷ lệ chính xác</span>
+                  <span id="practice-accuracy" class="breakdown-val">0%</span>
+                </div>
+              </div>
+              
+              <div class="result-actions" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; width: 100%;">
+                <button class="btn btn-primary" onclick="showWrongQuestionsReview()">
+                  Xem chi tiết & giải thích câu sai
+                </button>
+                <button id="btn-redo-all-wrong" class="btn btn-danger" onclick="confirmRedoAllWrong()">
+                  Làm lại tất cả câu sai
+                </button>
+                <button class="btn btn-secondary" onclick="closePracticeReport()">
+                  Quay lại Luyện tập
+                </button>
+              </div>
+            </div>
+            
+            <!-- Wrong questions list with grading and explanations -->
+            <div id="wrong-questions-review" class="wrong-questions-review-list hidden" style="margin-top: 30px; width: 100%; text-align: left;">
+              <h3 style="margin-bottom: 20px; font-family: var(--font-title); font-size: 18px;">Danh sách giải thích các câu làm sai</h3>
+              <div id="wrong-questions-container" class="bank-questions-list">
+                <!-- Dynamically populated cards with question, option selected, correct option, and explanation -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 2. MOCK TEST PANEL -->
+        <div id="panel-mock" class="mode-panel">
+          <!-- Start Test Panel -->
+          <div id="mock-start-screen" class="mock-screen active">
+            <div class="mock-welcome-card">
+              <div class="welcome-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <h2>Thi Thử Cơ Sở Dữ Liệu</h2>
+              <p>Mô phỏng bài thi trắc nghiệm thực tế môn Cơ sở dữ liệu.</p>
+              
+              <ul class="test-rules">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Số lượng câu hỏi: <strong>40 câu</strong> ngẫu nhiên từ kho câu hỏi
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Thời gian làm bài: <strong>40 phút</strong>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Kết quả sẽ được lưu và chấm điểm tự động ngay khi nộp bài
+                </li>
+              </ul>
+              
+              <button class="btn btn-primary btn-large" onclick="startMockTest()">
+                Bắt đầu làm bài
+              </button>
+            </div>
+          </div>
+          
+          <!-- Running Test Panel -->
+          <div id="mock-test-screen" class="mock-screen">
+            <div class="mock-header">
+              <div class="mock-timer-card">
+                <span class="timer-label">Thời gian còn lại:</span>
+                <span id="mock-timer" class="timer-countdown">40:00</span>
+              </div>
+              <div class="mock-progress-info">
+                <span>Đã làm: <strong id="mock-progress-text">0/40</strong></span>
+                <button class="btn btn-danger" onclick="confirmSubmitMockTest()">Nộp bài</button>
+              </div>
+            </div>
+            
+            <div class="mock-main-content">
+              <!-- Mock Question Card -->
+              <div id="mock-card" class="question-card">
+                <div class="question-meta">
+                  <span class="badge" id="mock-question-badge">Câu 1/40</span>
+                  <span class="flag-toggle-btn" id="mock-flag-btn" onclick="toggleFlagMockQuestion()" title="Đánh dấu câu hỏi để xem lại">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    <span>Đánh dấu xem lại</span>
+                  </span>
+                </div>
+                <div class="question-text" id="mock-question-text">
+                  Nội dung câu hỏi thi thử...
+                </div>
+                <div class="options-list" id="mock-options">
+                  <!-- Radio cards for options -->
+                </div>
+              </div>
+              
+              <!-- Mini navigation grid for test -->
+              <div class="mock-nav-grid" id="mock-nav-grid">
+                <!-- 40 buttons -->
+              </div>
+              
+              <div class="mock-controls">
+                <button id="mock-btn-prev" class="btn btn-secondary" onclick="prevMockQuestion()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                  Câu trước
+                </button>
+                <button id="mock-btn-next" class="btn btn-secondary" onclick="nextMockQuestion()">
+                  Câu tiếp
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Test Results Screen -->
+          <div id="mock-results-screen" class="mock-screen">
+            <div class="mock-welcome-card">
+              <h2>Kết Quả Thi Thử</h2>
+              
+              <div class="result-score-container">
+                <div class="score-circle">
+                  <span id="result-score-text" class="score-percentage">0/40</span>
+                  <span class="score-label">Đúng</span>
+                </div>
+              </div>
+              
+              <div class="result-breakdown">
+                <div class="breakdown-item">
+                  <span class="breakdown-label">Tỷ lệ chính xác</span>
+                  <span id="result-accuracy" class="breakdown-val text-success">0%</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-label">Thời gian làm bài</span>
+                  <span id="result-time" class="breakdown-val">00:00</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-label">Đánh giá chung</span>
+                  <span id="result-summary" class="breakdown-val">Cần ôn luyện thêm</span>
+                </div>
+              </div>
+              
+              <div class="result-actions" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; width: 100%;">
+                <button class="btn btn-primary" onclick="showMockWrongQuestionsReview()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                  Xem chi tiết & giải thích câu sai
+                </button>
+                <button class="btn btn-secondary" onclick="resetMockTestToStart()">
+                  Thi lại đề khác
+                </button>
+              </div>
+            </div>
+            
+            <!-- Wrong questions review list for Mock Test -->
+            <div id="mock-wrong-review" class="wrong-questions-review-list hidden" style="margin-top: 30px; width: 100%; text-align: left;">
+              <h3 style="margin-bottom: 20px; font-family: var(--font-title); font-size: 18px;">Danh sách giải thích các câu làm sai trong bài thi</h3>
+              <div id="mock-wrong-questions-container" class="bank-questions-list">
+                <!-- Dynamically populated incorrect questions -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 3. QUESTION BANK PANEL -->
+        <div id="panel-bank" class="mode-panel">
+          <div class="panel-header">
+            <h2>Ngân hàng câu hỏi</h2>
+            <div class="bank-filters-container">
+              <div class="search-box">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="bank-search" placeholder="Tìm kiếm câu hỏi hoặc đáp án..." oninput="handleBankSearch()">
+              </div>
+              <div class="dropdown-filter">
+                <select id="bank-status-filter" onchange="handleBankFilterChange()">
+                  <option value="all">Tất cả câu hỏi</option>
+                  <option value="correct">Câu trả lời ĐÚNG</option>
+                  <option value="incorrect">Câu trả lời SAI</option>
+                  <option value="flagged">Câu được ĐÁNH DẤU</option>
+                  <option value="unanswered">Câu chưa LÀM</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bank-list-wrapper">
+            <div class="bank-list-top-bar">
+              <div id="bank-stats" class="bank-stats">Tìm thấy 350 câu hỏi</div>
+              <button class="btn btn-secondary btn-sm" id="btn-redo-all" onclick="redoAllQuestions()" title="Xoá toàn bộ tiến trình và làm lại từ đầu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.78"/></svg>
+                Làm lại tất cả câu hỏi
+              </button>
+            </div>
+            <div id="bank-questions-list" class="bank-questions-list">
+              <!-- Dynamically populated list of question cards -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- 4. ADD QUESTION PANEL -->
+        <div id="panel-add" class="mode-panel">
+          <div class="panel-header">
+            <h2>Thêm câu hỏi mới</h2>
+            <p>Hệ thống hỗ trợ thêm câu hỏi tự biên soạn và lưu trữ cục bộ trên trình duyệt của bạn.</p>
+          </div>
+          
+          <div class="add-form-container">
+            <form id="add-question-form" onsubmit="handleAddQuestion(event)">
+              <div class="form-group">
+                <label for="new-question-text">Nội dung câu hỏi <span class="required">*</span></label>
+                <textarea id="new-question-text" required placeholder="Nhập nội dung câu hỏi trắc nghiệm của bạn ở đây..."></textarea>
+              </div>
+              
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="new-option-0">Lựa chọn A <span class="required">*</span></label>
+                  <input type="text" id="new-option-0" required placeholder="Nhập phương án A">
+                </div>
+                <div class="form-group">
+                  <label for="new-option-1">Lựa chọn B <span class="required">*</span></label>
+                  <input type="text" id="new-option-1" required placeholder="Nhập phương án B">
+                </div>
+                <div class="form-group">
+                  <label for="new-option-2">Lựa chọn C <span class="required">*</span></label>
+                  <input type="text" id="new-option-2" required placeholder="Nhập phương án C">
+                </div>
+                <div class="form-group">
+                  <label for="new-option-3">Lựa chọn D <span class="required">*</span></label>
+                  <input type="text" id="new-option-3" required placeholder="Nhập phương án D">
+                </div>
+              </div>
+              
+              <div class="form-group select-correct-group">
+                <label for="new-correct-option">Phương án chính xác <span class="required">*</span></label>
+                <select id="new-correct-option" required>
+                  <option value="" disabled selected>-- Chọn đáp án đúng --</option>
+                  <option value="0">Phương án A</option>
+                  <option value="1">Phương án B</option>
+                  <option value="2">Phương án C</option>
+                  <option value="3">Phương án D</option>
+                </select>
+              </div>
+              
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-large">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Lưu câu hỏi
+                </button>
+                <button type="reset" class="btn btn-secondary">Đặt lại</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  
+  <!-- Custom Confirm Modal (replaces native confirm() dialog) -->
+  <div id="confirm-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" onclick="if(event.target===this)closeConfirmModal()">
+    <div class="modal-box">
+      <div class="modal-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <p id="confirm-modal-message" class="modal-message">Bạn có chắc chắn muốn nộp bài?</p>
+      <div class="modal-actions">
+        <button id="confirm-modal-cancel" class="btn btn-secondary" onclick="closeConfirmModal()">Huỷ</button>
+        <button id="confirm-modal-ok" class="btn btn-danger" onclick="confirmModalOK()">Xác nhận nộp bài</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Toast Alert -->
+  <div id="toast" class="toast hidden">
+    <div class="toast-content">
+      <svg class="toast-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <span id="toast-message">Đã lưu câu hỏi thành công!</span>
+    </div>
+  </div>
+  
+  <!-- Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>

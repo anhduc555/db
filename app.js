@@ -1,0 +1,1483 @@
+// Global State
+let questions = []; // Raw question pool loaded from questions.json + custom questions
+let practiceIndex = 0; // Current question index in practice mode
+let userProgress = {}; // Tracks answered questions: { [id]: { answeredIndex, isCorrect, isFlagged } }
+let activeTab = 'practice'; // Current active tab
+
+// Mock Test State
+let mockTestState = {
+  isActive: false,
+  questions: [], // 40 randomly selected questions
+  answers: [], // User selected option index for each of the 40 questions (null if unanswered)
+  currentIndex: 0,
+  timerInterval: null,
+  secondsRemaining: 2400, // 40 minutes
+  flags: [], // Array of booleans representing if the mock question is flagged
+  isSubmitted: false
+};
+
+// DOM Elements
+const themeToggle = document.getElementById('theme-toggle');
+const toastElement = document.getElementById('toast');
+const toastMessageElement = document.getElementById('toast-message');
+
+// Initialize Theme
+function initTheme() {
+  const savedTheme = localStorage.getItem('db_exam_prep_theme') || 'dark';
+  if (savedTheme === 'light') {
+    document.body.classList.remove('dark-theme');
+    document.body.classList.add('light-theme');
+  } else {
+    document.body.classList.remove('light-theme');
+    document.body.classList.add('dark-theme');
+  }
+}
+
+// Toggle Theme Handler
+themeToggle.addEventListener('click', () => {
+  if (document.body.classList.contains('dark-theme')) {
+    document.body.classList.remove('dark-theme');
+    document.body.classList.add('light-theme');
+    localStorage.setItem('db_exam_prep_theme', 'light');
+  } else {
+    document.body.classList.remove('light-theme');
+    document.body.classList.add('dark-theme');
+    localStorage.setItem('db_exam_prep_theme', 'dark');
+  }
+});
+
+// Toast notification helper
+function showToast(message, type = 'success') {
+  toastMessageElement.textContent = message;
+  toastElement.classList.remove('hidden');
+  
+  if (type === 'success') {
+    toastElement.style.borderColor = 'var(--color-success)';
+  } else {
+    toastElement.style.borderColor = 'var(--color-danger)';
+  }
+  
+  setTimeout(() => {
+    toastElement.classList.add('hidden');
+  }, 3000);
+}
+
+// Load Questions and Progress
+async function loadQuestions() {
+  try {
+    const response = await fetch('questions.json');
+    if (!response.ok) {
+      throw new Error('Failed to fetch questions.json');
+    }
+    const data = await response.json();
+    
+    // Load custom questions from localStorage
+    const customQuestions = JSON.parse(localStorage.getItem('db_exam_prep_custom_questions')) || [];
+    
+    // Combine questions
+    const allLoadedQuestions = [...data, ...customQuestions];
+    
+    // Filter out deleted questions
+    const deletedIds = JSON.parse(localStorage.getItem('db_exam_prep_deleted_question_ids')) || [];
+    questions = allLoadedQuestions.filter(q => !deletedIds.includes(q.id));
+    
+    // Load progress from localStorage
+    userProgress = JSON.parse(localStorage.getItem('db_exam_prep_progress')) || {};
+    
+    // Ensure all custom questions are mapped correctly
+    initApp();
+  } catch (error) {
+    console.error('Error initializing application:', error);
+    showToast('Không thể tải file câu hỏi. Hãy chắc chắn bạn đang chạy trên một server cục bộ (CORS).', 'error');
+  }
+}
+
+// Initialize Application after Loading
+function initApp() {
+  // Update stats on load
+  updateProgressStats();
+  
+  // Render Left Sidebar Navigation Grid
+  renderSidebarGrid();
+  
+  // Display First Question in Practice Mode
+  displayPracticeQuestion();
+  
+  // Update Question Bank view
+  renderQuestionBank();
+}
+
+// Switch Tabs Navigation
+function switchTab(tabId) {
+  activeTab = tabId;
+  
+  // Hide report screen if returning to practice
+  if (tabId === 'practice') {
+    closePracticeReport();
+  }
+  
+  // Hide all panels
+  document.querySelectorAll('.mode-panel').forEach(panel => {
+    panel.classList.remove('active');
+  });
+  
+  // Deactivate all tab buttons
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  
+  // Show target panel & activate button
+  const targetPanel = document.getElementById(`panel-${tabId}`);
+  const targetTab = document.getElementById(`tab-${tabId}`);
+  
+  if (targetPanel && targetTab) {
+    targetPanel.classList.add('active');
+    targetTab.classList.add('active');
+  }
+  
+  // Specific Tab Init Logic
+  if (tabId === 'bank') {
+    renderQuestionBank();
+  }
+}
+
+// Calculate and Update Progress Stats
+function updateProgressStats() {
+  const total = questions.length;
+  if (total === 0) return;
+  
+  let answeredCount = 0;
+  let correctCount = 0;
+  
+  Object.keys(userProgress).forEach(id => {
+    const progress = userProgress[id];
+    // Only count if it belongs to the current active question pool
+    if (questions.some(q => q.id == id)) {
+      if (progress.answeredIndex !== undefined && progress.answeredIndex !== null) {
+        answeredCount++;
+        if (progress.isCorrect) {
+          correctCount++;
+        }
+      }
+    }
+  });
+  
+  // Update sidebar elements
+  document.getElementById('stat-completed').textContent = `${answeredCount}/${total}`;
+  const rate = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+  document.getElementById('stat-correct-rate').textContent = `${rate}%`;
+  
+  // Progress Bar fill
+  const progressPercent = Math.round((answeredCount / total) * 100);
+  document.getElementById('progress-fill').style.width = `${progressPercent}%`;
+}
+
+// Render Left Sidebar Grid of Question Numbers
+function renderSidebarGrid(filter = 'all') {
+  const gridContainer = document.getElementById('question-grid');
+  gridContainer.innerHTML = '';
+  
+  questions.forEach((q, index) => {
+    const progress = userProgress[q.id] || {};
+    
+    // Filter conditions
+    if (filter === 'incorrect' && !progress.isCorrect) {
+      if (progress.answeredIndex === undefined) return; // Skip unanswered
+    }
+    if (filter === 'flagged' && !progress.isFlagged) {
+      return; // Skip non-flagged
+    }
+    
+    const cell = document.createElement('button');
+    cell.className = 'grid-item';
+    cell.id = `grid-item-${q.id}`;
+    cell.textContent = index + 1;
+    
+    // Add state classes
+    if (index === practiceIndex && activeTab === 'practice') {
+      cell.classList.add('active');
+    }
+    if (progress.answeredIndex !== undefined && progress.answeredIndex !== null) {
+      if (progress.isCorrect) {
+        cell.classList.add('correct');
+      } else {
+        cell.classList.add('incorrect');
+      }
+    }
+    if (progress.isFlagged) {
+      cell.classList.add('flagged');
+    }
+    
+    // Click action
+    cell.onclick = () => {
+      switchTab('practice');
+      goToPracticeQuestion(index);
+    };
+    
+    gridContainer.appendChild(cell);
+  });
+}
+
+// Filter Sidebar Grid
+function filterSidebarGrid(filterType) {
+  // Update active chip styling
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.classList.remove('active');
+  });
+  document.getElementById(`filter-${filterType}`).classList.add('active');
+  
+  // Render with filter
+  renderSidebarGrid(filterType);
+}
+
+/* PRACTICE MODE LOGIC */
+
+function displayPracticeQuestion() {
+  if (questions.length === 0) return;
+  
+  const q = questions[practiceIndex];
+  const progress = userProgress[q.id] || {};
+  
+  // Update Grid highlight
+  document.querySelectorAll('.grid-item').forEach(item => item.classList.remove('active'));
+  const currentGridItem = document.getElementById(`grid-item-${q.id}`);
+  if (currentGridItem) {
+    currentGridItem.classList.add('active');
+  }
+  
+  // Render Meta
+  document.getElementById('practice-question-badge').textContent = `Câu ${practiceIndex + 1}`;
+  
+  // Render Flag button
+  const flagBtn = document.getElementById('practice-flag-btn');
+  if (progress.isFlagged) {
+    flagBtn.classList.add('flagged');
+  } else {
+    flagBtn.classList.remove('flagged');
+  }
+  
+  // Render Question Text
+  document.getElementById('practice-question-text').textContent = q.question;
+  
+  // Render Options
+  const optionsContainer = document.getElementById('practice-options');
+  optionsContainer.innerHTML = '';
+  
+  const alphabet = ['A', 'B', 'C', 'D'];
+  const isAlreadyAnswered = progress.answeredIndex !== undefined && progress.answeredIndex !== null;
+  
+  q.options.forEach((optText, optIdx) => {
+    const card = document.createElement('div');
+    card.className = 'option-card';
+    card.id = `practice-opt-${optIdx}`;
+    
+    const radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = 'practice-option-choice';
+    radio.className = 'option-radio';
+    radio.value = optIdx;
+    radio.disabled = isAlreadyAnswered;
+    
+    if (isAlreadyAnswered && progress.answeredIndex === optIdx) {
+      radio.checked = true;
+      card.classList.add('selected');
+    }
+    
+    const prefix = document.createElement('span');
+    prefix.className = 'option-prefix';
+    prefix.textContent = `${alphabet[optIdx]}.`;
+    
+    const text = document.createElement('span');
+    text.className = 'option-text';
+    text.textContent = optText;
+    
+    card.appendChild(radio);
+    card.appendChild(prefix);
+    card.appendChild(text);
+    
+    // Select option card action (if not answered yet)
+    if (!isAlreadyAnswered) {
+      card.onclick = () => {
+        selectOptionAndCheck(optIdx);
+      };
+    } else {
+      // Highlight correct & wrong options
+      if (optIdx === q.correctAnswer) {
+        card.classList.add('correct');
+      } else if (optIdx === progress.answeredIndex && !progress.isCorrect) {
+        card.classList.add('incorrect');
+      }
+    }
+    
+    optionsContainer.appendChild(card);
+  });
+  
+  // Control Panel & Explanations feedback
+  const feedbackPanel = document.getElementById('feedback-panel');
+  const btnCheck = document.getElementById('btn-check');
+  const btnRedo = document.getElementById('btn-redo');
+  
+  if (isAlreadyAnswered) {
+    feedbackPanel.classList.remove('hidden');
+    feedbackPanel.className = 'feedback-panel ' + (progress.isCorrect ? 'correct-feedback' : 'incorrect-feedback');
+    
+    document.getElementById('feedback-title').textContent = progress.isCorrect
+      ? 'Chính xác! ✓'
+      : `Chưa chính xác ✗  —  Đáp án đúng: ${alphabet[q.correctAnswer]}`;
+    // Explanation only shown in Wrong-Answer Review, not here
+    document.getElementById('feedback-explanation').textContent = '';
+    
+    btnCheck.classList.add('hidden');
+    btnRedo.classList.remove('hidden');
+  } else {
+    feedbackPanel.classList.add('hidden');
+    btnCheck.classList.remove('hidden');
+    btnCheck.disabled = false;
+    btnRedo.classList.add('hidden');
+  }
+  
+  // Enable/Disable Nav buttons
+  document.getElementById('btn-prev').disabled = practiceIndex === 0;
+  document.getElementById('btn-next').disabled = practiceIndex === questions.length - 1;
+}
+
+// Navigation Practice Question
+function goToPracticeQuestion(index) {
+  if (index >= 0 && index < questions.length) {
+    practiceIndex = index;
+    displayPracticeQuestion();
+  }
+}
+
+function prevQuestion() {
+  if (practiceIndex > 0) {
+    practiceIndex--;
+    displayPracticeQuestion();
+  }
+}
+
+function nextQuestion() {
+  if (practiceIndex < questions.length - 1) {
+    practiceIndex++;
+    displayPracticeQuestion();
+  }
+}
+
+// Check Practice Answer Button
+function checkPracticeAnswer() {
+  const selectedRadio = document.querySelector('input[name="practice-option-choice"]:checked');
+  if (!selectedRadio) {
+    showToast('Vui lòng chọn một phương án trả lời.', 'error');
+    return;
+  }
+  
+  const q = questions[practiceIndex];
+  const selectedAnswerIndex = parseInt(selectedRadio.value);
+  const isCorrect = selectedAnswerIndex === q.correctAnswer;
+  
+  // Update state/progress
+  if (!userProgress[q.id]) {
+    userProgress[q.id] = { isFlagged: false };
+  }
+  
+  userProgress[q.id].answeredIndex = selectedAnswerIndex;
+  userProgress[q.id].isCorrect = isCorrect;
+  
+  // Save to LocalStorage
+  localStorage.setItem('db_exam_prep_progress', JSON.stringify(userProgress));
+  
+  // Refresh stats, sidebar and card
+  updateProgressStats();
+  renderSidebarGrid();
+  displayPracticeQuestion();
+  
+  if (isCorrect) {
+    showToast('Câu trả lời chính xác!', 'success');
+  } else {
+    showToast('Câu trả lời chưa đúng.', 'error');
+  }
+}
+
+// Flag Toggle Practice Mode
+function toggleFlagCurrentQuestion() {
+  const q = questions[practiceIndex];
+  if (!userProgress[q.id]) {
+    userProgress[q.id] = { isFlagged: false };
+  }
+  
+  const currentFlagState = !userProgress[q.id].isFlagged;
+  userProgress[q.id].isFlagged = currentFlagState;
+  
+  // Save
+  localStorage.setItem('db_exam_prep_progress', JSON.stringify(userProgress));
+  
+  // Update views
+  displayPracticeQuestion();
+  renderSidebarGrid();
+  
+  showToast(currentFlagState ? 'Đã đánh dấu câu hỏi này.' : 'Đã bỏ đánh dấu câu hỏi này.', 'success');
+}
+
+/* MOCK TEST MODE LOGIC */
+
+function startMockTest() {
+  // Reset Mock Test screen panel
+  document.getElementById('mock-start-screen').classList.remove('active');
+  document.getElementById('mock-results-screen').classList.remove('active');
+  document.getElementById('mock-test-screen').classList.add('active');
+  
+  // Hide review screen
+  const mockWrongReview = document.getElementById('mock-wrong-review');
+  if (mockWrongReview) {
+    mockWrongReview.classList.add('hidden');
+  }
+  
+  // Select 40 random questions from the pool
+  const totalQuestions = questions.length;
+  const selectedIds = [];
+  const indices = Array.from({ length: totalQuestions }, (_, i) => i);
+  
+  // Shuffle array and pick first 40
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  
+  const mockCount = Math.min(40, totalQuestions);
+  for (let i = 0; i < mockCount; i++) {
+    selectedIds.push(questions[indices[i]].id);
+  }
+  
+  // Initialize mockState
+  mockTestState = {
+    isActive: true,
+    questions: selectedIds.map(id => questions.find(q => q.id === id)),
+    answers: Array(mockCount).fill(null),
+    currentIndex: 0,
+    secondsRemaining: 2400, // 40 minutes
+    flags: Array(mockCount).fill(false),
+    isSubmitted: false
+  };
+  
+  // Initialize grid UI
+  initMockNavGrid();
+  
+  // Start countdown timer
+  clearInterval(mockTestState.timerInterval);
+  mockTestState.timerInterval = setInterval(updateMockTimer, 1000);
+  
+  // Render first question
+  displayMockQuestion();
+  updateMockProgressText();
+}
+
+function initMockNavGrid() {
+  const container = document.getElementById('mock-nav-grid');
+  container.innerHTML = '';
+  
+  mockTestState.questions.forEach((_, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'mock-grid-btn';
+    btn.id = `mock-grid-btn-${idx}`;
+    btn.textContent = idx + 1;
+    btn.onclick = () => {
+      goToMockQuestion(idx);
+    };
+    container.appendChild(btn);
+  });
+}
+
+function displayMockQuestion() {
+  if (!mockTestState.isActive) return;
+  
+  const idx = mockTestState.currentIndex;
+  const q = mockTestState.questions[idx];
+  
+  // Update mock grid highlights
+  document.querySelectorAll('.mock-grid-btn').forEach(btn => btn.classList.remove('active'));
+  const currentBtn = document.getElementById(`mock-grid-btn-${idx}`);
+  if (currentBtn) currentBtn.classList.add('active');
+  
+  // Update Badge meta
+  document.getElementById('mock-question-badge').textContent = `Câu ${idx + 1}/40`;
+  
+  // Update Flag icon
+  const flagBtn = document.getElementById('mock-flag-btn');
+  if (mockTestState.flags[idx]) {
+    flagBtn.classList.add('flagged');
+  } else {
+    flagBtn.classList.remove('flagged');
+  }
+  
+  // Set question text
+  document.getElementById('mock-question-text').textContent = q.question;
+  
+  // Set options
+  const optionsContainer = document.getElementById('mock-options');
+  optionsContainer.innerHTML = '';
+  const alphabet = ['A', 'B', 'C', 'D'];
+  const userAns = mockTestState.answers[idx];
+  const isSubmitted = mockTestState.isSubmitted;
+  
+  q.options.forEach((optText, optIdx) => {
+    const card = document.createElement('div');
+    card.className = 'option-card';
+    
+    const radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = 'mock-option-choice';
+    radio.className = 'option-radio';
+    radio.value = optIdx;
+    radio.disabled = isSubmitted;
+    
+    if (userAns === optIdx) {
+      radio.checked = true;
+      card.classList.add('selected');
+    }
+    
+    const prefix = document.createElement('span');
+    prefix.className = 'option-prefix';
+    prefix.textContent = `${alphabet[optIdx]}.`;
+    
+    const text = document.createElement('span');
+    text.className = 'option-text';
+    text.textContent = optText;
+    
+    card.appendChild(radio);
+    card.appendChild(prefix);
+    card.appendChild(text);
+    
+    if (!isSubmitted) {
+      card.onclick = () => {
+        radio.checked = true;
+        selectMockOption(optIdx);
+        document.querySelectorAll('#mock-options .option-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        // Auto-shift to next question after 500ms
+        const originalIndex = mockTestState.currentIndex;
+        if (originalIndex < mockTestState.questions.length - 1) {
+          setTimeout(() => {
+            if (mockTestState.isActive && mockTestState.currentIndex === originalIndex) {
+              nextMockQuestion();
+            }
+          }, 500);
+        }
+      };
+    } else {
+      // If submitted, show correctness
+      if (optIdx === q.correctAnswer) {
+        card.classList.add('correct');
+      } else if (userAns === optIdx && userAns !== q.correctAnswer) {
+        card.classList.add('incorrect');
+      }
+    }
+    
+    optionsContainer.appendChild(card);
+  });
+  
+  // Update Controls buttons
+  document.getElementById('mock-btn-prev').disabled = idx === 0;
+  document.getElementById('mock-btn-next').disabled = idx === mockTestState.questions.length - 1;
+}
+
+function selectMockOption(optionIndex) {
+  const idx = mockTestState.currentIndex;
+  mockTestState.answers[idx] = optionIndex;
+  
+  // Add answered state to mock nav grid item
+  const btn = document.getElementById(`mock-grid-btn-${idx}`);
+  if (btn) btn.classList.add('answered');
+  
+  updateMockProgressText();
+}
+
+function updateMockProgressText() {
+  const answeredCount = mockTestState.answers.filter(ans => ans !== null).length;
+  document.getElementById('mock-progress-text').textContent = `${answeredCount}/40`;
+}
+
+function goToMockQuestion(idx) {
+  if (idx >= 0 && idx < mockTestState.questions.length) {
+    mockTestState.currentIndex = idx;
+    displayMockQuestion();
+  }
+}
+
+function prevMockQuestion() {
+  if (mockTestState.currentIndex > 0) {
+    mockTestState.currentIndex--;
+    displayMockQuestion();
+  }
+}
+
+function nextMockQuestion() {
+  if (mockTestState.currentIndex < mockTestState.questions.length - 1) {
+    mockTestState.currentIndex++;
+    displayMockQuestion();
+  }
+}
+
+function toggleFlagMockQuestion() {
+  const idx = mockTestState.currentIndex;
+  mockTestState.flags[idx] = !mockTestState.flags[idx];
+  
+  // Update UI indicator
+  displayMockQuestion();
+  
+  const btn = document.getElementById(`mock-grid-btn-${idx}`);
+  if (btn) {
+    if (mockTestState.flags[idx]) {
+      btn.classList.add('flagged');
+    } else {
+      btn.classList.remove('flagged');
+    }
+  }
+}
+
+function updateMockTimer() {
+  if (!mockTestState.isActive) return;
+  
+  if (mockTestState.secondsRemaining <= 0) {
+    submitMockTest(true); // Auto submit on timeout
+    return;
+  }
+  
+  mockTestState.secondsRemaining--;
+  
+  const minutes = Math.floor(mockTestState.secondsRemaining / 60);
+  const seconds = mockTestState.secondsRemaining % 60;
+  
+  const timerDisplay = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  const timerElement = document.getElementById('mock-timer');
+  timerElement.textContent = timerDisplay;
+  
+  // Red warning state under 5 mins
+  if (mockTestState.secondsRemaining < 300) {
+    timerElement.classList.add('warning');
+  } else {
+    timerElement.classList.remove('warning');
+  }
+}
+
+function confirmSubmitMockTest() {
+  const unansweredCount = mockTestState.answers.filter(ans => ans === null).length;
+  let msg = 'Bạn có chắc chắn muốn nộp bài thi?';
+  if (unansweredCount > 0) {
+    msg = `Bạn còn ${unansweredCount} câu hỏi chưa trả lời. Bạn có chắc chắn muốn nộp bài thi?`;
+  }
+  showConfirmModal(msg, () => submitMockTest(false));
+}
+
+// Custom modal helpers
+let _confirmCallback = null;
+
+function showConfirmModal(message, onOK) {
+  _confirmCallback = onOK;
+  document.getElementById('confirm-modal-message').textContent = message;
+  document.getElementById('confirm-modal').classList.remove('hidden');
+}
+
+function confirmModalOK() {
+  const cb = _confirmCallback; // save before closeConfirmModal nullifies it
+  closeConfirmModal();
+  if (typeof cb === 'function') {
+    cb();
+  }
+}
+
+function closeConfirmModal() {
+  document.getElementById('confirm-modal').classList.add('hidden');
+  _confirmCallback = null;
+}
+
+
+function submitMockTest(isAutoSubmit = false) {
+  clearInterval(mockTestState.timerInterval);
+  mockTestState.isActive = false;
+  mockTestState.isSubmitted = true;
+  
+  if (isAutoSubmit) {
+    alert('Hết giờ làm bài! Bài thi của bạn đã được tự động nộp.');
+  }
+  
+  // Compute results
+  let correctCount = 0;
+  mockTestState.questions.forEach((q, idx) => {
+    const userAns = mockTestState.answers[idx];
+    if (userAns === q.correctAnswer) {
+      correctCount++;
+    }
+  });
+  
+  // Calculate stats
+  const accuracy = Math.round((correctCount / 40) * 100);
+  const timeUsedSeconds = 2400 - mockTestState.secondsRemaining;
+  const timeUsedMinutes = Math.floor(timeUsedSeconds / 60);
+  const timeUsedRemainingSeconds = timeUsedSeconds % 60;
+  const timeString = `${timeUsedMinutes} phút ${timeUsedRemainingSeconds} giây`;
+  
+  // Update Results UI Screen
+  document.getElementById('mock-test-screen').classList.remove('active');
+  document.getElementById('mock-results-screen').classList.add('active');
+  
+  // Hide review screen initially
+  const mockWrongReview = document.getElementById('mock-wrong-review');
+  if (mockWrongReview) {
+    mockWrongReview.classList.add('hidden');
+  }
+  
+  document.getElementById('result-score-text').textContent = `${correctCount}/40`;
+  document.getElementById('result-accuracy').textContent = `${accuracy}%`;
+  document.getElementById('result-time').textContent = timeString;
+  
+  // Summary evaluation message
+  let summaryText = 'Cần học thêm lý thuyết!';
+  if (accuracy >= 80) {
+    summaryText = 'Xuất sắc! Bạn đã sẵn sàng cho kỳ thi.';
+  } else if (accuracy >= 65) {
+    summaryText = 'Khá tốt! Ôn luyện thêm một chút là vững kiến thức.';
+  } else if (accuracy >= 50) {
+    summaryText = 'Trung bình! Cần chú ý thêm các câu lý thuyết cơ bản.';
+  }
+  document.getElementById('result-summary').textContent = summaryText;
+  
+  // Sync to general practice progress
+  mockTestState.questions.forEach((q, idx) => {
+    const userAns = mockTestState.answers[idx];
+    if (userAns !== null) {
+      // Save only if user answered in mock test
+      if (!userProgress[q.id]) {
+        userProgress[q.id] = { isFlagged: false };
+      }
+      userProgress[q.id].answeredIndex = userAns;
+      userProgress[q.id].isCorrect = userAns === q.correctAnswer;
+    }
+  });
+  localStorage.setItem('db_exam_prep_progress', JSON.stringify(userProgress));
+  
+  // Refresh stats and left grid
+  updateProgressStats();
+  renderSidebarGrid();
+}
+
+function reviewMockTest() {
+  // Re-render mock question in submitted state
+  document.getElementById('mock-results-screen').classList.remove('active');
+  document.getElementById('mock-test-screen').classList.add('active');
+  
+  mockTestState.currentIndex = 0;
+  
+  // Render correctness coloring in mock nav buttons
+  mockTestState.questions.forEach((q, idx) => {
+    const btn = document.getElementById(`mock-grid-btn-${idx}`);
+    if (btn) {
+      btn.className = 'mock-grid-btn'; // Reset
+      const userAns = mockTestState.answers[idx];
+      if (userAns === q.correctAnswer) {
+        btn.classList.add('correct');
+      } else if (userAns !== null) {
+        btn.classList.add('incorrect');
+      }
+    }
+  });
+  
+  displayMockQuestion();
+}
+
+/* QUESTION BANK SEARCH & FILTER */
+
+function handleBankSearch() {
+  renderQuestionBank();
+}
+
+function handleBankFilterChange() {
+  renderQuestionBank();
+}
+
+function renderQuestionBank() {
+  const listContainer = document.getElementById('bank-questions-list');
+  if (!listContainer) return;
+  
+  listContainer.innerHTML = '';
+  
+  const query = document.getElementById('bank-search').value.toLowerCase().trim();
+  const filterStatus = document.getElementById('bank-status-filter').value;
+  
+  let matches = 0;
+  const alphabet = ['A', 'B', 'C', 'D'];
+  
+  questions.forEach((q, index) => {
+    const progress = userProgress[q.id] || {};
+    
+    // Status Filter matches
+    let statusMatch = true;
+    if (filterStatus === 'correct' && !progress.isCorrect) statusMatch = false;
+    if (filterStatus === 'incorrect' && (progress.isCorrect || progress.answeredIndex === undefined)) statusMatch = false;
+    if (filterStatus === 'flagged' && !progress.isFlagged) statusMatch = false;
+    if (filterStatus === 'unanswered' && progress.answeredIndex !== undefined) statusMatch = false;
+    
+    if (!statusMatch) return;
+    
+    // Search query matches (search question body or options text)
+    const textMatch = q.question.toLowerCase().includes(query) || 
+                      q.options.some(opt => opt.toLowerCase().includes(query));
+                      
+    if (!textMatch) return;
+    
+    matches++;
+    
+    // Create card element
+    const qCard = document.createElement('div');
+    qCard.className = 'bank-q-card';
+    
+    const header = document.createElement('div');
+    header.className = 'bank-q-header';
+    
+    const title = document.createElement('div');
+    title.className = 'bank-q-title';
+    title.textContent = `Câu ${index + 1}: ${q.question}`;
+    
+    const statusContainer = document.createElement('div');
+    statusContainer.className = 'bank-q-status';
+    
+    // Correctness badge
+    const badge = document.createElement('span');
+    if (progress.answeredIndex !== undefined && progress.answeredIndex !== null) {
+      if (progress.isCorrect) {
+        badge.className = 'bank-badge correct';
+        badge.textContent = 'Đúng';
+      } else {
+        badge.className = 'bank-badge incorrect';
+        badge.textContent = 'Sai';
+      }
+    } else {
+      badge.className = 'bank-badge unanswered';
+      badge.textContent = 'Chưa làm';
+    }
+    statusContainer.appendChild(badge);
+    
+    // Flagged badge
+    if (progress.isFlagged) {
+      const flagBadge = document.createElement('span');
+      flagBadge.className = 'bank-badge flagged';
+      flagBadge.textContent = 'Đã đánh dấu';
+      statusContainer.appendChild(flagBadge);
+    }
+    
+    // Add Delete Button in Question Bank Card
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'bank-delete-btn';
+    deleteBtn.title = 'Xóa câu hỏi này';
+    deleteBtn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="3 6 5 6 21 6"></polyline>
+        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+        <line x1="10" y1="11" x2="10" y2="17"></line>
+        <line x1="14" y1="11" x2="14" y2="17"></line>
+      </svg>
+    `;
+    deleteBtn.onclick = (e) => {
+      e.stopPropagation(); // Avoid triggering navigation
+      deleteQuestionById(q.id, index);
+    };
+    statusContainer.appendChild(deleteBtn);
+    
+    header.appendChild(title);
+    header.appendChild(statusContainer);
+    qCard.appendChild(header);
+    
+    // Options collapsible list (always expanded for search bank readability)
+    const optionsDiv = document.createElement('div');
+    optionsDiv.className = 'bank-q-options';
+    
+    q.options.forEach((optText, optIdx) => {
+      const optDiv = document.createElement('div');
+      optDiv.className = 'bank-opt';
+      optDiv.textContent = `${alphabet[optIdx]}. ${optText}`;
+      
+      if (optIdx === q.correctAnswer) {
+        optDiv.classList.add('correct-opt');
+      }
+      optionsDiv.appendChild(optDiv);
+    });
+    
+    qCard.appendChild(optionsDiv);
+
+    // Explanation block (only if explanation exists)
+    if (q.explanation) {
+      const expDiv = document.createElement('div');
+      expDiv.className = 'bank-q-explanation';
+      expDiv.innerHTML = `<span class="exp-label">💡 Giải thích:</span> ${q.explanation}`;
+      qCard.appendChild(expDiv);
+    }
+    
+    // Click bank card goes to practice question
+    qCard.onclick = (e) => {
+      // Don't click trigger if user clicked inside options (allow selecting text)
+      if (e.target.closest('.bank-q-options')) return;
+      
+      switchTab('practice');
+      goToPracticeQuestion(index);
+    };
+    
+    listContainer.appendChild(qCard);
+  });
+  
+  document.getElementById('bank-stats').textContent = `Tìm thấy ${matches} câu hỏi phù hợp.`;
+}
+
+// Reset ALL question progress and restart from scratch
+function redoAllQuestions() {
+  showConfirmModal(
+    'Bạn có chắc chắn muốn làm lại TẤT CẢ câu hỏi? Toàn bộ tiến trình sẽ bị xoá.',
+    () => {
+      userProgress = {};
+      localStorage.removeItem('db_exam_prep_progress');
+      updateProgressStats();
+      renderSidebarGrid();
+      renderQuestionBank();
+      // Go back to first practice question
+      practiceIndex = 0;
+      if (activeTab === 'practice') displayPracticeQuestion();
+      showToast('Đã xoá toàn bộ tiến trình. Bắt đầu lại từ câu 1!', 'success');
+    }
+  );
+}
+
+/* ADD QUESTION LOGIC */
+
+function handleAddQuestion(event) {
+  event.preventDefault();
+  
+  const questionText = document.getElementById('new-question-text').value.trim();
+  const optionA = document.getElementById('new-option-0').value.trim();
+  const optionB = document.getElementById('new-option-1').value.trim();
+  const optionC = document.getElementById('new-option-2').value.trim();
+  const optionD = document.getElementById('new-option-3').value.trim();
+  const correctOptionIdx = parseInt(document.getElementById('new-correct-option').value);
+  
+  if (!questionText || !optionA || !optionB || !optionC || !optionD || isNaN(correctOptionIdx)) {
+    showToast('Vui lòng điền đầy đủ các thông tin bắt buộc.', 'error');
+    return;
+  }
+  
+  // Custom Question representation
+  // We use timestamp + random offset to guarantee unique ID
+  const customId = 1000 + Date.now(); 
+  
+  const newQuestion = {
+    id: customId,
+    question: questionText,
+    options: [optionA, optionB, optionC, optionD],
+    correctAnswer: correctOptionIdx
+  };
+  
+  // Load custom list, add new one, save back
+  const customQuestions = JSON.parse(localStorage.getItem('db_exam_prep_custom_questions')) || [];
+  customQuestions.push(newQuestion);
+  localStorage.setItem('db_exam_prep_custom_questions', JSON.stringify(customQuestions));
+  
+  // Reset form
+  document.getElementById('add-question-form').reset();
+  
+  // Reload question bank state
+  showToast('Đã thêm câu hỏi mới thành công!', 'success');
+  
+  // Reload questions database
+  loadQuestions();
+  
+  // Set view to newly added question (which is at the end of the array)
+  setTimeout(() => {
+    switchTab('practice');
+    goToPracticeQuestion(questions.length - 1);
+  }, 100);
+}
+
+// Start app
+initTheme();
+loadQuestions();
+
+// Delete Question logic
+function deleteCurrentQuestion() {
+  if (questions.length === 0) return;
+  const q = questions[practiceIndex];
+  
+  if (confirm(`Bạn có chắc chắn muốn xóa câu hỏi này khỏi danh sách ôn tập?`)) {
+    // Save to deleted IDs list in localStorage
+    const deletedIds = JSON.parse(localStorage.getItem('db_exam_prep_deleted_question_ids')) || [];
+    deletedIds.push(q.id);
+    localStorage.setItem('db_exam_prep_deleted_question_ids', JSON.stringify(deletedIds));
+    
+    // If it is a custom question, also clean it from the custom questions list
+    const customQuestions = JSON.parse(localStorage.getItem('db_exam_prep_custom_questions')) || [];
+    const updatedCustom = customQuestions.filter(item => item.id !== q.id);
+    localStorage.setItem('db_exam_prep_custom_questions', JSON.stringify(updatedCustom));
+    
+    showToast('Đã xóa câu hỏi khỏi danh sách!', 'success');
+    
+    // Reload questions database
+    loadQuestions();
+    
+    // Adjust practiceIndex
+    setTimeout(() => {
+      if (practiceIndex >= questions.length) {
+        practiceIndex = Math.max(0, questions.length - 1);
+      }
+      displayPracticeQuestion();
+    }, 100);
+  }
+}
+
+function deleteQuestionById(id, indexInBank) {
+  if (confirm(`Bạn có chắc chắn muốn xóa câu hỏi này khỏi danh sách ôn tập?`)) {
+    // Save to deleted IDs list in localStorage
+    const deletedIds = JSON.parse(localStorage.getItem('db_exam_prep_deleted_question_ids')) || [];
+    deletedIds.push(id);
+    localStorage.setItem('db_exam_prep_deleted_question_ids', JSON.stringify(deletedIds));
+    
+    // If it is a custom question, also clean it from the custom questions list
+    const customQuestions = JSON.parse(localStorage.getItem('db_exam_prep_custom_questions')) || [];
+    const updatedCustom = customQuestions.filter(item => item.id !== id);
+    localStorage.setItem('db_exam_prep_custom_questions', JSON.stringify(updatedCustom));
+    
+    showToast('Đã xóa câu hỏi khỏi danh sách!', 'success');
+    
+    // Reload and update bank view
+    loadQuestions();
+    
+    setTimeout(() => {
+      renderQuestionBank();
+    }, 100);
+  }
+}
+
+// Redo Question logic
+function redoPracticeQuestion() {
+  if (questions.length === 0) return;
+  const q = questions[practiceIndex];
+  
+  if (userProgress[q.id]) {
+    // Clear answered state but preserve flagged status
+    delete userProgress[q.id].answeredIndex;
+    delete userProgress[q.id].isCorrect;
+    
+    // Save back to localStorage
+    localStorage.setItem('db_exam_prep_progress', JSON.stringify(userProgress));
+    
+    // Show confirmation toast
+    showToast('Đã đặt lại câu hỏi. Bạn có thể trả lời lại!', 'success');
+    
+    // Refresh stats, sidebar grid and current question card display
+    updateProgressStats();
+    renderSidebarGrid();
+    displayPracticeQuestion();
+    
+    // Also update report wrong list dynamically if it's currently open
+    const wrongReviewPanel = document.getElementById('wrong-questions-review');
+    if (wrongReviewPanel && !wrongReviewPanel.classList.contains('hidden')) {
+      showWrongQuestionsReview();
+    }
+  }
+}
+
+// Immediate selection & check with auto shift logic
+function selectOptionAndCheck(optIdx) {
+  if (questions.length === 0) return;
+  const q = questions[practiceIndex];
+  const progress = userProgress[q.id] || {};
+  
+  // Guard against double click or answering twice
+  if (progress.answeredIndex !== undefined && progress.answeredIndex !== null) return;
+  
+  const isCorrect = optIdx === q.correctAnswer;
+  
+  // Set progress state
+  if (!userProgress[q.id]) {
+    userProgress[q.id] = { isFlagged: false };
+  }
+  userProgress[q.id].answeredIndex = optIdx;
+  userProgress[q.id].isCorrect = isCorrect;
+  
+  // Save to LocalStorage
+  localStorage.setItem('db_exam_prep_progress', JSON.stringify(userProgress));
+  
+  // Refresh stats & grid
+  updateProgressStats();
+  renderSidebarGrid();
+  
+  // Rerender option cards immediately to show correct/incorrect state
+  const cards = document.querySelectorAll('#practice-options .option-card');
+  cards.forEach((card, idx) => {
+    // Disable inputs
+    const radio = card.querySelector('.option-radio');
+    if (radio) {
+      radio.disabled = true;
+      if (idx === optIdx) radio.checked = true;
+    }
+    card.onclick = null; // Clear click action
+    
+    // Highlight states
+    if (idx === q.correctAnswer) {
+      card.classList.add('correct');
+    } else if (idx === optIdx && !isCorrect) {
+      card.classList.add('incorrect');
+    }
+  });
+  
+  // Show feedback panel immediately — only title + correct answer letter, NO explanation
+  const feedbackPanel = document.getElementById('feedback-panel');
+  const alphabet = ['A', 'B', 'C', 'D'];
+  feedbackPanel.classList.remove('hidden');
+  feedbackPanel.className = 'feedback-panel ' + (isCorrect ? 'correct-feedback' : 'incorrect-feedback');
+  document.getElementById('feedback-title').textContent = isCorrect
+    ? 'Chính xác! ✓'
+    : `Chưa chính xác ✗  —  Đáp án đúng: ${alphabet[q.correctAnswer]}`;
+  // Hide explanation text during live answering; it only appears in Wrong-Answer Review
+  document.getElementById('feedback-explanation').textContent = '';
+  
+  // Show Redo button, hide Check button
+  document.getElementById('btn-check').classList.add('hidden');
+  document.getElementById('btn-redo').classList.remove('hidden');
+
+  // Auto-shift to the next question after 1200ms
+  if (practiceIndex < questions.length - 1) {
+    const originalIndex = practiceIndex;
+    setTimeout(() => {
+      if (activeTab === 'practice' && practiceIndex === originalIndex) {
+        nextQuestion();
+      }
+    }, 1200);
+  } else {
+    // Last question: show report if all answered
+    const totalAnswered = Object.keys(userProgress).filter(id =>
+      questions.some(q => q.id == id) && userProgress[id].answeredIndex !== undefined
+    ).length;
+    if (totalAnswered === questions.length) {
+      setTimeout(() => { showPracticeReport(); }, 1500);
+    } else {
+      showToast('Bạn đã hoàn thành câu hỏi cuối cùng của danh sách!', 'success');
+    }
+  }
+}
+
+// Show Practice report
+function showPracticeReport() {
+  const studyScreen = document.getElementById('practice-study-screen');
+  const reportScreen = document.getElementById('practice-report-screen');
+  
+  if (studyScreen && reportScreen) {
+    studyScreen.classList.remove('active');
+    studyScreen.classList.add('hidden');
+    reportScreen.classList.remove('hidden');
+    reportScreen.classList.add('active');
+  }
+  
+  // Compute Stats
+  const total = questions.length;
+  let correctCount = 0;
+  let incorrectCount = 0;
+  
+  questions.forEach(q => {
+    const progress = userProgress[q.id];
+    if (progress && progress.answeredIndex !== undefined) {
+      if (progress.isCorrect) {
+        correctCount++;
+      } else {
+        incorrectCount++;
+      }
+    }
+  });
+  
+  const accuracy = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+  
+  // Populate UI
+  document.getElementById('practice-report-score').textContent = `${correctCount}/${total}`;
+  document.getElementById('practice-total-count').textContent = total;
+  document.getElementById('practice-correct-count').textContent = correctCount;
+  document.getElementById('practice-incorrect-count').textContent = incorrectCount;
+  document.getElementById('practice-accuracy').textContent = `${accuracy}%`;
+  
+  // Hide wrong questions review container initially
+  document.getElementById('wrong-questions-review').classList.add('hidden');
+}
+
+function closePracticeReport() {
+  const reportScreen = document.getElementById('practice-report-screen');
+  const studyScreen = document.getElementById('practice-study-screen');
+  
+  if (reportScreen && studyScreen) {
+    reportScreen.classList.remove('active');
+    reportScreen.classList.add('hidden');
+    studyScreen.classList.remove('hidden');
+    studyScreen.classList.add('active');
+  }
+}
+
+function viewPracticeReportDirectly() {
+  switchTab('practice');
+  showPracticeReport();
+}
+
+function showWrongQuestionsReview() {
+  const container = document.getElementById('wrong-questions-container');
+  container.innerHTML = '';
+  
+  const wrongQuestions = questions.filter(q => {
+    const progress = userProgress[q.id];
+    return progress && progress.answeredIndex !== undefined && !progress.isCorrect;
+  });
+  
+  if (wrongQuestions.length === 0) {
+    container.innerHTML = '<div class="bank-stats" style="text-align: center; padding: 20px;">Chúc mừng! Bạn không trả lời sai câu hỏi nào.</div>';
+  } else {
+    const alphabet = ['A', 'B', 'C', 'D'];
+    
+    wrongQuestions.forEach(q => {
+      const progress = userProgress[q.id];
+      const qIndex = questions.findIndex(item => item.id === q.id);
+      
+      const card = document.createElement('div');
+      card.className = 'bank-q-card';
+      
+      const header = document.createElement('div');
+      header.className = 'bank-q-header';
+      
+      const title = document.createElement('div');
+      title.className = 'bank-q-title';
+      title.textContent = `Câu ${qIndex + 1}: ${q.question}`;
+      
+      const statusContainer = document.createElement('div');
+      statusContainer.className = 'bank-q-status';
+      
+      const badge = document.createElement('span');
+      badge.className = 'bank-badge incorrect';
+      badge.textContent = `Lựa chọn của bạn: ${alphabet[progress.answeredIndex]}`;
+      statusContainer.appendChild(badge);
+      
+      // Inline Redo button for individual wrong questions
+      const inlineRedo = document.createElement('button');
+      inlineRedo.className = 'bank-delete-btn';
+      inlineRedo.title = 'Làm lại câu này';
+      inlineRedo.style.color = 'var(--color-primary)';
+      inlineRedo.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+          <polyline points="3 3 3 8 8 8"></polyline>
+        </svg>
+      `;
+      inlineRedo.onclick = (e) => {
+        e.stopPropagation();
+        
+        // Reset progress for this question
+        delete userProgress[q.id].answeredIndex;
+        delete userProgress[q.id].isCorrect;
+        localStorage.setItem('db_exam_prep_progress', JSON.stringify(userProgress));
+        
+        showToast(`Đã reset Câu ${qIndex + 1}. Bạn có thể làm lại câu này!`, 'success');
+        
+        // Update stats
+        updateProgressStats();
+        renderSidebarGrid();
+        
+        // Re-render report & wrong review
+        showPracticeReport();
+        showWrongQuestionsReview();
+      };
+      statusContainer.appendChild(inlineRedo);
+      
+      header.appendChild(title);
+      header.appendChild(statusContainer);
+      card.appendChild(header);
+      
+      // Options List
+      const optionsDiv = document.createElement('div');
+      optionsDiv.className = 'bank-q-options';
+      
+      q.options.forEach((optText, optIdx) => {
+        const optDiv = document.createElement('div');
+        optDiv.className = 'bank-opt';
+        optDiv.textContent = `${alphabet[optIdx]}. ${optText}`;
+        
+        if (optIdx === q.correctAnswer) {
+          optDiv.classList.add('correct-opt');
+        } else if (optIdx === progress.answeredIndex) {
+          optDiv.style.backgroundColor = 'var(--color-danger-light)';
+          optDiv.style.borderColor = 'var(--color-danger)';
+          optDiv.style.color = 'var(--color-danger)';
+        }
+        optionsDiv.appendChild(optDiv);
+      });
+      
+      card.appendChild(optionsDiv);
+      
+      // Explanation segment
+      const expDiv = document.createElement('div');
+      expDiv.style.marginTop = '12px';
+      expDiv.style.fontSize = '13.5px';
+      expDiv.style.color = 'var(--text-muted)';
+      expDiv.innerHTML = q.explanation ? `<strong>Giải thích:</strong> ${q.explanation}` : `<strong>Giải thích:</strong> Đáp án đúng là <strong>${alphabet[q.correctAnswer]}</strong>. Bạn chọn phương án ${alphabet[progress.answeredIndex]}.`;
+      card.appendChild(expDiv);
+      
+      // Click wrong card navigates user to that practice question card
+      card.onclick = (e) => {
+        if (e.target.closest('.bank-q-options') || e.target.closest('button')) return;
+        closePracticeReport();
+        goToPracticeQuestion(qIndex);
+      };
+      
+      container.appendChild(card);
+    });
+  }
+  
+  document.getElementById('wrong-questions-review').classList.remove('hidden');
+}
+
+function confirmRedoAllWrong() {
+  const wrongQuestions = questions.filter(q => {
+    const progress = userProgress[q.id];
+    return progress && progress.answeredIndex !== undefined && !progress.isCorrect;
+  });
+  const wrongCount = wrongQuestions.length;
+  
+  if (wrongCount === 0) {
+    showToast('Bạn không có câu hỏi nào làm sai!', 'success');
+    return;
+  }
+  
+  if (confirm(`Bạn có chắc chắn muốn làm lại tất cả ${wrongCount} câu hỏi đã trả lời sai?`)) {
+    questions.forEach(q => {
+      const progress = userProgress[q.id];
+      if (progress && progress.answeredIndex !== undefined && !progress.isCorrect) {
+        delete progress.answeredIndex;
+        delete progress.isCorrect;
+      }
+    });
+    
+    // Save to LocalStorage
+    localStorage.setItem('db_exam_prep_progress', JSON.stringify(userProgress));
+    
+    showToast(`Đã reset ${wrongCount} câu làm sai. Hãy bắt đầu ôn tập lại!`, 'success');
+    
+    // Refresh stats & grid
+    updateProgressStats();
+    renderSidebarGrid();
+    
+    // Return to study screen
+    closePracticeReport();
+    displayPracticeQuestion();
+  }
+}
+
+// Show Mock Test Wrong Questions Report
+function showMockWrongQuestionsReview() {
+  const container = document.getElementById('mock-wrong-questions-container');
+  if (!container) return;
+  container.innerHTML = '';
+  
+  const wrongQuestions = [];
+  mockTestState.questions.forEach((q, idx) => {
+    const userAns = mockTestState.answers[idx];
+    if (userAns !== q.correctAnswer) {
+      wrongQuestions.push({ question: q, userAns: userAns, indexInMock: idx });
+    }
+  });
+  
+  if (wrongQuestions.length === 0) {
+    container.innerHTML = '<div class="bank-stats" style="text-align: center; padding: 20px;">Chúc mừng! Bạn đạt điểm tối đa và không sai câu nào.</div>';
+  } else {
+    const alphabet = ['A', 'B', 'C', 'D'];
+    
+    wrongQuestions.forEach(item => {
+      const q = item.question;
+      const userAns = item.userAns;
+      const idxInMock = item.indexInMock;
+      
+      const card = document.createElement('div');
+      card.className = 'bank-q-card';
+      
+      const header = document.createElement('div');
+      header.className = 'bank-q-header';
+      
+      const title = document.createElement('div');
+      title.className = 'bank-q-title';
+      title.textContent = `Câu ${idxInMock + 1}: ${q.question}`;
+      
+      const statusContainer = document.createElement('div');
+      statusContainer.className = 'bank-q-status';
+      
+      const badge = document.createElement('span');
+      badge.className = 'bank-badge incorrect';
+      badge.textContent = userAns === null ? 'Bỏ trống' : `Lựa chọn của bạn: ${alphabet[userAns]}`;
+      statusContainer.appendChild(badge);
+      
+      header.appendChild(title);
+      header.appendChild(statusContainer);
+      card.appendChild(header);
+      
+      // Options List
+      const optionsDiv = document.createElement('div');
+      optionsDiv.className = 'bank-q-options';
+      
+      q.options.forEach((optText, optIdx) => {
+        const optDiv = document.createElement('div');
+        optDiv.className = 'bank-opt';
+        optDiv.textContent = `${alphabet[optIdx]}. ${optText}`;
+        
+        if (optIdx === q.correctAnswer) {
+          optDiv.classList.add('correct-opt');
+        } else if (optIdx === userAns) {
+          optDiv.style.backgroundColor = 'var(--color-danger-light)';
+          optDiv.style.borderColor = 'var(--color-danger)';
+          optDiv.style.color = 'var(--color-danger)';
+        }
+        optionsDiv.appendChild(optDiv);
+      });
+      
+      card.appendChild(optionsDiv);
+      
+      // Explanation segment
+      const expDiv = document.createElement('div');
+      expDiv.style.marginTop = '12px';
+      expDiv.style.fontSize = '13.5px';
+      expDiv.style.color = 'var(--text-muted)';
+      expDiv.innerHTML = q.explanation ? `<strong>Giải thích:</strong> ${q.explanation} ${userAns === null ? '(Bạn đã bỏ trống câu này.)' : `(Bạn đã chọn phương án ${alphabet[userAns]}.)`}` : `<strong>Giải thích:</strong> Đáp án đúng là <strong>${alphabet[q.correctAnswer]}</strong>. ${userAns === null ? 'Bạn đã bỏ trống câu này.' : `Bạn đã chọn phương án ${alphabet[userAns]}.`}`;
+      card.appendChild(expDiv);
+      
+      // Click card takes user to that question inside the mock review view
+      card.onclick = (e) => {
+        if (e.target.closest('.bank-q-options')) return;
+        reviewMockTest();
+        goToMockQuestion(idxInMock);
+      };
+      
+      container.appendChild(card);
+    });
+  }
+  
+  const mockWrongReviewPanel = document.getElementById('mock-wrong-review');
+  if (mockWrongReviewPanel) {
+    mockWrongReviewPanel.classList.remove('hidden');
+  }
+}
+
+// Reset Mock Test screen back to start card
+function resetMockTestToStart() {
+  // Clear any running interval and reset states
+  clearInterval(mockTestState.timerInterval);
+  mockTestState.isActive = false;
+  mockTestState.isSubmitted = false;
+  
+  // Reset Mock Test screens visibility
+  document.getElementById('mock-start-screen').classList.add('active');
+  document.getElementById('mock-test-screen').classList.remove('active');
+  document.getElementById('mock-results-screen').classList.remove('active');
+  
+  // Hide review container
+  const mockWrongReview = document.getElementById('mock-wrong-review');
+  if (mockWrongReview) {
+    mockWrongReview.classList.add('hidden');
+  }
+  
+  // Call switchTab to ensure the active Tab state is consistent
+  switchTab('mock');
+}
