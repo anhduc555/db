@@ -20,7 +20,7 @@
       "{R1(A,B,C,D), R2(B,E)}",
       "{R1(A,B,C), R2(B,C,D), R3(A,B,E)}"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: {R1(A,B,C), R2(B,C,D), R3(A,B,E)}. Phân rã BCNF (Boyce-Codd Normal Form) yêu cầu mỗi quan hệ kết quả phải có khóa phủ mọi phụ thuộc hàm, đồng thời đảm bảo tính không mất thông tin (lossless join). Phương án đúng thoả mãn cả hai điều kiện này."
   },
   {
@@ -344,7 +344,7 @@
       "Phần mềm điều khiển các chiến lược truy nhập CSDL",
       "Các phần mềm hệ thống"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là A: Hệ điều hành. Hệ quản trị CSDL (DBMS) là phần mềm trung gian giữa người dùng và CSDL vật lý, cung cấp các công cụ để định nghĩa, xây dựng và thao tác dữ liệu. DBMS đảm bảo tính toàn vẹn, bảo mật, và khôi phục dữ liệu."
   },
   {
@@ -356,7 +356,7 @@
       "Dạng chuẩn 1 (1NF)",
       "Dạng chuẩn Boyce-Codd (BCNF)"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là C: Dạng chuẩn 1 (1NF). Lược đồ quan hệ R(A1,A2,...,An) định nghĩa cấu trúc của một quan hệ gồm tên quan hệ và danh sách các thuộc tính. Quan hệ (instance) là tập hữu hạn các bộ thỏa mãn lược đồ tại một thời điểm cụ thể."
   },
   {
@@ -368,7 +368,7 @@
       "AB",
       "ABC"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: ABC. Khóa ứng viên (candidate key) là tập thuộc tính tối thiểu mà bao đóng của nó chứa toàn bộ thuộc tính của quan hệ. Cần kiểm tra bao đóng của từng tập và chọn tập nhỏ nhất thỏa mãn điều kiện siêu khóa."
   },
   {
@@ -440,7 +440,7 @@
       "Dạng chuẩn 3 (3NF)",
       "Dạng chuẩn 2 (2NF)"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: Dạng chuẩn Boyce-Codd (BCNF). Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -584,7 +584,7 @@
       "Không phức tạp",
       "Câu hỏi và kết quả các câu hỏi tìm kiếm không đối xứng với nhau"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là A: CSDL càng lớn thì tìm kiếm càng phức tạp. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -680,7 +680,7 @@
       "Dạng chuẩn 1(1NF)",
       "Dạng chuẩn Boyee-Codd (BCNF)"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là A: Dạng chuẩn 3 (3NF). Lược đồ quan hệ R(A1,A2,...,An) định nghĩa cấu trúc của một quan hệ gồm tên quan hệ và danh sách các thuộc tính. Quan hệ (instance) là tập hữu hạn các bộ thỏa mãn lược đồ tại một thời điểm cụ thể."
   },
   {
@@ -908,7 +908,7 @@
       "Mọi vế trái là khóa",
       "Chỉ AB là khóa"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: Không có khóa. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -932,7 +932,7 @@
       "D→A",
       "C→A"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: C→A. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -944,7 +944,7 @@
       "{A, B, D, E}",
       "{A, B, C}"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: {A, B, C}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
   },
   {
@@ -956,7 +956,7 @@
       "Dạng chuẩn 1 (1NF)",
       "Dạng chuẩn 3 (3NF)"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: Dạng chuẩn Boyce-Codd (BCNF). Hệ tiên đề Armstrong gồm 3 quy tắc cơ bản: (1) Phản xạ: nếu Y⊆X thì X→Y; (2) Tăng: nếu X→Y thì XZ→YZ; (3) Bắc cầu: nếu X→Y và Y→Z thì X→Z. Ba quy tắc này đầy đủ và đúng đắn để suy dẫn mọi phụ thuộc hàm."
   },
   {
@@ -980,7 +980,7 @@
       "Dạng chuẩn 2 (2NF)",
       "Dạng chuẩn 1 (1NF)"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là A: Dạng chuẩn Boyce-Codd (BCNF). Quan hệ đạt chuẩn 2NF khi đã đạt 1NF và mọi thuộc tính không khóa đều phụ thuộc đầy đủ vào khóa chính (không tồn tại phụ thuộc bộ phận). Nghĩa là không có thuộc tính nào chỉ phụ thuộc vào một phần của khóa ghép."
   },
   {
@@ -992,7 +992,7 @@
       "CD",
       "AC"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: AC. Khóa ứng viên (candidate key) là tập thuộc tính tối thiểu mà bao đóng của nó chứa toàn bộ thuộc tính của quan hệ. Cần kiểm tra bao đóng của từng tập và chọn tập nhỏ nhất thỏa mãn điều kiện siêu khóa."
   },
   {
@@ -1004,7 +1004,7 @@
       "Phụ thuộc hàm hiển nhiên.",
       "Phụ thuộc riêng phần."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: Phụ thuộc riêng phần.. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -1016,7 +1016,7 @@
       "Hình elip nét đứt",
       "Hình chữ nhật"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: Hình thoi. Mô hình thực thể - quan hệ (ERM/ERD) là công cụ thiết kế CSDL mức khái niệm. Thực thể (entity) là đối tượng cần quản lý, thuộc tính (attribute) mô tả đặc điểm, và liên kết (relationship) thể hiện mối quan hệ giữa các thực thể."
   },
   {
@@ -1028,7 +1028,7 @@
       "không có dòng nào cả.",
       "ít hơn n dòng."
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: n dòng. Theo ràng buộc toàn vẹn thực thể (entity integrity), các thành phần của khóa chính không được phép nhận giá trị NULL hoặc các giá trị không xác định, vì khóa phải định danh duy nhất mỗi bộ trong quan hệ."
   },
   {
@@ -1040,7 +1040,7 @@
       "Update",
       "Alter"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: Modify. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1064,7 +1064,7 @@
       "Khi máy khách thực hiện các ứng dụng, nó gửi yêu cầu về máy chủ được kết nối với cơ sở dữ liệu, máy chủ xử lý và gửi trả lại kết quả về máy khách",
       "Máy chủ và máy khách có quyền truy xuất cơ sở dữ liệu"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là A: Máy khách truy xuất cơ sở dữ liệu trên máy chủ qua môi trường mạng. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1076,7 +1076,7 @@
       "Được biểu diễn nhiều kiểu khác nhau.",
       "Được biểu diễn theo cấu trúc bảng."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là A: Được biểu diễn theo cấu trúc hình cây.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1088,7 +1088,7 @@
       "Mạng",
       "Quan hệ"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là A: Hướng đối tượng. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1100,7 +1100,7 @@
       "Không thể nhận giá trị null hay các giá trị không xác định",
       "Có thể nhận giá trị các giá trị không xác định"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Có thể nhận giá trị các giá trị không xác định. Theo ràng buộc toàn vẹn thực thể (entity integrity), các thành phần của khóa chính không được phép nhận giá trị NULL hoặc các giá trị không xác định, vì khóa phải định danh duy nhất mỗi bộ trong quan hệ."
   },
   {
@@ -1112,7 +1112,7 @@
       "N–N",
       "1–1"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là A: 1–N. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1124,7 +1124,7 @@
       "Định danh query",
       "Khóa chính"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là C: Định danh query. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1172,7 +1172,7 @@
       "Không có thuộc tính thừa",
       "A"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: B. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -1184,7 +1184,7 @@
       "Select K.MaSV, HoSV, TenSV From SinhVien S, KetQua K",
       "Select K.MaSV, HoSV, TenSV From SinhVien S, KetQua K Where S.MASV=K.MASV And count(MaMH)>=3"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: Select K.MaSV, HoSV, TenSV From SinhVien S, KetQua K Where S.MASV=K.MASV And count(MaMH)>=3. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1196,7 +1196,7 @@
       "Loại bỏ bộ trùng",
       "Tránh đụng tên thuộc tính trước khi join"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là A: Sắp xếp kết quả. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1208,8 +1208,8 @@
       "Phản xạ, bắc cầu, hợp và tách",
       "Phản xạ, hợp và tách"
     ],
-    "correctAnswer": 1,
-    "explanation": "Đáp án đúng là B: Phản xạ, gia tăng, hợp và tách. Hệ tiên đề Armstrong gồm 3 quy tắc cơ bản: (1) Phản xạ: nếu Y⊆X thì X→Y; (2) Tăng: nếu X→Y thì XZ→YZ; (3) Bắc cầu: nếu X→Y và Y→Z thì X→Z. Ba quy tắc này đầy đủ và đúng đắn để suy dẫn mọi phụ thuộc hàm."
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: Phản xạ, gia tăng, bắc cầu. Hệ tiên đề Armstrong gồm 3 quy tắc CƠ BẢN: (1) Phản xạ: nếu Y⊆X thì X→Y; (2) Gia tăng: nếu X→Y thì XZ→YZ; (3) Bắc cầu: nếu X→Y và Y→Z thì X→Z. Các quy tắc phái sinh như Hợp, Tách được suy ra từ 3 quy tắc này."
   },
   {
     "id": 102,
@@ -1244,8 +1244,8 @@
       "BUILDING(BuildingID PK, Address TEXT, FacilityName TEXT)",
       "FACILITY(FacilityName PK); BUILDING(BuildingID PK, Street, City, Zip); HAS(BuildingID FK, FacilityName FK, PK(FacilityName))"
     ],
-    "correctAnswer": 0,
-    "explanation": "Đáp án đúng là A: BUILDING(BuildingID PK, Street, City, Zip, FacilityName). Thuộc tính đa trị trong ERD được ánh xạ sang quan hệ riêng biệt gồm: khóa ngoại của bảng chính + giá trị của thuộc tính đa trị, với khóa chính là tổ hợp của cả hai. Không nên dùng nhiều cột Tag1, Tag2... vì vi phạm 1NF."
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: BUILDING(BuildingID PK, Street, City, Zip); BUILDING_FACILITY(BuildingID FK→BUILDING, FacilityName, PK(BuildingID, FacilityName)). Thuộc tính đa trị trong ERD được ánh xạ thành bảng riêng: BUILDING_FACILITY(BuildingID FK, FacilityName, PK(BuildingID,FacilityName)). Thuộc tính phức hợp Address được phẳng hóa thành Street, City, Zip trong bảng chính."
   },
   {
     "id": 105,
@@ -1256,8 +1256,8 @@
       "select standard_price from product_v where standard_price = min",
       "select min(standard_price) from product_v where standard_price ="
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: select min(standard_price) from product_v where standard_price =. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: select min(standard_price) from product_v. Hàm MIN() trả về giá trị nhỏ nhất. Cú pháp đúng: SELECT MIN(ten_cot) FROM ten_bang. Option D thiếu điều kiện WHERE nên không hoàn chỉnh."
   },
   {
     "id": 106,
@@ -1316,7 +1316,7 @@
       "AC→D",
       "A→C"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: A→B. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -1340,8 +1340,8 @@
       "πSID(σSemester=′2025_Spring′∧Semester=′2025_Fall′(ENROLL))π_{SID}(σ_{Semester='2025\\_Spring' ∧ Semester='2025\\_Fall'}(ENROLL))πSID(σSemester=′2025_Spring′∧Semester=′2025_Fall′(ENROLL))",
       "πSID(ENROLL)−πSID(σSemester=′2025_Fall′(ENROLL))π_{SID}(ENROLL) − π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))πSID(ENROLL)−πSID(σSemester=′2025_Fall′(ENROLL))"
     ],
-    "correctAnswer": 1,
-    "explanation": "Đáp án đúng là B: πSID(σSemester=′2025_Spring′(ENROLL))∪πSID(σSemester=′2025_Fall′(ENROLL))π_{SID}(σ_{Semester='2025\\_Spring'}(ENROLL)) ∪ π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))πSID(σSemester=′2025_Spring′(ENROLL))∪πSID(σSemester=′2025_Fall′(ENROLL)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: πSID(σSemester=′2025_Spring′(ENROLL))∩πSID(σSemester=′2025_Fall′(ENROLL))π_{SID}(σ_{Semester='2025\\_Spring'}(ENROLL)) ∩ π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))πSID(σSemester=′2025_Spring′(ENROLL))∩πSID(σSemester=′2025_Fall′(ENROLL)). Để tìm SID đăng ký CẢ HAI kỳ dùng phép GIAO (∩): πSID(σSpring(ENROLL)) ∩ πSID(σFall(ENROLL)). UNION cho ít nhất 1 kỳ, DIFFERENCE loại bỏ."
   },
   {
     "id": 113,
@@ -1364,8 +1364,8 @@
       "{A,B,C}",
       "{A,B,D}"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: {A,B,D}. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: {A,B,C,D,E}. Tính A+: {A}→BC: {A,B,C}→C→D: {A,B,C,D}→D→E: {A,B,C,D,E}. Vậy A+={A,B,C,D,E}."
   },
   {
     "id": 115,
@@ -1376,8 +1376,8 @@
       "{A, B, C, D}",
       "{A, C, D}"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: {A, C, D}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: {A, B, C, D}. Tính (AB)+: {A,B}→AB→C: {A,B,C}→C→D: {A,B,C,D}. (AB)+={A,B,C,D}."
   },
   {
     "id": 116,
@@ -1388,7 +1388,7 @@
       "Không thể tồn tại 2 bộ trong H mà có cùng giá trị của N và K.",
       "NK là khóa chính của H."
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: Tất cả các câu đều đúng.. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -1400,7 +1400,7 @@
       "Mô hình khái niệm",
       "Mô hình ngoài"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: Mô hình trong. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1412,7 +1412,7 @@
       "Phụ thuộc hàm vào thuộc tính không khóa",
       "Là thuộc tính không khóa của quan hệ"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: Là thuộc tính dư thừa về trái. Quan hệ đạt chuẩn 1NF khi mỗi giá trị trong mỗi ô là nguyên tử (không thể chia nhỏ hơn), mỗi cột chứa cùng loại dữ liệu và mỗi hàng là duy nhất. 1NF loại bỏ các thuộc tính đa trị và thuộc tính phức hợp."
   },
   {
@@ -1424,7 +1424,7 @@
       "GRANT READ/WRITE ON R TO GROUP/WORLD",
       "GRANT SELECT ON R TO GROUP/WORLD"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: GRANT SELECT ON R TO GROUP/WORLD. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1448,8 +1448,8 @@
       "πCID(σSemester=′2025_Fall′(ENROLL))−πCID(σDept=′CS′(COURSE))π_{CID}(σ_{Semester='2025\\_Fall'}(ENROLL)) − π_{CID}(σ_{Dept='CS'}(COURSE))πCID(σSemester=′2025_Fall′(ENROLL))−πCID(σDept=′CS′(COURSE))",
       "πCID(σDept=′CS′∧Semester=′2025_Fall′(COURSE⋈ENROLL))−πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Fall'}(COURSE ⋈ ENROLL)) − π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept=′CS′∧Semester=′2025_Fall′(COURSE⋈ENROLL))−πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))"
     ],
-    "correctAnswer": 1,
-    "explanation": "Đáp án đúng là B: πCID(σDept=′CS′∧Semester=′2025_Fall′(COURSE⋈ENROLL))∩πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Fall'}(COURSE ⋈ ENROLL)) ∩ π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept=′CS′∧Semester=′2025_Fall′(COURSE⋈ENROLL))∩πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: πCID(σDept=′CS′∧Semester=′2025_Fall′(COURSE⋈ENROLL))−πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Fall'}(COURSE ⋈ ENROLL)) − π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept=′CS′∧Semester=′2025_Fall′(COURSE⋈ENROLL))−πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL)). CS courses trong Fall nhưng KHÔNG Spring: πCID(σCS∧Fall(COURSE⋈ENROLL)) − πCID(σCS∧Spring(COURSE⋈ENROLL)). Phải join COURSE để lọc Dept và dùng phép HIỆU."
   },
   {
     "id": 122,
@@ -1472,8 +1472,8 @@
       "πCID(ENROLL)−ρCID(πPreCID(PREREQ))π_{CID}(ENROLL) − ρ_{CID}(π_{PreCID}(PREREQ))πCID(ENROLL)−ρCID(πPreCID(PREREQ))",
       "πCID(ENROLL)−πPreCID(PREREQ)π_{CID}(ENROLL) − π_{PreCID}(PREREQ)πCID(ENROLL)−πPreCID(PREREQ)"
     ],
-    "correctAnswer": 0,
-    "explanation": "Đáp án đúng là A: πCID(ENROLL)∪ρCID(πPreCID(PREREQ))π_{CID}(ENROLL) ∪ ρ_{CID}(π_{PreCID}(PREREQ))πCID(ENROLL)∪ρCID(πPreCID(PREREQ)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: πCID(ENROLL)−ρCID(πPreCID(PREREQ))π_{CID}(ENROLL) − ρ_{CID}(π_{PreCID}(PREREQ))πCID(ENROLL)−ρCID(πPreCID(PREREQ)). Môn có đăng ký nhưng không là tiên quyết: πCID(ENROLL) − ρCID(πPreCID(PREREQ)). Dùng ρ để đổi tên PreCID thành CID trước khi trừ."
   },
   {
     "id": 124,
@@ -1484,7 +1484,7 @@
       "A, B, C",
       "A, B"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là A: B, C. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -1496,7 +1496,7 @@
       "Cấu trúc lưu trữ và các hệ chương trình ứng dụng trên độc lập với nhau",
       "Người sử dụng khi thao tác trên các cơ sở dữ liệu có thể làm thay đổi cấu trúc lưu trữ dữ liệu và chiến lược truy nhập cơ sở dữ liệu"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: Dữ liệu được biểu diễn, mô tả nhiều cách khác nhau. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1509,7 +1509,7 @@
       "AB"
     ],
     "correctAnswer": 0,
-    "explanation": "Đáp án đúng là A: AC. Khóa ứng viên (candidate key) là tập thuộc tính tối thiểu mà bao đóng của nó chứa toàn bộ thuộc tính của quan hệ. Cần kiểm tra bao đóng của từng tập và chọn tập nhỏ nhất thỏa mãn điều kiện siêu khóa."
+    "explanation": "Đáp án đúng là A: AC. R(A,B,C), F={A→B}. AC+: A→B→{A,B,C}=Ω → AC là khóa ứng viên. A+={A,B}≠Ω, C+={C}≠Ω nên AC tối thiểu."
   },
   {
     "id": 127,
@@ -1532,8 +1532,8 @@
       "Mô hình E-R",
       "Tất cả các phương án trên."
     ],
-    "correctAnswer": 0,
-    "explanation": "Đáp án đúng là A: Mô hình dữ liệu mạng, phân cấp, hướng đối tượng. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Tất cả các phương án trên.. Tất cả đều là mô hình dữ liệu hợp lệ: mạng, phân cấp, hướng đối tượng, quan hệ, E-R."
   },
   {
     "id": 129,
@@ -1544,7 +1544,7 @@
       "Luật phản xạ",
       "Tất cả điều sai."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là A: Luật thêm vào. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -1568,8 +1568,8 @@
       "Loại bỏ các phụ thuộc không đầy đủ vào khóa",
       "Loại bỏ các phụ thuộc đầy đủ vào khóa và bắc cầu vào khóa"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: Loại bỏ các phụ thuộc đầy đủ vào khóa và bắc cầu vào khóa. Quan hệ đạt chuẩn 1NF khi mỗi giá trị trong mỗi ô là nguyên tử (không thể chia nhỏ hơn), mỗi cột chứa cùng loại dữ liệu và mỗi hàng là duy nhất. 1NF loại bỏ các thuộc tính đa trị và thuộc tính phức hợp."
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: Loại bỏ các phụ thuộc không đầy đủ vào khóa và bắc cầu vào khóa. 1NF→3NF cần loại bỏ: phụ thuộc bộ phận (partial) → đạt 2NF; phụ thuộc bắc cầu (transitive) → đạt 3NF. Cả hai phải được xử lý."
   },
   {
     "id": 132,
@@ -1580,8 +1580,8 @@
       "Mọi thể hiện của X phải tham gia ít nhất một lần vào quan hệ với Y",
       "Không có thể hiện nào của X được tham gia vào quan hệ với Y"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: Không có thể hiện nào của X được tham gia vào quan hệ với Y. Mô hình thực thể - quan hệ (ERM/ERD) là công cụ thiết kế CSDL mức khái niệm. Thực thể (entity) là đối tượng cần quản lý, thuộc tính (attribute) mô tả đặc điểm, và liên kết (relationship) thể hiện mối quan hệ giữa các thực thể."
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: Mọi thể hiện của X phải tham gia ít nhất một lần vào quan hệ với Y. Ràng buộc toàn bộ (total participation): MỌI thể hiện của X phải tham gia ít nhất một lần vào quan hệ với Y. Ký hiệu bằng đường đôi trong ERD."
   },
   {
     "id": 133,
@@ -1592,8 +1592,8 @@
       "πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))",
       "πCID(σDept<>′CS′(COURSE))∪πCID(σSemester=′2025_Spring′(ENROLL))π_{CID}(σ_{Dept<>'CS'}(COURSE)) ∪ π_{CID}(σ_{Semester='2025\\_Spring'}(ENROLL))πCID(σDept<>′CS′(COURSE))∪πCID(σSemester=′2025_Spring′(ENROLL))"
     ],
-    "correctAnswer": 2,
-    "explanation": "Đáp án đúng là C: πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: πCID(σDept<>′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept<>'CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept<>′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL)). Môn không thuộc CS có đăng ký Spring: πCID(σDept<>'CS' ∧ Semester='2025_Spring'(COURSE⋈ENROLL)). Phải kết hợp cả hai điều kiện trong một phép chọn."
   },
   {
     "id": 134,
@@ -1604,7 +1604,7 @@
       "AB→C",
       "D→E"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: A→C. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -1616,7 +1616,7 @@
       "Có thuộc tính khóa riêng",
       "Chỉ có quan hệ 1–1"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: Có thuộc tính đa trị. Mô hình thực thể - quan hệ (ERM/ERD) là công cụ thiết kế CSDL mức khái niệm. Thực thể (entity) là đối tượng cần quản lý, thuộc tính (attribute) mô tả đặc điểm, và liên kết (relationship) thể hiện mối quan hệ giữa các thực thể."
   },
   {
@@ -1640,8 +1640,8 @@
       "2NF",
       "BCNF"
     ],
-    "correctAnswer": 0,
-    "explanation": "Đáp án đúng là A: 3NF (không BCNF). Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: 2NF. R(A,B,C,D), F={A→B,B→C,C→D}. Khóa=A. B→C: B không siêu khóa, C không prime → vi phạm 3NF. Khóa đơn A → không có partial dep → 2NF ✓. Cao nhất: 2NF."
   },
   {
     "id": 138,
@@ -1652,7 +1652,7 @@
       "Biểu thức đại số quan hệ",
       "Ngôn ngữ của đại số quan hệ"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Ngôn ngữ của đại số quan hệ. Tối ưu hóa truy vấn thực hiện phép chọn (σ) và chiếu (π) trước để giảm kích thước quan hệ trung gian, sau đó mới thực hiện phép kết nối (join) tốn kém. Chiến lược này giảm đáng kể lượng dữ liệu cần xử lý."
   },
   {
@@ -1688,8 +1688,8 @@
       "Nếu tất cả các phụ thuộc hàm là riêng phần.",
       "Nếu chỉ có một khóa."
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: Nếu chỉ có một khóa.. Quan hệ đạt chuẩn 2NF khi đã đạt 1NF và mọi thuộc tính không khóa đều phụ thuộc đầy đủ vào khóa chính (không tồn tại phụ thuộc bộ phận). Nghĩa là không có thuộc tính nào chỉ phụ thuộc vào một phần của khóa ghép."
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: Nếu tất cả các khóa của quan hệ này chỉ gồm một thuộc tính.. Nếu mọi khóa đều là đơn (1 thuộc tính), không thể có phụ thuộc bộ phận (không có tập con thực sự của khóa đơn). Quan hệ luôn đạt 2NF trong trường hợp này."
   },
   {
     "id": 142,
@@ -1712,7 +1712,7 @@
       "Select K.MaSV, HoSV, TenSV From SinhVien S, ketqua K Where S.MASV=K.MASV And MaMH='CSDL' And Diem= (Select max(Diem)From ketqua where MaMH ='CSDL')",
       "Select K.MaSV, HoSV, TenSV From SinhVien S, KetQua K Where S.MASV=K.MASV And MaMH='CSDL' And Diem>=ALL (Select Diem From KetQua where MaMH ='CSDL')"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: Select K.MaSV, HoSV, TenSV From SinhVien S, KetQua K Where S.MASV=K.MASV And MaMH='CSDL' And Diem>=ALL (Select Diem From KetQua where MaMH ='CSDL'). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1748,8 +1748,8 @@
       "2NF",
       "BCNF"
     ],
-    "correctAnswer": 1,
-    "explanation": "Đáp án đúng là B: 3NF. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: BCNF. R(A,B,C), F={A→B,B→C}. Khóa=A. B→C: B không siêu khóa → vi phạm BCNF. C không prime → vi phạm 3NF. BCNF là dạng chuẩn cao nhất bị vi phạm."
   },
   {
     "id": 147,
@@ -1760,7 +1760,7 @@
       "D",
       "AC"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là C: D. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -1772,7 +1772,7 @@
       "ERD có 3 tập thực thể, 1 liên kết M–N, 2 liên kết 1-N",
       "ERD có 4 tập thực thể, 2 liên kết M–N, 2 liên kết 1-N"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là A: ERD có 3 tập thực thể, 2 liên kết M–N. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1796,8 +1796,8 @@
       "{A, B, C, D}",
       "{A, B, C}"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: {A, B, C}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: {A, B, C, D}. {A,C}+: A→B→{A,B,C}, C→D→{A,B,C,D}. {A,C}+={A,B,C,D}."
   },
   {
     "id": 151,
@@ -1808,8 +1808,8 @@
       "Tích các quan hệ trong mệnh đề FROM, chọn theo biểu thức sau WHERE và chiếu trên các thuộc tính sau mệnh đề SELECT",
       "Tích các quan hệ trong mệnh đề FROM, chiếu trong WHERE và chọn trên các thuộc tính sau mệnh đề SELECT"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: Tích các quan hệ trong mệnh đề FROM, chiếu trong WHERE và chọn trên các thuộc tính sau mệnh đề SELECT. Câu lệnh SELECT trong SQL theo thứ tự xử lý: FROM (chọn bảng) → WHERE (lọc hàng) → GROUP BY (gộp nhóm) → HAVING (lọc nhóm) → SELECT (chọn cột) → ORDER BY (sắp xếp). Cú pháp và điều kiện lọc phải chính xác để cho kết quả đúng."
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: Tích các quan hệ trong mệnh đề FROM, chọn theo biểu thức sau WHERE và chiếu trên các thuộc tính sau mệnh đề SELECT. SELECT-FROM-WHERE ≡ Đại số QH: FROM=tích (×), WHERE=chọn (σ), SELECT=chiếu (π). Thứ tự thực thi: FROM → WHERE → SELECT."
   },
   {
     "id": 152,
@@ -1820,8 +1820,8 @@
       "Không lưu Age; chỉ lưu BirthDate và tính Age khi cần.",
       "Tạo bảng AGE(PID PK, Age)."
     ],
-    "correctAnswer": 1,
-    "explanation": "Đáp án đúng là B: Lưu Age trực tiếp trong PERSON để truy vấn nhanh.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: Không lưu Age; chỉ lưu BirthDate và tính Age khi cần.. Thuộc tính dẫn xuất như Age: KHÔNG lưu vào CSDL (sẽ lỗi thời). Chỉ lưu BirthDate, tính Age khi cần bằng view hoặc code ứng dụng."
   },
   {
     "id": 153,
@@ -1832,8 +1832,8 @@
       "SELECT, FROM, GROUP BY, HAVING, WHERE, ORDER BY",
       "SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY"
     ],
-    "correctAnswer": 1,
-    "explanation": "Đáp án đúng là B: SELECT, FROM, GROUP BY, HAVING, ORDER BY. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY. Cú pháp đúng: SELECT → FROM → WHERE → GROUP BY → HAVING → ORDER BY. WHERE phải đứng trước GROUP BY."
   },
   {
     "id": 154,
@@ -1844,7 +1844,7 @@
       "Nếu F = {A → B, B → C, A → D, B → D} khi đó C → A ∈ F⁺",
       "Nếu F = {A → B, B → C, A → D, B → D} khi đó C → D ∈ F⁺"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: Nếu F = {A → B, B → C, A → D, B → D} khi đó D → A ∈ F⁺. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1856,7 +1856,7 @@
       "Truy vấn",
       "Cập nhật, bổ sung, sửa đổi"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là C: Truy vấn. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1868,7 +1868,7 @@
       "πT#, TC(σDAI > 100)",
       "πT#, TC(σ(R₁))"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là A: π(σDAI > 100(R₁)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1916,7 +1916,7 @@
       "Hạn chế",
       "Toàn bộ cơ sở dữ liệu"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: Một phần cơ sở dữ liệu. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1928,7 +1928,7 @@
       "Bằng các ký hiệu biểu diễn",
       "Các mối nối liên kết giữa các bản ghi theo cấu trúc cây"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là C: Bằng các ký hiệu biểu diễn. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1940,7 +1940,7 @@
       "Phụ thuộc mà vế phải được chứa trong vế trái",
       "Phụ thuộc vào Ω, không phụ thuộc vào F"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Phụ thuộc vào Ω, không phụ thuộc vào F. Hệ tiên đề Armstrong gồm 3 quy tắc cơ bản: (1) Phản xạ: nếu Y⊆X thì X→Y; (2) Tăng: nếu X→Y thì XZ→YZ; (3) Bắc cầu: nếu X→Y và Y→Z thì X→Z. Ba quy tắc này đầy đủ và đúng đắn để suy dẫn mọi phụ thuộc hàm."
   },
   {
@@ -1952,8 +1952,8 @@
       "Giảm thiểu sự bất thường khi cập nhật dữ liệu.",
       "Tất cả điều đúng."
     ],
-    "correctAnswer": 1,
-    "explanation": "Đáp án đúng là B: Giảm thiểu dư thừa dữ liệu.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Tất cả điều đúng.. Chuẩn hóa nhằm tất cả: giảm dư thừa, tránh dị thường cập nhật, tránh dị thường thêm/xóa. Đây là 3 mục tiêu đồng thời của chuẩn hóa CSDL."
   },
   {
     "id": 164,
@@ -1964,8 +1964,8 @@
       "σ_{age>30}(E) ∪ σ_{dept='IT'}(E)",
       "σ_{age>30 ∧ dept='IT'}(E)"
     ],
-    "correctAnswer": 0,
-    "explanation": "Đáp án đúng là A: π_{age,dept}(E). Phép chọn (σ) trong đại số quan hệ lọc các bộ (hàng) thỏa mãn điều kiện predicate cho trước. Kết quả σ_{điều_kiện}(R) là tập các hàng của R thỏa mãn điều kiện, giữ nguyên tất cả các cột."
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: σ_{age>30 ∧ dept='IT'}(E). σ_{c1}(σ_{c2}(R)) = σ_{c1 ∧ c2}(R). Hai phép chọn lồng nhau kết hợp thành một phép chọn với điều kiện AND - quy tắc tối ưu hóa truy vấn quan trọng."
   },
   {
     "id": 165,
@@ -1976,7 +1976,7 @@
       "Tên gọi của thuộc tính",
       "Kiểu dữ liệu của thuộc tính"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: Miền giá trị của thuộc tính. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -1988,7 +1988,7 @@
       "BC→E",
       "A→E"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là A: C→E. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -2000,7 +2000,7 @@
       "Không làm xuất hiện mâu thuẫn dữ liệu",
       "Làm xuất hiện mâu thuẫn dữ liệu"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là C: Không làm xuất hiện mâu thuẫn dữ liệu. Mô hình phân cấp tổ chức dữ liệu theo cấu trúc cây, mỗi nút cha có thể có nhiều nút con nhưng mỗi nút con chỉ có một nút cha. Mô hình mạng mở rộng điều này cho phép nút con có nhiều nút cha, dùng con trỏ để liên kết."
   },
   {
@@ -2012,7 +2012,7 @@
       "πTitle(σGrade=′A′∨Grade=′B′(COURSE⋈ENROLL))π_{Title}(σ_{Grade='A' ∨ Grade='B'}(COURSE ⋈ ENROLL))πTitle(σGrade=′A′∨Grade=′B′(COURSE⋈ENROLL))",
       "σGrade=′A′∨Grade=′B′(πTitle(COURSE⋈ENROLL))σ_{Grade='A' ∨ Grade='B'}(π_{Title}(COURSE ⋈ ENROLL))σGrade=′A′∨Grade=′B′(πTitle(COURSE⋈ENROLL))"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: σGrade=′A′∨Grade=′B′(πTitle(COURSE⋈ENROLL))σ_{Grade='A' ∨ Grade='B'}(π_{Title}(COURSE ⋈ ENROLL))σGrade=′A′∨Grade=′B′(πTitle(COURSE⋈ENROLL)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2024,7 +2024,7 @@
       "Bộ sưu tập các loại dữ liệu của một tổ chức.",
       "Các thực thể và mối quan hệ của chúng."
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: Hệ thống thông tin quản lý của tổ chức.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2036,7 +2036,7 @@
       "D→E",
       "B→D"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: B→D. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -2048,7 +2048,7 @@
       "Phép toán thao tác",
       "Các phép toán đại số quan hệ"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Các phép toán đại số quan hệ. Phép toán tập hợp trong đại số quan hệ: Hợp (∪/UNION) gộp hai tập, Giao (∩/INTERSECT) lấy phần chung, Hiệu (−/EXCEPT) lấy phần chỉ có ở tập đầu. Yêu cầu hai quan hệ phải union-compatible (cùng số cột, cùng kiểu dữ liệu tương ứng)."
   },
   {
@@ -2060,8 +2060,8 @@
       "Một bản ghi gốc và một bản ghi phụ thuộc",
       "Một bản ghi gốc và nhiều bản ghi phụ thuộc"
     ],
-    "correctAnswer": 0,
-    "explanation": "Đáp án đúng là A: Nhiều bản ghi gốc. Mô hình phân cấp tổ chức dữ liệu theo cấu trúc cây, mỗi nút cha có thể có nhiều nút con nhưng mỗi nút con chỉ có một nút cha. Mô hình mạng mở rộng điều này cho phép nút con có nhiều nút cha, dùng con trỏ để liên kết."
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: Chỉ chứa một và chỉ một bản ghi gốc. Mô hình phân cấp: mỗi cây có ĐÚNG MỘT bản ghi gốc. Từ gốc là cây con của các bản ghi phụ thuộc. CSDL phân cấp = tập hợp các cây như vậy."
   },
   {
     "id": 173,
@@ -2084,7 +2084,7 @@
       "Tất cả các phương án trên.",
       "Tất cả các bộ dữ liệu phải khác nhau"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là C: Tất cả các phương án trên.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2096,8 +2096,8 @@
       "Một quan hệ có nhiều cột",
       "Các thuộc tính chỉ chứa các giá trị nguyên tố"
     ],
-    "correctAnswer": 0,
-    "explanation": "Đáp án đúng là A: Một thuộc tính có nhiều giá trị khác nhau. Quan hệ đạt chuẩn 1NF khi mỗi giá trị trong mỗi ô là nguyên tử (không thể chia nhỏ hơn), mỗi cột chứa cùng loại dữ liệu và mỗi hàng là duy nhất. 1NF loại bỏ các thuộc tính đa trị và thuộc tính phức hợp."
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Các thuộc tính chỉ chứa các giá trị nguyên tố. 1NF: mỗi ô chứa GIÁ TRỊ NGUYÊN TỬ (atomic) - không thể chia nhỏ. Loại bỏ thuộc tính đa trị và thuộc tính phức hợp chưa phẳng hóa."
   },
   {
     "id": 176,
@@ -2108,7 +2108,7 @@
       "SELECT * FROM NhanVien ORDER BY Luong DESC;",
       "SELECT * FROM NhanVien IN ORDER OF Luong;"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: SELECT * FROM NhanVien IN ORDER OF Luong;. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2120,7 +2120,7 @@
       "Khả năng truy xuất dữ liệu",
       "Khả năng quản lý dữ liệu"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: Khả năng quản lý dữ liệu. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2132,7 +2132,7 @@
       "SELECT empid FROM emp WHERE empid= 493945;",
       "SELECT * FROM emp WHERE empid = 493945;"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: SELECT * FROM emp WHERE empid = 493945;. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2168,7 +2168,7 @@
       "Ưu tiên thực hiện các phép chiếu và chọn",
       "Nhóm các phép tích và chiếu liên tiếp thành một phép toán duy nhất"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: Thực hiện các phép kết nối bằng nhau. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2180,7 +2180,7 @@
       "Hệ quản trị cơ sở dữ liệu",
       "Người sử dụng"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là A: Người quản trị cơ sở dữ liệu. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2192,7 +2192,7 @@
       "B->KQO",
       "K->AQO"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: K->AQO. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -2216,7 +2216,7 @@
       "σBuilding=′A′∧Semester=′2025_Fall′(πTitle(TEACH⋈ROOM⋈COURSE))σ_{Building='A' ∧ Semester='2025\\_Fall'}(π_{Title}(TEACH ⋈ ROOM ⋈ COURSE))σBuilding=′A′∧Semester=′2025_Fall′(πTitle(TEACH⋈ROOM⋈COURSE))",
       "πTitle(σSemester=′2025_Fall′(TEACH⋈COURSE))−πTitle(σBuilding=′A′(ROOM))π_{Title}(σ_{Semester='2025\\_Fall'}(TEACH ⋈ COURSE)) − π_{Title}(σ_{Building='A'}(ROOM))πTitle(σSemester=′2025_Fall′(TEACH⋈COURSE))−πTitle(σBuilding=′A′(ROOM))"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: πTitle(σSemester=′2025_Fall′(TEACH⋈COURSE))−πTitle(σBuilding=′A′(ROOM))π_{Title}(σ_{Semester='2025\\_Fall'}(TEACH ⋈ COURSE)) − π_{Title}(σ_{Building='A'}(ROOM))πTitle(σSemester=′2025_Fall′(TEACH⋈COURSE))−πTitle(σBuilding=′A′(ROOM)). Lược đồ quan hệ R(A1,A2,...,An) định nghĩa cấu trúc của một quan hệ gồm tên quan hệ và danh sách các thuộc tính. Quan hệ (instance) là tập hữu hạn các bộ thỏa mãn lược đồ tại một thời điểm cụ thể."
   },
   {
@@ -2228,7 +2228,7 @@
       "πA₁, A₂(R₁) ⋈ πA₁, A₂(R₂)",
       "σR₁.A₁=R₂.A₂(R₁) ⋈ σR₁.A₁=R₂.A₂(R₂)"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: σR₁.A₁=R₂.A₂(R₁) ⋈ σR₁.A₁=R₂.A₂(R₂). Câu lệnh SELECT trong SQL theo thứ tự xử lý: FROM (chọn bảng) → WHERE (lọc hàng) → GROUP BY (gộp nhóm) → HAVING (lọc nhóm) → SELECT (chọn cột) → ORDER BY (sắp xếp). Cú pháp và điều kiện lọc phải chính xác để cho kết quả đúng."
   },
   {
@@ -2240,7 +2240,7 @@
       "R₁ × R₂ = P(ΩSigma) := {t | t[Ω] ∈ R₁ and t[Sigma] ∉ R₂}",
       "R₁ × R₂ = P(ΩSigma) := {t | t[Ω] ∈ R₁ or t[Sigma] ∈ R₂}"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: R₁ × R₂ = P(ΩSigma) := {t | t[Ω] ∈ R₁ or t[Sigma] ∈ R₂}. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2252,7 +2252,7 @@
       "Chỉ tạo 2 bảng STUDENT và EMPLOYEE, không cần bảng PERSON.",
       "Một bảng PERSON(PID, Name, IsStudent BOOLEAN, IsEmployee BOOLEAN) không lưu thuộc tính riêng như Major hay Salary."
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: Một bảng PERSON với cột Type nhận 1 giá trị duy nhất.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2276,7 +2276,7 @@
       "AB->CD",
       "B->C"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: B->C. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -2288,7 +2288,7 @@
       "Các đối tượng và mối liên kết giữa các đối tượng.",
       "Các đối tượng dữ liệu"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: Các quan hệ. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2300,7 +2300,7 @@
       "Thứ tự của các cột là quan trọng.",
       "Thứ tự của các hàng là quan trọng."
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là C: Thứ tự của các cột là quan trọng.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2312,7 +2312,7 @@
       "TOTAL",
       "ADD"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là A: AVERAGE. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2324,7 +2324,7 @@
       "AB, CG, CD không là khóa của lược đồ quan hệ",
       "EB, CE, BC không là khóa của lược đồ quan hệ"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: EB, CE, BC không là khóa của lược đồ quan hệ. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -2336,7 +2336,7 @@
       "Một bộ sưu tập rất lớn về các loại dữ liệu tác nghiệp",
       "Tài nguyên chung, nhiều người cùng sử dụng"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: Rất nhiều loại dữ liệu được tải về giữ trên các máy cục bộ để khai thác. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2348,7 +2348,7 @@
       "FLOAT",
       "CHARACTER"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là C: FLOAT. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2361,7 +2361,7 @@
       "πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE))π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)) ∩ π_{SID}(ENROLL ⋈ σ_{Title='AI'}(COURSE))πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE))"
     ],
     "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE))π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)) ∩ π_{SID}(ENROLL ⋈ σ_{Title='AI'}(COURSE))πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE)). Hàm gộp (aggregate functions) trong SQL: COUNT(*) đếm số hàng, SUM() tính tổng, AVG() tính trung bình, MAX() giá trị lớn nhất, MIN() giá trị nhỏ nhất. Các hàm này thường kết hợp với GROUP BY để tính theo nhóm."
+    "explanation": "Đáp án đúng là D: πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE))π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)) ∩ π_{SID}(ENROLL ⋈ σ_{Title='AI'}(COURSE))πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE)). Sinh viên đăng ký CẢ HAI: GIAO (∩). πSID(ENROLL⋈σ_Database(COURSE)) ∩ πSID(ENROLL⋈σ_AI(COURSE))."
   },
   {
     "id": 198,
@@ -2372,8 +2372,8 @@
       "chỉ 1NF",
       "3NF"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: 3NF. Quan hệ đạt chuẩn 1NF khi mỗi giá trị trong mỗi ô là nguyên tử (không thể chia nhỏ hơn), mỗi cột chứa cùng loại dữ liệu và mỗi hàng là duy nhất. 1NF loại bỏ các thuộc tính đa trị và thuộc tính phức hợp."
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: chỉ 1NF. R(A,B,C,D), F={A→B,C→D}. Khóa=AC. A→B: A là tập con thực sự của AC → phụ thuộc BỘ PHẬN → vi phạm 2NF. Cao nhất: chỉ 1NF."
   },
   {
     "id": 199,
@@ -2384,7 +2384,7 @@
       "πSID(ADVISE)−πSID(σDept=′CS′(INSTRUCTOR))π_{SID}(ADVISE) − π_{SID}(σ_{Dept='CS'}(INSTRUCTOR))πSID(ADVISE)−πSID(σDept=′CS′(INSTRUCTOR))",
       "πSID(σDept=′CS′(ADVISE))π_{SID}(σ_{Dept='CS'}(ADVISE))πSID(σDept=′CS′(ADVISE))"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: πSID(σDept=′CS′(ADVISE))π_{SID}(σ_{Dept='CS'}(ADVISE))πSID(σDept=′CS′(ADVISE)). Lược đồ quan hệ R(A1,A2,...,An) định nghĩa cấu trúc của một quan hệ gồm tên quan hệ và danh sách các thuộc tính. Quan hệ (instance) là tập hữu hạn các bộ thỏa mãn lược đồ tại một thời điểm cụ thể."
   },
   {
@@ -2396,7 +2396,7 @@
       "Người quản trị cơ sở dữ liệu cấp phép truy nhập",
       "Nhận diện người sử dụng, bảo vệ mức vật lý, kiểm tra truy nhập"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: Kiểm tra Password. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2408,7 +2408,7 @@
       "Các quan hệ trong các biểu thức cùng miền xác định",
       "Chúng biểu diễn cùng một ánh xạ"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: Các quan hệ giống nhau trong biểu thức. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2420,7 +2420,7 @@
       "CREATE TABLE mô tả quan hệ và các thuộc tính",
       "CREATE TABLE mô tả các thuộc tính"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: CREATE TABLE mô tả quan hệ. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2432,7 +2432,7 @@
       "SELECT * FROM R1 WHERE (SELECT B# FROM R1 GROUP BY K#) = (SELECT B# FROM R3 WHERE K# = \"K99\")",
       "SELECT K#, TK, DC FROM R1, R2, R3 WHERE R1.K# = \"K99\" AND R2.B# = R3.B#"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: SELECT K#, TK, DC FROM R1, R2, R3 WHERE R1.K# = \"K99\" AND R2.B# = R3.B#. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2444,7 +2444,7 @@
       "AB→E",
       "A→E"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: AB→D. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -2456,7 +2456,7 @@
       "Dạng chuẩn 2 (2NF)",
       "Dạng chuẩn Boyee-Codd (BCNF)"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: Dạng chuẩn 3 (3NF). Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -2468,7 +2468,7 @@
       "σ_F(R) := {t ∈ R}",
       "σ_F(R) := {t | t_F = \"True\"}"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: σ_F(R) := {t | t_F = \"True\"}. Phép chọn (σ) trong đại số quan hệ lọc các bộ (hàng) thỏa mãn điều kiện predicate cho trước. Kết quả σ_{điều_kiện}(R) là tập các hàng của R thỏa mãn điều kiện, giữ nguyên tất cả các cột."
   },
   {
@@ -2492,7 +2492,7 @@
       "πIName(INSTRUCTOR)−πIName(σGPA<2.0(ADVISE⋈STUDENT))π_{IName}(INSTRUCTOR) − π_{IName}(σ_{GPA<2.0}(ADVISE ⋈ STUDENT))πIName(INSTRUCTOR)−πIName(σGPA<2.0(ADVISE⋈STUDENT))",
       "σGPA<2.0(πIName(INSTRUCTOR⋈ADVISE⋈STUDENT))σ_{GPA<2.0}(π_{IName}(INSTRUCTOR ⋈ ADVISE ⋈ STUDENT))σGPA<2.0(πIName(INSTRUCTOR⋈ADVISE⋈STUDENT))"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là A: πIName(INSTRUCTOR⋈ADVISE)−πIName(σGPA<2.0(STUDENT))π_{IName}(INSTRUCTOR ⋈ ADVISE) − π_{IName}(σ_{GPA<2.0}(STUDENT))πIName(INSTRUCTOR⋈ADVISE)−πIName(σGPA<2.0(STUDENT)). Lược đồ quan hệ R(A1,A2,...,An) định nghĩa cấu trúc của một quan hệ gồm tên quan hệ và danh sách các thuộc tính. Quan hệ (instance) là tập hữu hạn các bộ thỏa mãn lược đồ tại một thời điểm cụ thể."
   },
   {
@@ -2528,8 +2528,8 @@
       "2NF nhưng không 3NF",
       "BCNF"
     ],
-    "correctAnswer": 0,
-    "explanation": "Đáp án đúng là A: 1NF. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: 3NF nhưng không BCNF. R(A,B,C), F={AB→C,C→A}. Khóa: AB và BC. C→A: C không siêu khóa → vi phạm BCNF. Nhưng A là prime (A∈AB) → 3NF thỏa. Cao nhất: 3NF (không BCNF)."
   },
   {
     "id": 212,
@@ -2540,7 +2540,7 @@
       "Các toán hạng",
       "Các quan hệ"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là C: Các toán hạng. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2552,7 +2552,7 @@
       "Xử lý Cơ Sở dữ liệu",
       "Cấu trúc Cơ Sở dữ liệu"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: Cấu trúc Cơ Sở dữ liệu. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2564,7 +2564,7 @@
       "Luôn tạo bảng riêng cho thuộc tính này",
       "Bỏ qua và tính bằng view/truy vấn khi cần"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: Ghép vào khóa chính. Trong mô hình dữ liệu quan hệ, thuộc tính (attribute) biểu diễn các đặc trưng riêng của từng đối tượng được quản lý. Mỗi thuộc tính có một miền giá trị (domain) xác định tập hợp các giá trị hợp lệ mà nó có thể nhận."
   },
   {
@@ -2588,7 +2588,7 @@
       "V K, B Kvà V K M",
       "B V K, C V K và V K M"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: B V M, C V K và V K M. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -2613,7 +2613,7 @@
       "{A, B, C, D, E}"
     ],
     "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: {A, B, C, D, E}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
+    "explanation": "Đáp án đúng là C: {A, B, C, D, E, F}. (AC)+: A→B→{A,B,C}, B→D→{A,B,C,D}, CD→E→{A,B,C,D,E}, E→F→{A,B,C,D,E,F}=Ω."
   },
   {
     "id": 219,
@@ -2624,7 +2624,7 @@
       "Hiện các sinh viên có diemtoan =8 trong bảng danh sách hoặc điểm.",
       ". Hiện hoten,msv của các sinh viên có diemtoan =8 mà có msv trong bảng điểm và danh sách"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: Hiện hoten,msv của các sinh viên có diemtoan =8. Câu lệnh SELECT trong SQL theo thứ tự xử lý: FROM (chọn bảng) → WHERE (lọc hàng) → GROUP BY (gộp nhóm) → HAVING (lọc nhóm) → SELECT (chọn cột) → ORDER BY (sắp xếp). Cú pháp và điều kiện lọc phải chính xác để cho kết quả đúng."
   },
   {
@@ -2636,7 +2636,7 @@
       "Không xuất hiện dị thường thông tin khi thực hiện các phép lưu trữ",
       "Bao đóng phụ thuộc hàm quá lớn"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Bao đóng phụ thuộc hàm quá lớn. Quan hệ đạt chuẩn 3NF khi đã đạt 2NF và không tồn tại phụ thuộc bắc cầu: mọi thuộc tính không khóa chỉ phụ thuộc trực tiếp vào khóa chính, không phụ thuộc qua thuộc tính không khóa khác."
   },
   {
@@ -2660,7 +2660,7 @@
       "Xuất hiện dị thường thông tin",
       "Các thuộc tính được mô tả trong nhiều tệp dữ liệu khác nhau"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là C: Xuất hiện dị thường thông tin. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2672,7 +2672,7 @@
       "Dạng chuẩn 3 (3NF)",
       "Dạng chuẩn 2 (2NF)"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: Dạng chuẩn 2 (2NF). Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -2684,7 +2684,7 @@
       "BD→C",
       "D→E"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: B→A. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -2696,7 +2696,7 @@
       "E→C",
       "B→E"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: B→E. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -2708,7 +2708,7 @@
       "Nếu A --> B và B --> C thì A --> C",
       "Nếu một thuộc tính xác định thuộc tính thứ hai thì nó xác định thuộc tính thứ ba"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Nếu một thuộc tính xác định thuộc tính thứ hai thì nó xác định thuộc tính thứ ba. Hệ tiên đề Armstrong gồm 3 quy tắc cơ bản: (1) Phản xạ: nếu Y⊆X thì X→Y; (2) Tăng: nếu X→Y thì XZ→YZ; (3) Bắc cầu: nếu X→Y và Y→Z thì X→Z. Ba quy tắc này đầy đủ và đúng đắn để suy dẫn mọi phụ thuộc hàm."
   },
   {
@@ -2720,7 +2720,7 @@
       "Select Count(*) From SanPham Where NhomHang='HW'",
       "Select Count From SanPham Where NhomHang='HW'"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Select Count From SanPham Where NhomHang='HW'. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2744,7 +2744,7 @@
       "Bao đóng của X ứng với tập F là hợp của vế trái của các phụ thuộc hàm",
       "Thông tin về đối tượng"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là C: Bao đóng của X ứng với tập F là hợp của vế trái của các phụ thuộc hàm. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
   },
   {
@@ -2768,7 +2768,7 @@
       "πSID,Name(σGPA≥4∧Semester=′2025_Fall′(STUDENT⋈ENROLL⋈COURSE))π_{SID,Name}(σ_{GPA≥4 ∧ Semester='2025\\_Fall'}(STUDENT ⋈ ENROLL ⋈ COURSE))πSID,Name(σGPA≥4∧Semester=′2025_Fall′(STUDENT⋈ENROLL⋈COURSE))",
       "πSID,Name(σCredits≥4(STUDENT)⋈σSemester=′2025_Fall′(ENROLL))π_{SID,Name}(σ_{Credits≥4}(STUDENT) ⋈ σ_{Semester='2025\\_Fall'}(ENROLL))πSID,Name(σCredits≥4(STUDENT)⋈σSemester=′2025_Fall′(ENROLL))"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: πSID,Name(σCredits≥4(STUDENT)⋈σSemester=′2025_Fall′(ENROLL))π_{SID,Name}(σ_{Credits≥4}(STUDENT) ⋈ σ_{Semester='2025\\_Fall'}(ENROLL))πSID,Name(σCredits≥4(STUDENT)⋈σSemester=′2025_Fall′(ENROLL)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2780,7 +2780,7 @@
       "Số thuộc tính trong quan hệ.",
       "Số byte trong một bộ."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Số byte trong một bộ.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2792,7 +2792,7 @@
       "SELECT COUNT(*) FROM R",
       "SELECT * FROM R"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là A: SELECT AVG FROM R. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2804,7 +2804,7 @@
       "Nhiều - Nhiều",
       "Một - Nhiều"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Một - Nhiều. Mô hình thực thể - quan hệ (ERM/ERD) là công cụ thiết kế CSDL mức khái niệm. Thực thể (entity) là đối tượng cần quản lý, thuộc tính (attribute) mô tả đặc điểm, và liên kết (relationship) thể hiện mối quan hệ giữa các thực thể."
   },
   {
@@ -2816,7 +2816,7 @@
       "Bảo đảm độc lập dữ liệu",
       "Với chi phí thời gian thực hiện và sử dụng bộ nhớ ít hơn rất nhiều"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là A: Bảo toàn dữ liệu. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2852,7 +2852,7 @@
       "GROUP BY sẽ phân hoạch quan hệ thành nhiều nhóm tách biệt nhau",
       "GROUP BY sẽ chia dọc quan hệ thành nhiều nhóm"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: Sắp xếp các bản ghi theo khoá được mô tả sau GROUP BY.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2864,7 +2864,7 @@
       "{A, C}",
       "{A, C, E}"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: {A, C, E}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
   },
   {
@@ -2912,8 +2912,8 @@
       "AB",
       "A"
     ],
-    "correctAnswer": 2,
-    "explanation": "Đáp án đúng là C: AB. Khóa ứng viên (candidate key) là tập thuộc tính tối thiểu mà bao đóng của nó chứa toàn bộ thuộc tính của quan hệ. Cần kiểm tra bao đóng của từng tập và chọn tập nhỏ nhất thỏa mãn điều kiện siêu khóa."
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: A. R(A,B,C), F={A→B,B→C}. A+={A,B,C}=Ω → A là khóa ứng viên DUY NHẤT (đơn). B và C không thể là khóa vì B+={B,C}≠Ω, C+={C}≠Ω."
   },
   {
     "id": 244,
@@ -2936,7 +2936,7 @@
       "Update SanPham set DonGia = 1.1 * DonGia where MaSP in (select MaSP from DatHang where MaKH = 'C01');",
       "Update SanPham, DatHang set SanPham.DonGia = SanPham.DonGia * 10% where DatHang.MaKH = 'C01';"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Update SanPham, DatHang set SanPham.DonGia = SanPham.DonGia * 10% where DatHang.MaKH = 'C01';. Câu lệnh SELECT trong SQL theo thứ tự xử lý: FROM (chọn bảng) → WHERE (lọc hàng) → GROUP BY (gộp nhóm) → HAVING (lọc nhóm) → SELECT (chọn cột) → ORDER BY (sắp xếp). Cú pháp và điều kiện lọc phải chính xác để cho kết quả đúng."
   },
   {
@@ -2960,7 +2960,7 @@
       "Tất cả đáp án đều đúng",
       "Union JOIN"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: Union JOIN. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2972,8 +2972,8 @@
       "2NF (nhưng không phải 3NF)",
       "BCNF"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: BCNF. Quan hệ đạt chuẩn 1NF khi mỗi giá trị trong mỗi ô là nguyên tử (không thể chia nhỏ hơn), mỗi cột chứa cùng loại dữ liệu và mỗi hàng là duy nhất. 1NF loại bỏ các thuộc tính đa trị và thuộc tính phức hợp."
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: 2NF (nhưng không phải 3NF). R(A,B,C,D,E), F={A→BC,B→D,D→E}. Khóa=A (đơn). B→D: B không siêu khóa, D không prime → vi phạm 3NF. 2NF ✓ (khóa đơn). Cao nhất: 2NF."
   },
   {
     "id": 249,
@@ -2984,7 +2984,7 @@
       "A₁A₂ → B, A₁ dư thừa khi A₂ → B",
       "A₁A₂ → B, A₁ dư thừa khi A₁A₂ → B phụ thuộc đầy đủ"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: A₁A₂ → B, A₁ dư thừa khi A₁A₂ → B phụ thuộc đầy đủ. Dư thừa dữ liệu gây ra các dị thường (anomalies): dị thường chèn (không thể chèn dữ liệu một phần), dị thường xóa (mất thông tin ngoài ý muốn khi xóa), dị thường cập nhật (phải cập nhật nhiều nơi). Chuẩn hóa CSDL loại bỏ các dị thường này."
   },
   {
@@ -3008,7 +3008,7 @@
       "GROUP BY",
       "SELECT"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: FROM. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3020,7 +3020,7 @@
       "Hệ điều hành",
       "Các phần mềm hệ thống."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: Các phần mềm hệ thống.. Hệ quản trị CSDL (DBMS) là phần mềm trung gian giữa người dùng và CSDL vật lý, cung cấp các công cụ để định nghĩa, xây dựng và thao tác dữ liệu. DBMS đảm bảo tính toàn vẹn, bảo mật, và khôi phục dữ liệu."
   },
   {
@@ -3032,7 +3032,7 @@
       "Tự liên kết",
       "1–1"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: 1–1. Mô hình thực thể - quan hệ (ERM/ERD) là công cụ thiết kế CSDL mức khái niệm. Thực thể (entity) là đối tượng cần quản lý, thuộc tính (attribute) mô tả đặc điểm, và liên kết (relationship) thể hiện mối quan hệ giữa các thực thể."
   },
   {
@@ -3044,7 +3044,7 @@
       "πCID(σMajor=′CS′(ENROLL))π_{CID}(σ_{Major='CS'}(ENROLL))πCID(σMajor=′CS′(ENROLL))",
       "πCID(σSemester=′2025_Spring′(STUDENT))⋈ENROLLπ_{CID}(σ_{Semester='2025\\_Spring'}(STUDENT)) ⋈ ENROLLπCID(σSemester=′2025_Spring′(STUDENT))⋈ENROLL"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: πCID(σSemester=′2025_Spring′(STUDENT))⋈ENROLLπ_{CID}(σ_{Semester='2025\\_Spring'}(STUDENT)) ⋈ ENROLLπCID(σSemester=′2025_Spring′(STUDENT))⋈ENROLL. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3056,8 +3056,8 @@
       "Nếu A --> BC và BD --> E thì A --> E",
       "Nếu A --> B và B --> C thì A --> C"
     ],
-    "correctAnswer": 1,
-    "explanation": "Đáp án đúng là B: Nếu A --> B và B --> A thì A --> C. Hệ tiên đề Armstrong gồm 3 quy tắc cơ bản: (1) Phản xạ: nếu Y⊆X thì X→Y; (2) Tăng: nếu X→Y thì XZ→YZ; (3) Bắc cầu: nếu X→Y và Y→Z thì X→Z. Ba quy tắc này đầy đủ và đúng đắn để suy dẫn mọi phụ thuộc hàm."
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Nếu A --> B và B --> C thì A --> C. Quy tắc bắc cầu Armstrong: Nếu A→B và B→C thì A→C. Đây là một trong 3 quy tắc cơ sở (cùng phản xạ và gia tăng)."
   },
   {
     "id": 256,
@@ -3080,7 +3080,7 @@
       "COURSE(CID PK, SID FK, Grade); STUDENT(SID PK)",
       "ENROLL(SID PK, CID PK, Grade), không FK"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: ENROLL(SID PK, CID PK, Grade), không FK. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3140,7 +3140,7 @@
       "Drop table Khachhang",
       "Delete table Khachhang"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: Cả 2 phương án: 1 và 2. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3152,8 +3152,8 @@
       "{A, B, C}",
       "{B, C}"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: {B, C}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: {A, C}. C+ với F={AB→C,C→A}: C→A→{A,C}. AB→C cần B (chưa có) → dừng. C+={A,C}."
   },
   {
     "id": 264,
@@ -3164,7 +3164,7 @@
       "Nhiều người sử dụng, không phụ thuộc vị trí địa lý, có phân quyền.",
       "Nhiều người sử dụng, có phân quyền."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Nhiều người sử dụng, có phân quyền.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3176,7 +3176,7 @@
       "Phụ thuộc vào yêu cầu truy xuất và khai thác thông tin",
       "Không tổn thất thông tin"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: Độc lập dữ liệu. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3200,8 +3200,8 @@
       "{A, B, C, D}",
       "{A, B, C, D, E, F}"
     ],
-    "correctAnswer": 1,
-    "explanation": "Đáp án đúng là B: {B, C, D, E, F}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: {A, B, C, D, E, F}. (BC)+: B→D→{B,C,D}, D→E→{A,B,C,D,E} (sai - D→E not D→A, let me recalc). BC: B→D:{B,C,D}. D→E:{B,C,D,E}. C→A:{A,B,C,D,E}. AE→F:{A,B,C,D,E,F}=Ω. (BC)+={A,B,C,D,E,F}."
   },
   {
     "id": 268,
@@ -3224,7 +3224,7 @@
       "E→A",
       "D→E"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: B→E. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -3248,7 +3248,7 @@
       "Mô hình quan niệm là cách nhìn dữ liệu của người sử dụng",
       "Mô hình dữ liệu là nội dung thông tin của người sử dụng"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: Mô hình dữ liệu là nội dung thông tin của người sử dụng. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3272,7 +3272,7 @@
       "Quan hệ, bộ và thuộc tính",
       "Tập tin, mẫu tin và trường."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Tập tin, mẫu tin và trường.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3284,7 +3284,7 @@
       "Được suy dẫn bằng cách áp dụng liên tiếp các hệ tiên đề Armstrong",
       "Được suy dẫn bằng định nghĩa"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: Đầy đủ được suy dẫn logic. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
   },
   {
@@ -3320,7 +3320,7 @@
       "Là thành phần cuả ít nhất một khoá dự tuyển.",
       "Là thành phần cuả khoá chính."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Là thành phần cuả khoá chính.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3332,7 +3332,7 @@
       "Nếu bảng bị xóa là bảng cha, thì dữ liệu sẽ được đưa vào bảng con tương ứng.",
       "Nếu bảng bị xóa là bảng con, thì dữ liệu sẽ đưa vào bảng cha tương ứng."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: Nếu bảng bị xóa là bảng con, thì dữ liệu sẽ đưa vào bảng cha tương ứng.. Câu lệnh SELECT trong SQL theo thứ tự xử lý: FROM (chọn bảng) → WHERE (lọc hàng) → GROUP BY (gộp nhóm) → HAVING (lọc nhóm) → SELECT (chọn cột) → ORDER BY (sắp xếp). Cú pháp và điều kiện lọc phải chính xác để cho kết quả đúng."
   },
   {
@@ -3344,7 +3344,7 @@
       "Hệ thống, người quản trị cấp phép, an toàn mạng",
       "Người quản trị cơ sở dữ liệu cấp phép truy nhập"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Người quản trị cơ sở dữ liệu cấp phép truy nhập. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3356,7 +3356,7 @@
       "n-1",
       "1-1"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: 1-1. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3368,7 +3368,7 @@
       "X₀ ⊆ X₁ ⊆ X₂ ⊆ ... ⊆ X_n ⊆ Xn+1 ⊆ Xn+2",
       "X⁺ := X ∪ {B | A → B ∈ F⁺}"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: X⁺ := X ∪ {B | A → B ∈ F⁺}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
   },
   {
@@ -3392,7 +3392,7 @@
       "AC → Z",
       "AC → Z ∉ F⁺"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là A: AC ⇌ Z⁺. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -3404,7 +3404,7 @@
       "Cũng trùng nhau trên các thành phần không khóa",
       "Cũng trùng nhau trên các thành phần của tất cả các bộ"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: Khác nhau trên các thành phần không khóa. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3416,7 +3416,7 @@
       "T và M là các thuộc tính khóa và (T,M)⁺ = Ω",
       "T, D, M là các thuộc tính khóa và (T,D)⁺ = Ω"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là A: Y, D, L là các thuộc tính khóa và (T,D)⁺ = Ω. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -3428,7 +3428,7 @@
       "Phụ thuộc vào vị trí của các phép toán",
       "Phép kết nối được ưu tiên hơn so với phép hợp, phép giao"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: Phép kết nối được ưu tiên hơn so với phép hợp, phép giao. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3440,7 +3440,7 @@
       "πName(σSemester=′2025_Fall′(STUDENT⋈MEMBER))π_{Name}(σ_{Semester='2025\\_Fall'}(STUDENT ⋈ MEMBER))πName(σSemester=′2025_Fall′(STUDENT⋈MEMBER))",
       "πName(STUDENT⋈(πClubID(MEMBER)∩πSID(σSemester=′2025_Fall′(ENROLL))))π_{Name}(STUDENT ⋈ (π_{ClubID}(MEMBER) ∩ π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))))πName(STUDENT⋈(πClubID(MEMBER)∩πSID(σSemester=′2025_Fall′(ENROLL))))"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: πName(STUDENT⋈(πClubID(MEMBER)∩πSID(σSemester=′2025_Fall′(ENROLL))))π_{Name}(STUDENT ⋈ (π_{ClubID}(MEMBER) ∩ π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))))πName(STUDENT⋈(πClubID(MEMBER)∩πSID(σSemester=′2025_Fall′(ENROLL)))). Lược đồ quan hệ R(A1,A2,...,An) định nghĩa cấu trúc của một quan hệ gồm tên quan hệ và danh sách các thuộc tính. Quan hệ (instance) là tập hữu hạn các bộ thỏa mãn lược đồ tại một thời điểm cụ thể."
   },
   {
@@ -3452,7 +3452,7 @@
       "Kiểm tra (A₁A₂...Ai-1Ai+1...A_n → B) ∈ F",
       "Kiểm tra (A₁A₂...Ai-1Ai+1...A_n)⁺ ⊆ B, i = 1 ÷ n"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: Kiểm tra (A₁A₂...Ai-1Ai+1...A_n)⁺ ⊆ B, i = 1 ÷ n. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -3464,7 +3464,7 @@
       "Hình elip",
       "Hình thoi"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: Hình tam giác. Mô hình thực thể - quan hệ (ERM/ERD) là công cụ thiết kế CSDL mức khái niệm. Thực thể (entity) là đối tượng cần quản lý, thuộc tính (attribute) mô tả đặc điểm, và liên kết (relationship) thể hiện mối quan hệ giữa các thực thể."
   },
   {
@@ -3476,7 +3476,7 @@
       "{W B A F}",
       "{W B A K}"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: {W B A K}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
   },
   {
@@ -3500,8 +3500,8 @@
       "2NF (nhưng không phải 3NF)",
       "BCNF"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: BCNF. Quan hệ đạt chuẩn 1NF khi mỗi giá trị trong mỗi ô là nguyên tử (không thể chia nhỏ hơn), mỗi cột chứa cùng loại dữ liệu và mỗi hàng là duy nhất. 1NF loại bỏ các thuộc tính đa trị và thuộc tính phức hợp."
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: 3NF (nhưng không phải BCNF). R(A,B,C,D), F={A→B,B→C,C→A}: A↔B↔C. Khóa: AD, BD, CD. FD A→B: A không siêu khóa nhưng B là prime (B∈BD) → 3NF ✓ BCNF ✗. Cao nhất: 3NF (không BCNF)."
   },
   {
     "id": 293,
@@ -3512,7 +3512,7 @@
       "Phụ thuộc có vế trái dư thừa là phụ thuộc bắc cầu",
       "Phụ thuộc có vế trái dư thừa là phụ thuộc đầy đủ"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: Phụ thuộc có vế trái dư thừa là phụ thuộc đầy đủ. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3524,7 +3524,7 @@
       "Các mối quan hệ.",
       "Thực thể và thuộc tính."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: Thực thể và thuộc tính.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3548,7 +3548,7 @@
       "AD",
       "BC"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: BC. Khóa ứng viên (candidate key) là tập thuộc tính tối thiểu mà bao đóng của nó chứa toàn bộ thuộc tính của quan hệ. Cần kiểm tra bao đóng của từng tập và chọn tập nhỏ nhất thỏa mãn điều kiện siêu khóa."
   },
   {
@@ -3560,7 +3560,7 @@
       "MAX",
       "COMPUTE"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: COUNT. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3584,7 +3584,7 @@
       "πCID(σDept=′CS′∨Dept=′SE′(COURSE))∩πCID(σSemester<>′2025_Fall′(ENROLL))π_{CID}(σ_{Dept='CS' ∨ Dept='SE'}(COURSE)) ∩ π_{CID}(σ_{Semester<>'2025\\_Fall'}(ENROLL))πCID(σDept=′CS′∨Dept=′SE′(COURSE))∩πCID(σSemester<>′2025_Fall′(ENROLL))",
       "πCID(σSemester=′2025_Fall′(ENROLL))−πCID(σDept=′CS′∨Dept=′SE′(COURSE))π_{CID}(σ_{Semester='2025\\_Fall'}(ENROLL)) − π_{CID}(σ_{Dept='CS' ∨ Dept='SE'}(COURSE))πCID(σSemester=′2025_Fall′(ENROLL))−πCID(σDept=′CS′∨Dept=′SE′(COURSE))"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: πCID(σSemester=′2025_Fall′(ENROLL))−πCID(σDept=′CS′∨Dept=′SE′(COURSE))π_{CID}(σ_{Semester='2025\\_Fall'}(ENROLL)) − π_{CID}(σ_{Dept='CS' ∨ Dept='SE'}(COURSE))πCID(σSemester=′2025_Fall′(ENROLL))−πCID(σDept=′CS′∨Dept=′SE′(COURSE)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3632,8 +3632,8 @@
       "∃ A' ⊂ A suy ra A' → B ∉ F⁺",
       "∃ A' ⊂ A suy ra A' → B ∈ F⁺"
     ],
-    "correctAnswer": 0,
-    "explanation": "Đáp án đúng là A: ∀ A' ⊂ A suy ra A' → B ∈ F⁺. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: ∃ A' ⊂ A suy ra A' → B ∈ F⁺. Partial FD A→B (A tổ hợp): TỒN TẠI A'⊂A sao cho A'→B ∈ F+. Ngược lại, phụ thuộc ĐẦY ĐỦ: không tồn tại tập con thực sự nào của A vẫn xác định B."
   },
   {
     "id": 304,
@@ -3644,7 +3644,7 @@
       "Một tập các quy tắc biểu diễn dữ liệu",
       "Một tập các ký hiệu biểu diễn dữ liệu"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: Một tập các ký hiệu biểu diễn dữ liệu. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3668,7 +3668,7 @@
       "mối quan hệ",
       "Cơ sở dữ liệu"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Cơ sở dữ liệu. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3692,7 +3692,7 @@
       "SELECT * FROM R GROUP BY TB HAVING DC = “Đường Nguyễn Trãi”",
       "SELECT * FROM R"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: SELECT * FROM R. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3716,7 +3716,7 @@
       "σ_{B ∉ S}(R)",
       "R ÷ S"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: R ÷ S. Lược đồ quan hệ R(A1,A2,...,An) định nghĩa cấu trúc của một quan hệ gồm tên quan hệ và danh sách các thuộc tính. Quan hệ (instance) là tập hữu hạn các bộ thỏa mãn lược đồ tại một thời điểm cụ thể."
   },
   {
@@ -3728,7 +3728,7 @@
       "Đảm bảo tính nhất quán dữ liệu",
       "Đảm bảo cho việc lưu trữ dữ liệu"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: Đảm bảo cho việc lưu trữ dữ liệu. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3740,7 +3740,7 @@
       "X⁺ := {A | A → B ∈ F⁺}",
       "X⁺ := {A ∩ B | A → B ∈ F⁺}"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: X⁺ := {A ∩ B | A → B ∈ F⁺}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
   },
   {
@@ -3752,7 +3752,7 @@
       "AC",
       "C"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: C. Khóa ứng viên (candidate key) là tập thuộc tính tối thiểu mà bao đóng của nó chứa toàn bộ thuộc tính của quan hệ. Cần kiểm tra bao đóng của từng tập và chọn tập nhỏ nhất thỏa mãn điều kiện siêu khóa."
   },
   {
@@ -3764,8 +3764,8 @@
       "Dạng chuẩn 3 (3NF)",
       "Dạng chuẩn 2 (2NF)"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: Dạng chuẩn 2 (2NF). Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: Dạng chuẩn 3 (3NF). R(A,B,C,D), F={AB→C,D→B,C→ABD}. C là khóa. AB là khóa. DB là khóa. D→B: D không siêu khóa, B là prime (B∈AB) → 3NF ✓ BCNF ✗. Cao nhất: 3NF."
   },
   {
     "id": 315,
@@ -3848,7 +3848,7 @@
       "ADD",
       "SUM"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: SUM. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3860,7 +3860,7 @@
       "Các bộ có mặt trong các quan hệ nguồn",
       "Các bộ của các quan hệ nguồn thỏa điều kiện hợp"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: Các bộ của các quan hệ nguồn thỏa điều kiện hợp. Trong mô hình dữ liệu quan hệ, thuộc tính (attribute) biểu diễn các đặc trưng riêng của từng đối tượng được quản lý. Mỗi thuộc tính có một miền giá trị (domain) xác định tập hợp các giá trị hợp lệ mà nó có thể nhận."
   },
   {
@@ -3872,7 +3872,7 @@
       "C→B",
       "AB↛C"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là B: C→A. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -3884,7 +3884,7 @@
       "AB→E",
       "A→E"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: A→E. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -3920,7 +3920,7 @@
       "A→B",
       "C→B"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: C→B. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -3932,7 +3932,7 @@
       "Câu lệnh Delete sẽ xóa tất cả các mẩu tin trong bảng.",
       "Câu lệnh Delete sẽ lỗi do không có dòng nào được xóa."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Câu lệnh Delete sẽ lỗi do không có dòng nào được xóa.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3944,7 +3944,7 @@
       "πName(STUDENT⋈(πSID(ENROLL⋈σTitle=′Database′(COURSE))−πSID(ENROLL⋈σTitle=′AI′(COURSE))))π_{Name}(STUDENT ⋈ (π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)) − π_{SID}(ENROLL ⋈ σ_{Title='AI'}(COURSE))))πName(STUDENT⋈(πSID(ENROLL⋈σTitle=′Database′(COURSE))−πSID(ENROLL⋈σTitle=′AI′(COURSE))))",
       "πName(STUDENT⋈(πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE))))π_{Name}(STUDENT ⋈ (π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)) ∩ π_{SID}(ENROLL ⋈ σ_{Title='AI'}(COURSE))))πName(STUDENT⋈(πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE))))"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: πName(STUDENT⋈(πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE))))π_{Name}(STUDENT ⋈ (π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)) ∩ π_{SID}(ENROLL ⋈ σ_{Title='AI'}(COURSE))))πName(STUDENT⋈(πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE)))). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -3980,8 +3980,8 @@
       "2NF (nhưng không phải 3NF)",
       "chỉ 1NF"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: chỉ 1NF. Quan hệ đạt chuẩn 1NF khi mỗi giá trị trong mỗi ô là nguyên tử (không thể chia nhỏ hơn), mỗi cột chứa cùng loại dữ liệu và mỗi hàng là duy nhất. 1NF loại bỏ các thuộc tính đa trị và thuộc tính phức hợp."
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: 2NF (nhưng không phải 3NF). R(A,B,C,D,E), F={AB→C,C→D,D→E,E→C}. Khóa=AB. C→D: C không siêu khóa, D không prime → vi phạm 3NF. 2NF ✓ (khóa đơn AB, không có partial dep). Cao nhất: 2NF."
   },
   {
     "id": 333,
@@ -3992,7 +3992,7 @@
       "πSID(σDept=′CS′(COURSE))π_{SID}(σ_{Dept='CS'}(COURSE))πSID(σDept=′CS′(COURSE))",
       "πSID(ENROLL⋈COURSE)π_{SID}(ENROLL⋈COURSE)πSID(ENROLL⋈COURSE)"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: πSID(ENROLL⋈COURSE)π_{SID}(ENROLL⋈COURSE)πSID(ENROLL⋈COURSE). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -4004,7 +4004,7 @@
       "Biến đổi câu hỏi sao cho chi phí thời gian và sử dụng bộ nhớ là ít nhất",
       "Kết quả của các phép toán được biểu diễn duy nhất bằng một quan hệ"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: Kết quả của các phép toán được biểu diễn duy nhất bằng một quan hệ. Tối ưu hóa truy vấn thực hiện phép chọn (σ) và chiếu (π) trước để giảm kích thước quan hệ trung gian, sau đó mới thực hiện phép kết nối (join) tốn kém. Chiến lược này giảm đáng kể lượng dữ liệu cần xử lý."
   },
   {
@@ -4016,7 +4016,7 @@
       "Tạo cột lặp (repeating groups) trong một bảng",
       "Gộp thuộc tính mô tả vào một trong hai bảng thực thể"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: Gộp thuộc tính mô tả vào một trong hai bảng thực thể. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -4028,8 +4028,8 @@
       "A → B ⇒ AC → B và A → BC",
       "A → B ⇒ A → BC"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: A → B ⇒ A → BC. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: A → B ⇒ AC → B và A → BC. Gia tăng (augmentation): nếu A→B thì AC→BC (thêm C vào cả hai vế). Quy tắc này cho phép mở rộng cả vế trái lẫn vế phải với cùng một tập thuộc tính."
   },
   {
     "id": 337,
@@ -4040,8 +4040,8 @@
       "Nếu B ⊆ A ⇒ A → B",
       "Nếu B ⊆ A ⇒ B → A"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: Nếu B ⊆ A ⇒ B → A. Hệ tiên đề Armstrong gồm 3 quy tắc cơ bản: (1) Phản xạ: nếu Y⊆X thì X→Y; (2) Tăng: nếu X→Y thì XZ→YZ; (3) Bắc cầu: nếu X→Y và Y→Z thì X→Z. Ba quy tắc này đầy đủ và đúng đắn để suy dẫn mọi phụ thuộc hàm."
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: Nếu B ⊆ A ⇒ A → B. Phản xạ Armstrong: nếu Y⊆X (Y là tập con của X) thì X→Y. Ví dụ: {A,B}→A vì A⊆{A,B}. Đây là phụ thuộc luôn đúng (trivial FD)."
   },
   {
     "id": 338,
@@ -4052,7 +4052,7 @@
       "DROP",
       "REMOVE"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: REMOVE. Câu lệnh SELECT trong SQL theo thứ tự xử lý: FROM (chọn bảng) → WHERE (lọc hàng) → GROUP BY (gộp nhóm) → HAVING (lọc nhóm) → SELECT (chọn cột) → ORDER BY (sắp xếp). Cú pháp và điều kiện lọc phải chính xác để cho kết quả đúng."
   },
   {
@@ -4064,7 +4064,7 @@
       "GRANT REFERENCE ON BRANCH TO U",
       "GRANT REFERENCE (branch-name) ON BRANCH"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: GRANT REFERENCE (branch-name) ON BRANCH. Trong mô hình dữ liệu quan hệ, thuộc tính (attribute) biểu diễn các đặc trưng riêng của từng đối tượng được quản lý. Mỗi thuộc tính có một miền giá trị (domain) xác định tập hợp các giá trị hợp lệ mà nó có thể nhận."
   },
   {
@@ -4076,8 +4076,8 @@
       "C trong C→D",
       "B trong AB→C"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: B trong AB→C. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: A trong AB→C. F={AB→C,B→C,C→D}. A dư thừa trong AB→C vì: loại bỏ A, tính B+={B,C,D}⊇{C} → B→C ∈ F+ → AB→C vẫn suy ra được từ B→C. Vậy A là extraneous."
   },
   {
     "id": 341,
@@ -4088,7 +4088,7 @@
       "Học Viên (Mã học viên, tên học viên, điạ chỉ, ngày sinh, số điện thoại, ngày nhập",
       "Học Viên (Mã học viên, tên học viên, điạ chỉ, ngày sinh, số điện thoại, ngày nhập học, mã môn học) Môn học(Mã môn học, tên môn học, thời lượng) Với: khoá chính cuả bảng học viên là Mã học viên Khoá chính cuả bảng \"Môn học\" là Mã môn học Khoá chính cuả bảng \"Phiếu Ghi Danh\" là Mã học viên, Mã môn học"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: Học Viên (Mã học viên, tên học viên, điạ chỉ, ngày sinh, số điện thoại, ngày nhập học, mã môn học) Môn học(Mã môn học, tên môn học, thời lượng) Với: khoá chính cuả bảng học viên là Mã học viên Khoá chính cuả bảng \"Môn học\" là Mã môn học Khoá chính cuả bảng \"Phiếu Ghi Danh\" là Mã học viên, Mã môn học. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -4100,7 +4100,7 @@
       "Các định nghĩa, tiên đề, định lý",
       "Quy tắc biểu diễn cấu trúc dữ liệu"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: Quy tắc biểu diễn cấu trúc dữ liệu. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -4112,7 +4112,7 @@
       "A→B",
       "AB→C"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: AB→C. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -4124,7 +4124,7 @@
       "Câu truy vấn trên trả về danh sách tất cả các tên môn học.",
       "Câu truy vấn trên trả về danh sách tất cả các tên môn học mà sinh viên học có điểm lớn hơn 70."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: Câu truy vấn trên trả về danh sách tất cả các tên môn học mà sinh viên học có điểm lớn hơn 70.. Mệnh đề GROUP BY...HAVING phân hoạch các bộ của quan hệ thành các nhóm riêng biệt rồi áp dụng hàm gộp (aggregate) lên từng nhóm. HAVING lọc các nhóm sau khi gộp, khác với WHERE lọc từng bản ghi trước khi gộp."
   },
   {
@@ -4148,8 +4148,8 @@
       "{ R1(A,B), R2(B,C), R3(C,D) }",
       "{ R1(A,B,D), R2(B,C) }"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: { R1(A,B,D), R2(B,C) }. Phân rã BCNF (Boyce-Codd Normal Form) yêu cầu mỗi quan hệ kết quả phải có khóa phủ mọi phụ thuộc hàm, đồng thời đảm bảo tính không mất thông tin (lossless join). Phương án đúng thoả mãn cả hai điều kiện này."
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: { R1(B,C), R2(A,B), R3(A,D) }. BCNF phân rã R(ABCD), F={A→B,B→C}: B→C vi phạm BCNF. Phân rã: R1(B,C) [B là khóa ✓], R2(A,B) [A là khóa ✓], R3(A,D) [AD là khóa ✓]. Lossless ✓, dep-preserving ✓."
   },
   {
     "id": 347,
@@ -4160,7 +4160,7 @@
       "Dạng chuẩn 2 (2NF)",
       "Dạng chuẩn 3 (3NF)"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "Đáp án đúng là D: Dạng chuẩn 3 (3NF). Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -4172,8 +4172,8 @@
       "{A, B, C, D}",
       "{A, B, C, D, E}"
     ],
-    "correctAnswer": 3,
-    "explanation": "Đáp án đúng là D: {A, B, C, D, E}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: {A, B, C, D, E, F}. (AB)+: AB→C→{A,B,C}, C→D→{...D}, D→E→{...E}, E→A(đã có), C→F→{A,B,C,D,E,F}=Ω. (AB)+={A,B,C,D,E,F}."
   },
   {
     "id": 349,
@@ -4196,7 +4196,7 @@
       "A → B",
       "AC → B và A → CC"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: AC → B và A → CC. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   }
 ]
