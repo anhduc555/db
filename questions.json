@@ -308,7 +308,7 @@
       "BC",
       "AB, BC"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: AB. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -332,7 +332,7 @@
       "Difference (Phép trừ)",
       "Product (Phép tích Descartes)"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: Intersection (Phép giao). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -452,8 +452,8 @@
       "SELECT AVG FROM R",
       "SELECT SUM( *) FROM R"
     ],
-    "correctAnswer": 2,
-    "explanation": "Đáp án đúng là C: SELECT AVG FROM R. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: SELECT COUNT(*) FROM R. Để đếm TỔNG SỐ bản ghi (số thuê bao) trong một bảng, dùng hàm COUNT(*). SELECT COUNT(*) FROM R trả về số hàng trong quan hệ R. SELECT AVG cần tên cột cụ thể (không dùng AVG FROM R). SELECT SUM(*) không hợp lệ. SELECT * trả về toàn bộ dữ liệu, không phải số lượng."
   },
   {
     "id": 39,
@@ -716,7 +716,7 @@
       "πSID(ENROLL⋈σDept=′CS′(COURSE))∪πSID(ENROLL⋈σDept=′IS′(COURSE))π_{SID}(ENROLL ⋈ σ_{Dept='CS'}(COURSE)) ∪ π_{SID}(ENROLL ⋈ σ_{Dept='IS'}(COURSE))πSID(ENROLL⋈σDept=′CS′(COURSE))∪πSID(ENROLL⋈σDept=′IS′(COURSE))",
       "πSID(ENROLL⋈σDept=′CS′(COURSE))∩πSID(ENROLL⋈σDept=′IS′(COURSE))π_{SID}(ENROLL ⋈ σ_{Dept='CS'}(COURSE)) ∩ π_{SID}(ENROLL ⋈ σ_{Dept='IS'}(COURSE))πSID(ENROLL⋈σDept=′CS′(COURSE))∩πSID(ENROLL⋈σDept=′IS′(COURSE))"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: πSID(ENROLL⋈σDept=′CS′(COURSE))∩πSID(ENROLL⋈σDept=′IS′(COURSE))π_{SID}(ENROLL ⋈ σ_{Dept='CS'}(COURSE)) ∩ π_{SID}(ENROLL ⋈ σ_{Dept='IS'}(COURSE))πSID(ENROLL⋈σDept=′CS′(COURSE))∩πSID(ENROLL⋈σDept=′IS′(COURSE)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -728,7 +728,7 @@
       "Selet * From Persons Where FirstName like 'a*'",
       "Selet [all] From Persons Where FirstName like 'a%'"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là A: Selet * From Persons Where FirstName = 'a'. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -764,7 +764,7 @@
       "SELECT MaNV WHERE GioiHanTinDung=7500",
       "SELECT KhachHang WHERE GioiHanTinDung=’7500’"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là C: SELECT MaNV WHERE GioiHanTinDung=7500. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -776,7 +776,7 @@
       "1NF và các thuộc tính không khóa phụ thuộc đầy đủ vào khóa",
       "1NF và các thuộc tính không khóa phụ thuộc không đầy đủ vào khóa"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: 1NF và các thuộc tính không khóa phụ thuộc không đầy đủ vào khóa. Quan hệ đạt chuẩn 2NF khi đã đạt 1NF và mọi thuộc tính không khóa đều phụ thuộc đầy đủ vào khóa chính (không tồn tại phụ thuộc bộ phận). Nghĩa là không có thuộc tính nào chỉ phụ thuộc vào một phần của khóa ghép."
   },
   {
@@ -788,7 +788,7 @@
       "E→A",
       "AB→E"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "Đáp án đúng là B: A→E. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
@@ -836,7 +836,7 @@
       "Một",
       "Hai"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: Phụ thuộc vào người thiết kế hoặc quản trị CSDL. Mỗi bảng trong CSDL quan hệ chỉ có duy nhất một khóa chính (primary key), dù khóa đó có thể gồm nhiều cột (composite key). Tuy nhiên, một bảng có thể có nhiều khóa ứng viên (candidate keys)."
   },
   {
@@ -860,7 +860,7 @@
       "πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))",
       "πCID(σDept<>′CS′(COURSE))∪πCID(σSemester=′2025_Spring′(ENROLL))π_{CID}(σ_{Dept<>'CS'}(COURSE)) ∪ π_{CID}(σ_{Semester='2025\\_Spring'}(ENROLL))πCID(σDept<>′CS′(COURSE))∪πCID(σSemester=′2025_Spring′(ENROLL))"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 0,
     "explanation": "Đáp án đúng là D: πCID(σDept<>′CS′(COURSE))∪πCID(σSemester=′2025_Spring′(ENROLL))π_{CID}(σ_{Dept<>'CS'}(COURSE)) ∪ π_{CID}(σ_{Semester='2025\\_Spring'}(ENROLL))πCID(σDept<>′CS′(COURSE))∪πCID(σSemester=′2025_Spring′(ENROLL)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
@@ -2144,7 +2144,7 @@
       "chỉ 1NF",
       "BCNF"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là D: BCNF. Quan hệ đạt chuẩn 1NF khi mỗi giá trị trong mỗi ô là nguyên tử (không thể chia nhỏ hơn), mỗi cột chứa cùng loại dữ liệu và mỗi hàng là duy nhất. 1NF loại bỏ các thuộc tính đa trị và thuộc tính phức hợp."
   },
   {
@@ -2852,7 +2852,7 @@
       "GROUP BY sẽ phân hoạch quan hệ thành nhiều nhóm tách biệt nhau",
       "GROUP BY sẽ chia dọc quan hệ thành nhiều nhóm"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Đáp án đúng là B: Sắp xếp các bản ghi theo khoá được mô tả sau GROUP BY.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
