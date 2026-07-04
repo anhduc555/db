@@ -3,6 +3,7 @@ let questions = []; // Raw question pool loaded from questions.json + custom que
 let practiceIndex = 0; // Current question index in practice mode
 let userProgress = {}; // Tracks answered questions: { [id]: { answeredIndex, isCorrect, isFlagged } }
 let activeTab = 'practice'; // Current active tab
+let isAutoNextEnabled = false; // Auto-next feature
 
 // Mock Test State
 let mockTestState = {
@@ -18,8 +19,29 @@ let mockTestState = {
 
 // DOM Elements
 const themeToggle = document.getElementById('theme-toggle');
+const autoNextToggle = document.getElementById('auto-next-toggle');
 const toastElement = document.getElementById('toast');
 const toastMessageElement = document.getElementById('toast-message');
+
+// Initialize Settings
+function initSettings() {
+  const savedAutoNext = localStorage.getItem('db_exam_prep_auto_next');
+  if (savedAutoNext === 'true') {
+    isAutoNextEnabled = true;
+    if (autoNextToggle) autoNextToggle.checked = true;
+  } else {
+    isAutoNextEnabled = false;
+    if (autoNextToggle) autoNextToggle.checked = false;
+  }
+}
+
+if (autoNextToggle) {
+  autoNextToggle.addEventListener('change', (e) => {
+    isAutoNextEnabled = e.target.checked;
+    localStorage.setItem('db_exam_prep_auto_next', isAutoNextEnabled ? 'true' : 'false');
+    showToast(isAutoNextEnabled ? 'Đã bật tự động chuyển câu hỏi.' : 'Đã tắt tự động chuyển câu hỏi.', 'success');
+  });
+}
 
 // Initialize Theme
 function initTheme() {
@@ -553,14 +575,16 @@ function displayMockQuestion() {
         selectMockOption(optIdx);
         document.querySelectorAll('#mock-options .option-card').forEach(c => c.classList.remove('selected'));
         card.classList.add('selected');
-        // Auto-shift to next question after 500ms
-        const originalIndex = mockTestState.currentIndex;
-        if (originalIndex < mockTestState.questions.length - 1) {
-          setTimeout(() => {
-            if (mockTestState.isActive && mockTestState.currentIndex === originalIndex) {
-              nextMockQuestion();
-            }
-          }, 500);
+        // Auto-shift to next question if setting is enabled
+        if (isAutoNextEnabled) {
+          const originalIndex = mockTestState.currentIndex;
+          if (originalIndex < mockTestState.questions.length - 1) {
+            setTimeout(() => {
+              if (mockTestState.isActive && mockTestState.currentIndex === originalIndex) {
+                nextMockQuestion();
+              }
+            }, 1500); // Wait 1.5 seconds before auto-next
+          }
         }
       };
     } else {
@@ -994,6 +1018,7 @@ function handleAddQuestion(event) {
 }
 
 // Start app
+initSettings();
 initTheme();
 loadQuestions();
 
@@ -1139,15 +1164,15 @@ function selectOptionAndCheck(optIdx) {
   document.getElementById('btn-check').classList.add('hidden');
   document.getElementById('btn-redo').classList.remove('hidden');
 
-  // Auto-shift to the next question after 1200ms
-  if (practiceIndex < questions.length - 1) {
+  // Auto-shift to the next question if setting is enabled
+  if (isAutoNextEnabled && practiceIndex < questions.length - 1) {
     const originalIndex = practiceIndex;
     setTimeout(() => {
       if (activeTab === 'practice' && practiceIndex === originalIndex) {
         nextQuestion();
       }
-    }, 1200);
-  } else {
+    }, 1500); // Wait 1.5 seconds before auto-next
+  } else if (practiceIndex >= questions.length - 1) {
     // Last question: show report if all answered
     const totalAnswered = Object.keys(userProgress).filter(id =>
       questions.some(q => q.id == id) && userProgress[id].answeredIndex !== undefined
