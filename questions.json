@@ -692,8 +692,8 @@
       "Máy khách thực hiện các ứng dụng, nó gửi yêu cầu về máy chủ được kết nối với cơ sở dữ liệu, máy chủ xử lý và gửi trả lại kết quả về máy khách.",
       "Máy khách yêu cầu máy chủ cung cấp các loại dịch vụ."
     ],
-    "correctAnswer": 1,
-    "explanation": "Đáp án B đúng. Mô hình Client-Server phân tách ứng dụng thành server (lưu trữ và xử lý trung tâm) và client. Máy khách gửi yêu cầu và nhận kết quả, chia sẻ gánh nặng xử lý để hệ thống hiệu quả và bảo mật hơn."
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Máy khách (Client) thực hiện các ứng dụng (giao diện người dùng), sau đó gửi yêu cầu về máy chủ (Server). Máy chủ chứa CSDL sẽ xử lý truy vấn và gửi trả lại kết quả. Đây là định nghĩa chuẩn xác và đầy đủ nhất của mô hình CSDL Client-Server."
   },
   {
     "id": 59,
