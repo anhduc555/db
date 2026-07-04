@@ -1,0 +1,422 @@
+[
+  {
+    "id": 71,
+    "question": "Mô hình thực thể quan hệ cho phép mô tả",
+    "options": [
+      "Lược đồ khái niệm của một tổ chức",
+      "Bộ sưu tập các loại dữ liệu của một tổ chức",
+      "Hệ thống thông tin quản lý của tổ chức",
+      "Cấu trúc hệ thống cơ sở dữ liệu"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Mô hình Thực thể - Quan hệ (ERM) là một công cụ thiết kế cơ sở dữ liệu ở mức khái niệm. Do đó, nó cho phép mô tả lược đồ khái niệm (conceptual schema) của một tổ chức, giúp phản ánh cấu trúc thông tin tổng thể một cách trực quan trước khi chuyển sang thiết kế logic và vật lý."
+  },
+  {
+    "id": 72,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. ENROLL(SID, CID, Semester, Grade): Chứa thông tin đăng ký môn học của sinh viên. SID tham chiếu SID của STUDENT, CID tham chiếu tới CID của COURSE. Lấy CID của các môn không thuộc Dept='CS' nhưng có ít nhất một đăng ký trong Semester='2025_Spring'.",
+    "options": [
+      "πCID(σDept<>′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept<>'CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept<>′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))",
+      "πCID(σSemester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σSemester=′2025_Spring′(COURSE⋈ENROLL))",
+      "πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))",
+      "πCID(σDept<>′CS′(COURSE))∪πCID(σSemester=′2025_Spring′(ENROLL))π_{CID}(σ_{Dept<>'CS'}(COURSE)) ∪ π_{CID}(σ_{Semester='2025\\_Spring'}(ENROLL))πCID(σDept<>′CS′(COURSE))∪πCID(σSemester=′2025_Spring′(ENROLL))"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Ta cần tìm mã môn học (CID) đáp ứng hai điều kiện: khoa quản lý không phải là 'CS' (Dept <> 'CS' trong bảng COURSE) VÀ được đăng ký trong học kỳ '2025_Spring' (Semester = '2025_Spring' trong bảng ENROLL). Do đó, ta cần kết nối hai bảng, áp dụng phép chọn với điều kiện AND, rồi chiếu lấy CID."
+  },
+  {
+    "id": 73,
+    "question": "F = {A → B, B → C, BC → D, DA → B}",
+    "options": [
+      "A⁺ = ABCD và A → AD ∈ F⁺",
+      "A⁺ = ABCD và A → AD ∉ F⁺",
+      "A⁺ = ABC và A → AD ∈ F⁺",
+      "A = ABCD và A → AD ∈ F⁺"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Tính bao đóng của A: Khởi tạo A⁺ = {A}. Vì A -> B nên thêm B. Vì B -> C nên thêm C. Vì BC -> D (và ta đã có B, C) nên thêm D. Vậy A⁺ = {A, B, C, D}. Do bao đóng của A chứa D nên A xác định D (A -> AD thuộc F⁺)."
+  },
+  {
+    "id": 74,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Cấu trúc dữ liệu trong mô hình CSDL quan hệ đơn giản, thông tin về các thực thể và ràng buộc của các thực thể .......... trong các bảng, trong suốt với người sử dụng.",
+    "options": [
+      "Được biểu diễn duy nhất",
+      "Mô tả logic",
+      "Cấu trúc đơn giản",
+      "Được biểu diễn bằng nhiều cách khác nhau"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Theo nguyên tắc thông tin (Information Rule) của mô hình dữ liệu quan hệ (do E.F. Codd đề xuất), mọi thông tin trong CSDL (bao gồm cả dữ liệu về thực thể và các ràng buộc) đều phải được biểu diễn DUY NHẤT bằng một cách: đó là các giá trị trong các ô (giao của hàng và cột) của các bảng."
+  },
+  {
+    "id": 75,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất khi định nghĩa phép chiếu",
+    "options": [
+      "πA_{j1, Aj2, ..., Ajk}(R) := {⟨ aj1, aj2, ..., ajk⟩}",
+      "Cả ba đều sai",
+      "πA_{j1, Aj2, ..., Ajk}(R) = {⟨ aj1, aj2, ..., ajk⟩ | aji ∈ Dom(Aji), j_i = j₁ ÷ j_k}",
+      "π(R) := {⟨ aj1, aj2, ..., ajk⟩ | aji ∈ Dom(Aji), j_i = j₁ ÷ j_k}"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Định nghĩa toán học chuẩn của phép chiếu π_X(R) phải là tập hợp các bộ giá trị t[X] sao cho bộ t phải thuộc tập quan hệ R (t ∈ R). Các phương án khác bị thiếu hoặc viết sai điều kiện này (chỉ liệt kê điều kiện giá trị thuộc miền Dom là sai vì nó sẽ tạo ra mọi bộ có thể có)."
+  },
+  {
+    "id": 76,
+    "question": "F={AB→C, BC→D, CD→A, AD→B}. Khẳng định nào dưới đây là đúng?",
+    "options": [
+      "Chỉ BC là khóa",
+      "Không có khóa",
+      "Mọi vế trái là khóa",
+      "Chỉ AB là khóa"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Ta xét bao đóng của từng vế trái: (AB)⁺ = {A, B, C, D}. (BC)⁺ = {A, B, C, D}. (CD)⁺ = {A, B, C, D}. (AD)⁺ = {A, B, C, D}. Tất cả các vế trái đều có bao đóng chứa toàn bộ thuộc tính của quan hệ và không thể tối giản hơn, do đó mọi vế trái đều là khóa."
+  },
+  {
+    "id": 77,
+    "question": "Thực thể Product có thuộc tính Tag đa trị. Quan hệ nào dưới là đúng?",
+    "options": [
+      "PRODUCT(PID PK); PRODUCT_TAG(PID FK, Tag, PK(PID,Tag))",
+      "TAG(Tag PK); PRODUCT(PID PK, Tag FK)",
+      "PRODUCT(PID PK, Tags TEXT)",
+      "PRODUCT(PID PK, Tag1, Tag2, Tag3)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: PRODUCT(PID PK); PRODUCT_TAG(PID FK, Tag, PK(PID,Tag)). Mô hình thực thể - quan hệ (ERM/ERD) là công cụ thiết kế CSDL mức khái niệm. Thực thể (entity) là đối tượng cần quản lý, thuộc tính (attribute) mô tả đặc điểm, và liên kết (relationship) thể hiện mối quan hệ giữa các thực thể."
+  },
+  {
+    "id": 78,
+    "question": "F={A→B, B→C, AC→D}. Mệnh đề nào đúng?",
+    "options": [
+      "A↛C",
+      "A→C",
+      "D→A",
+      "C→A"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Bằng cách áp dụng luật bắc cầu (Transitivity Rule) trong hệ tiên đề Armstrong: Vì ta có A -> B và B -> C, nên ta dễ dàng suy ra được A -> C. Các mệnh đề khác không có cơ sở để suy diễn."
+  },
+  {
+    "id": 79,
+    "question": "Let R(A,B,C,D,E), F = {AB→CD, C→E, E→B}. What is (AB)+? (Cho R(A,B,C,D,E), F = {AB→CD, C→E, E→B}. Bao đóng (AB)+ là:)",
+    "options": [
+      "{A, B, C, D, E}",
+      "{A, B, C, D}",
+      "{A, B, D, E}",
+      "{A, B, C}"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Ta tính bao đóng của AB: Bắt đầu với (AB)⁺ = {A, B}. Áp dụng phụ thuộc AB -> CD, ta thêm C và D: {A, B, C, D}. Áp dụng tiếp C -> E, ta thêm E: {A, B, C, D, E}. Vậy bao đóng của AB là tập tất cả các thuộc tính {A, B, C, D, E}."
+  },
+  {
+    "id": 80,
+    "question": "Một bảng mà không có sự lặp lại ở một nhóm trị, với khoá chính chỉ có một thuộc tính, và có một phụ thuộc bắc cầu vi phạm. Vậy bảng này ở dạng chuẩn nào?",
+    "options": [
+      "Dạng chuẩn 2 (2NF)",
+      "Dạng chuẩn Boyce-Codd (BCNF)",
+      "Dạng chuẩn 1 (1NF)",
+      "Dạng chuẩn 3 (3NF)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Bảng không có nhóm trị lặp -> đạt 1NF. Khóa chính chỉ có một thuộc tính nên không thể có phụ thuộc bộ phận -> mặc nhiên đạt 2NF. Tuy nhiên, bảng có chứa phụ thuộc bắc cầu, tức là vi phạm điều kiện của 3NF. Do đó, dạng chuẩn cao nhất mà bảng này đạt được chỉ là 2NF."
+  },
+  {
+    "id": 81,
+    "question": "Gỉa sử quan hệ R([K, W], U ,I, Z) đạt 3NF. Phụ thuộc hàm nào sau đây là sai?",
+    "options": [
+      "K, W->U",
+      "Lựa chọn khác",
+      "K, W->I",
+      "U, I->Z"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: U, I->Z. Quan hệ đạt chuẩn 3NF khi đã đạt 2NF và không tồn tại phụ thuộc bắc cầu: mọi thuộc tính không khóa chỉ phụ thuộc trực tiếp vào khóa chính, không phụ thuộc qua thuộc tính không khóa khác."
+  },
+  {
+    "id": 82,
+    "question": "Một lược đồ quan hệ mà các thuộc tính không khóa đều phụ thuộc đầy đủ vào khóa thì sẽ đạt chuẩn:",
+    "options": [
+      "Dạng chuẩn Boyce-Codd (BCNF)",
+      "Dạng chuẩn 3 (3NF)",
+      "Dạng chuẩn 2 (2NF)",
+      "Dạng chuẩn 1 (1NF)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Một lược đồ quan hệ đạt dạng chuẩn 2 (2NF) khi nó đã ở 1NF và tất cả các thuộc tính không khóa đều phụ thuộc hàm ĐẦY ĐỦ vào khóa chính (không có thuộc tính nào chỉ phụ thuộc vào một phần của khóa ghép)."
+  },
+  {
+    "id": 83,
+    "question": "Cho R(A,B,C,D,E), F = {AB→D, D→E, C→A}. Khóa ứng viên (khoá dự bị) của R là:",
+    "options": [
+      "BC",
+      "AB",
+      "CD",
+      "AC"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Các thuộc tính không xuất hiện ở vế phải của bất kỳ phụ thuộc hàm nào là B và C. Do đó, B và C bắt buộc phải nằm trong mọi khóa. Tính bao đóng của BC: (BC)⁺ = {B, C}. Có C -> A nên thêm A. Có AB -> D nên thêm D. Có D -> E nên thêm E. Vì (BC)⁺ = {A,B,C,D,E}, BC là khóa ứng viên duy nhất."
+  },
+  {
+    "id": 84,
+    "question": "Cho bảng T(P,O,C) và các phụ thuộc hàm sau: P->O, P->C, C->O. Loại phụ thuộc hàm tồn tại trong lược đồ CSDL trên:",
+    "options": [
+      "Phụ thuộc đầy đủ.",
+      "Phụ thuộc bắc cầu.",
+      "Phụ thuộc hàm hiển nhiên.",
+      "Phụ thuộc riêng phần."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Khóa của quan hệ T là P (vì P -> O và P -> C). Ta thấy C -> O là phụ thuộc hàm giữa hai thuộc tính không khóa. Từ đó tạo ra một chuỗi P -> C -> O, đây chính là định nghĩa của phụ thuộc bắc cầu (Transitive Dependency), làm vi phạm 3NF."
+  },
+  {
+    "id": 85,
+    "question": "Trong mô hình ERD, thuộc tính đa trị được biểu diễn bằng:",
+    "options": [
+      "Hình elip đôi",
+      "Hình thoi",
+      "Hình elip nét đứt",
+      "Hình chữ nhật"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Trong sơ đồ Thực thể - Quan hệ (ERD), thuộc tính đa trị (multivalued attribute) được biểu diễn bằng hình elip nét đôi (double ellipse). Hình thoi dùng cho liên kết, hình elip đơn cho thuộc tính thường."
+  },
+  {
+    "id": 86,
+    "question": "Một bảng có một khoá duy nhất (unique key). Một câu truy vấn thực hiện một phép kết bằng trên bảng này với chính nó thông qua khoá này. Bảng này có n dòng. Một dòng có giá trị khoá là rỗng (null). Kết quả cuả câu truy vấn trả về bao nhiêu dòng?",
+    "options": [
+      "Nhiều hơn n dòng.",
+      "n dòng",
+      "không có dòng nào cả.",
+      "ít hơn n dòng."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Trong SQL, phép so sánh bằng (=) với giá trị NULL sẽ trả về kết quả là UNKNOWN chứ không phải TRUE. Do đó, dòng chứa giá trị khóa NULL sẽ không được kết nối với chính nó. (n-1) dòng còn lại có khóa duy nhất khác NULL sẽ kết nối 1-1 với chính chúng. Kết quả sẽ có n-1 dòng."
+  },
+  {
+    "id": 87,
+    "question": "Mệnh đề SQL nào được dùng để cập nhật dữ liệu từ cơ sở dữ liệu",
+    "options": [
+      "Save as",
+      "Modify",
+      "Update",
+      "Alter"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Lệnh UPDATE trong ngôn ngữ thao tác dữ liệu (DML) của SQL được sử dụng để sửa đổi, cập nhật dữ liệu (các bản ghi) đã tồn tại trong một bảng của cơ sở dữ liệu."
+  },
+  {
+    "id": 88,
+    "question": "Truy vấn sau đây tương đương với truy vấn nào? SELECT name, course_id FROM instructor, teaches WHERE instructor_ID= teaches_ID;",
+    "options": [
+      "SELECT name, course_id FROM instructor;",
+      "SELECT course_id FROM instructor JOIN teaches;",
+      "SELECT name, course_id FROM instructor NATURAL JOIN teaches;",
+      "SELECT name,course_id FROM teaches,instructor WHERE instructor_id=course_id;"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Câu lệnh sử dụng phép kết nối truyền thống qua mệnh đề WHERE hoàn toàn tương đương với việc sử dụng NATURAL JOIN trong SQL (giả sử cột khóa chung duy nhất giữa hai bảng là ID). NATURAL JOIN sẽ tự động tìm các cột cùng tên và kết nối chúng."
+  },
+  {
+    "id": 89,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất khi nói về khái niệm mô hình cơ sở dữ liệu Client - Server",
+    "options": [
+      "Máy khách truy xuất cơ sở dữ liệu trên máy chủ qua môi trường mạng",
+      "Các máy khách chia sẻ xử lý thông tin",
+      "Khi máy khách thực hiện các ứng dụng, nó gửi yêu cầu về máy chủ được kết nối với cơ sở dữ liệu, máy chủ xử lý và gửi trả lại kết quả về máy khách",
+      "Máy chủ và máy khách có quyền truy xuất cơ sở dữ liệu"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Mô hình Client - Server hoạt động theo cơ chế: Máy khách chạy các ứng dụng giao diện và gửi các truy vấn qua mạng đến máy chủ. Máy chủ xử lý trực tiếp trên CSDL tập trung và trả kết quả về máy khách, giảm tải đường truyền."
+  },
+  {
+    "id": 90,
+    "question": "Dữ liệu trong mô hình quan hệ:",
+    "options": [
+      "Được biểu diễn theo cấu trúc hình cây.",
+      "Được biểu diễn theo cấu trúc mô hình mạng.",
+      "Được biểu diễn nhiều kiểu khác nhau.",
+      "Được biểu diễn theo cấu trúc bảng."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Đặc trưng cơ bản nhất của mô hình cơ sở dữ liệu quan hệ (Relational Model) là mọi dữ liệu và mối quan hệ giữa chúng đều được tổ chức và biểu diễn dưới dạng các bảng (table/relation) 2 chiều gồm hàng và cột."
+  },
+  {
+    "id": 91,
+    "question": "Người sử dụng có thể hiểu được một cơ sở dữ liệu thông qua một tập hợp các bảng, đó gọi là mô hình gì?",
+    "options": [
+      "Hướng đối tượng",
+      "Phân cấp",
+      "Mạng",
+      "Quan hệ"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Mô hình dữ liệu quan hệ do E.F. Codd đề xuất năm 1970 dựa trên lý thuyết tập hợp, trong đó cơ sở dữ liệu được tổ chức thành các bảng (relations). Người sử dụng thao tác và hình dung dữ liệu qua các bảng này."
+  },
+  {
+    "id": 92,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Giá trị các thành phần của khoá ..........",
+    "options": [
+      "Có thể nhận giá trị null hay các giá trị không xác định",
+      "Không thể nhận giá trị null và chấp nhận các giá trị không xác định",
+      "Không thể nhận giá trị null hay các giá trị không xác định",
+      "Có thể nhận giá trị các giá trị không xác định"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Theo ràng buộc toàn vẹn thực thể (Entity Integrity Constraint), không có bất kỳ thành phần nào của khóa chính được phép nhận giá trị rỗng (NULL) hoặc không xác định. Khóa chính phải có giá trị để xác định tính duy nhất."
+  },
+  {
+    "id": 93,
+    "question": "Mối quan hệ “Khoa – Trưởng khoa” (một khoa có đúng một trưởng khoa, một giảng viên chỉ có thể làm trưởng cho một khoa) là loại quan hệ gì?",
+    "options": [
+      "1–N",
+      "Tự liên kết",
+      "N–N",
+      "1–1"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Vì mỗi khoa chỉ có ĐÚNG MỘT trưởng khoa và mỗi giảng viên chỉ có thể làm trưởng của TỐI ĐA MỘT khoa, nên bản chất mối quan hệ này là 1-1 (Một - Một) giữa Khoa và Giảng Viên."
+  },
+  {
+    "id": 94,
+    "question": "Một field dùng để định danh 1 dòng dữ liệu trong bảng gọi là?",
+    "options": [
+      "Tiêu đề",
+      "Dòng",
+      "Định danh query",
+      "Khóa chính"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Khóa chính (Primary Key) là một trường (field) hoặc tập hợp các trường dùng để định danh duy nhất mỗi dòng (bản ghi) trong một bảng của cơ sở dữ liệu."
+  },
+  {
+    "id": 95,
+    "question": "Mệnh đề WHERE trong ngôn ngữ truy vấn dữ liệu SQL có tác dụng:",
+    "options": [
+      "Xác định nguồn dữ liệu trong truy vấn",
+      "Thiết lập điều kiện",
+      "Giới hạn số cột trong kết quả",
+      "Lựa chọn khác"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: Thiết lập điều kiện. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 96,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất",
+    "options": [
+      "Mỗi một giá trị của khóa xác định các giá trị của các thuộc tính không khóa",
+      "Các thuộc tính không khóa phụ thuộc đầy đủ vào khóa",
+      "Giá trị các khóa có thể trùng nhau",
+      "X là khóa nếu: X⁺ = Ω và (X - A)⁺ ≠ Ω, ∀ A ∈ X"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Định nghĩa toán học của một khóa: Tập thuộc tính X là khóa nếu bao đóng của nó chứa toàn bộ thuộc tính (X⁺ = Ω) và X là tối thiểu, tức là không có tập con thực sự nào của X thỏa mãn điều kiện đó (với mọi A thuộc X, (X - A)⁺ ≠ Ω)."
+  },
+  {
+    "id": 97,
+    "question": "Cho lược đồ quan hệ R(B,F,D,H,I) và tập phụ thuộc hàm T={B->HI,H->FD,BD->F}. Tìm bao đóng cuả tập thuộc tính {BH}.",
+    "options": [
+      "{FDHI}",
+      "{BFHI}",
+      "{BFDH}",
+      "{BFDHI}"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: {BFDHI}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
+  },
+  {
+    "id": 98,
+    "question": "Cho R(A,B,C,D,E), F = {ABD→C, AB→C, C→E}. Thuộc tính nào thừa ở vế trái của ABD→C?",
+    "options": [
+      "D",
+      "B",
+      "Không có thuộc tính thừa",
+      "A"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Trong tập F đã có sẵn AB -> C. Theo luật gia tăng, ta có thể thêm D vào vế trái (ABD -> C) mà phụ thuộc hàm vẫn đúng. Tuy nhiên, D không đóng góp thêm giá trị xác định nào để ra C (chỉ cần AB là đủ), do đó D là thuộc tính thừa."
+  },
+  {
+    "id": 99,
+    "question": "Cho lược đồ Cơ sở dữ liệu sau: SinhVien(MaSV, HoSV, TenSV, Phai, NgaySinh, DiaChi, DienThoai, MaLop) Lop(MaLop, TenLop, MaKhoa, GVCN) KetQua(MaSV, MaMH, LanThi, Diem) MonHoc(MaMH, TenMH, SoTinChi) Liệt kê danh sách các sinh viên gồm (MaSV, HoSV, TenSV) đăng ký ít nhất là 3 môn học.",
+    "options": [
+      "Select K.MaSV, HoSV, TenSV From SinhVien S, KetQua K Where S.MaSV=K.MaSV Having count(MaMH)>=3",
+      "Select K.MaSV, HoSV, TenSV From SinhVien S, KetQua K Where S.MaSV=K.MaSV Group by K.MaSV, HoSV, TenSV Having count(MaMH)>=3",
+      "Select K.MaSV, HoSV, TenSV From SinhVien S, KetQua K",
+      "Select K.MaSV, HoSV, TenSV From SinhVien S, KetQua K Where S.MASV=K.MASV And count(MaMH)>=3"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Khi sử dụng hàm gộp thống kê như COUNT() đi kèm với các cột thông thường trong mệnh đề SELECT (như MaSV, HoSV, TenSV), ta BẮT BUỘC phải liệt kê các cột thông thường đó trong mệnh đề GROUP BY. Mệnh đề HAVING được dùng để lọc nhóm."
+  },
+  {
+    "id": 100,
+    "question": "Mục đích chính của phép đổi tên ρ trong join tự nhiên là:",
+    "options": [
+      "Sắp xếp kết quả",
+      "Xóa thuộc tính",
+      "Loại bỏ bộ trùng",
+      "Tránh đụng tên thuộc tính trước khi join"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Phép đổi tên (Rho - ρ) chủ yếu được sử dụng để đổi tên các thuộc tính hoặc quan hệ. Điều này cực kỳ quan trọng khi thực hiện kết nối tự nhiên hoặc các phép toán kết nối một bảng với chính nó (Self-Join) để tránh trùng lặp tên cột."
+  },
+  {
+    "id": 101,
+    "question": "Hệ tiên đề Armstrong cho các phụ thuộc hàm gồm các quy tắc",
+    "options": [
+      "Phản xạ, gia tăng, bắc cầu",
+      "Phản xạ, gia tăng, hợp và tách",
+      "Phản xạ, bắc cầu, hợp và tách",
+      "Phản xạ, hợp và tách"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: Phản xạ, gia tăng, bắc cầu. Hệ tiên đề Armstrong gồm 3 quy tắc CƠ BẢN: (1) Phản xạ: nếu Y⊆X thì X→Y; (2) Gia tăng: nếu X→Y thì XZ→YZ; (3) Bắc cầu: nếu X→Y và Y→Z thì X→Z. Các quy tắc phái sinh như Hợp, Tách được suy ra từ 3 quy tắc này."
+  },
+  {
+    "id": 102,
+    "question": "Điều gì sẽ xảy ra khi loại bỏ bản ghi gốc duy nhất trong một cây",
+    "options": [
+      "Mâu thuẫn thông tin",
+      "Không toàn vẹn dữ liệu",
+      "Dư thừa thông tin",
+      "Mất thông tin"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Mất thông tin. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 103,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất",
+    "options": [
+      "A → BC và BC → Z ⇒ AC → Z",
+      "AC → B và B → Z ⇒ AC → Z",
+      "A → B và B → Z ⇒ AC → Z",
+      "A → B và BC → Z ⇒ AC → Z"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Đây là Luật bắc cầu giả (Pseudo-transitivity Rule). Chứng minh: Từ A -> B, áp dụng luật gia tăng với C ta có AC -> BC. Áp dụng luật bắc cầu cho (AC -> BC) và (BC -> Z), ta thu được AC -> Z. Lựa chọn D đưa ra giả thiết lỏng nhất nhưng vẫn chứng minh được."
+  },
+  {
+    "id": 104,
+    "question": "Building có Address là thuộc tính phức hợp (Street, City, Zip) và có thuộc tính đa trị FacilityName. Mô hình quan hệ phù hợp cho mô tả trên là:",
+    "options": [
+      "BUILDING(BuildingID PK, Street, City, Zip, FacilityName)",
+      "BUILDING(BuildingID PK, Street, City, Zip); BUILDING_FACILITY(BuildingID FK→BUILDING, FacilityName, PK(BuildingID, FacilityName))",
+      "BUILDING(BuildingID PK, Address TEXT, FacilityName TEXT)",
+      "FACILITY(FacilityName PK); BUILDING(BuildingID PK, Street, City, Zip); HAS(BuildingID FK, FacilityName FK, PK(FacilityName))"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: BUILDING(BuildingID PK, Street, City, Zip); BUILDING_FACILITY(BuildingID FK→BUILDING, FacilityName, PK(BuildingID, FacilityName)). Thuộc tính đa trị trong ERD được ánh xạ thành bảng riêng: BUILDING_FACILITY(BuildingID FK, FacilityName, PK(BuildingID,FacilityName)). Thuộc tính phức hợp Address được phẳng hóa thành Street, City, Zip trong bảng chính."
+  },
+  {
+    "id": 105,
+    "question": "Câu lệnh truy vấn nào sau đây dùng để xác định standard prices nhỏ nhất trong table product_v",
+    "options": [
+      "select standard_price from min(product_v)",
+      "select min(standard_price) from product_v",
+      "select standard_price from product_v where standard_price = min",
+      "select min(standard_price) from product_v where standard_price ="
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: select min(standard_price) from product_v. Hàm MIN() trả về giá trị nhỏ nhất. Cú pháp đúng: SELECT MIN(ten_cot) FROM ten_bang. Option D thiếu điều kiện WHERE nên không hoàn chỉnh."
+  }
+]

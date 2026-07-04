@@ -1,0 +1,422 @@
+[
+  {
+    "id": 106,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất khi nói về biện pháp an toàn dữ liệu",
+    "options": [
+      "Ngăn chặn các truy nhập trái phép, sai quy định từ trong ra hoặc từ ngoài vào",
+      "Người sử dụng có thể kiểm tra, kiểm soát các quyền truy nhập của họ",
+      "Dễ dàng truy xuất, thao tác trên các cơ sở dữ liệu",
+      "Thống nhất các tiêu chuẩn, thủ tục và các biện pháp bảo vệ"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: Ngăn chặn các truy nhập trái phép, sai quy định từ trong ra hoặc từ ngoài vào. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 107,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất khi nói về cách nhận biết quan hệ dạng chuẩn 3NF",
+    "options": [
+      "Tập các thuộc tính không khóa khác rỗng",
+      "Tập các thuộc tính khóa bằng rỗng",
+      "Tồn tại phụ thuộc X → Y ∈ F⁺, Y ∉ X và X⁺ ≠ Ω",
+      "Không tồn tại phụ thuộc X → Y ∈ F⁺, Y ∉ X và X⁺ ≠ Ω"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Khẳng định 'Không tồn tại phụ thuộc hàm X -> Y (với Y không thuộc X) mà bao đóng của X không chứa toàn bộ thuộc tính (X⁺ ≠ Ω, tức X không phải siêu khóa)' chính là định nghĩa chuẩn của Dạng chuẩn Boyce-Codd (BCNF). BCNF là một dạng chặt chẽ hơn của 3NF (mọi quan hệ đạt BCNF đều mặc nhiên đạt 3NF)."
+  },
+  {
+    "id": 108,
+    "question": "Tất cả các hàm sau đây được xây dựng sẳn trong SQL, ngoại trừ:",
+    "options": [
+      "TOTAL",
+      "COUNT",
+      "MIN",
+      "AVG"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: TOTAL. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 109,
+    "question": "Cho R(A,B,C,D,E), F = {A→BC, B→D, CE→A}. Giả sử R ở 1NF. Dạng chuẩn cao nhất là:",
+    "options": [
+      "chỉ 1NF",
+      "3NF",
+      "2NF (nhưng không phải 3NF)",
+      "BCNF"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Các thuộc tính không xuất hiện ở vế phải là E, nên E phải nằm trong mọi khóa. Khóa ứng viên là AE và CE (ví AE⁺ = {A,B,C,D,E}). Các thuộc tính khóa là A, C, E; thuộc tính không khóa là B, D. Phụ thuộc hàm A -> B có vế trái là một phần của khóa AE, còn vế phải B là không khóa. Đây là phụ thuộc bộ phận, vi phạm 2NF. Nên chỉ đạt 1NF."
+  },
+  {
+    "id": 110,
+    "question": "Cho R(A,B,C,D,E), F = {A→B, B→C, A→C, AC→D}. Phụ thuộc hàm nào dư thừa?",
+    "options": [
+      "B→C",
+      "A→B",
+      "AC→D",
+      "A→C"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là B: A→B. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+  },
+  {
+    "id": 111,
+    "question": "F = {A → B, C → X, BX → Z}, khi đó",
+    "options": [
+      "AB → C ∈ F⁺",
+      "A → Z ∈ F⁺",
+      "X → Z ∈ F⁺",
+      "AC → Z ∈ F⁺"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: AC → Z ∈ F⁺. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+  },
+  {
+    "id": 112,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. ENROLL(SID, CID, Semester, Grade): Chứa thông tin đăng ký môn học của sinh viên. SID tham chiếu SID của STUDENT, CID tham chiếu tới CID của COURSE. Lấy SID của sinh viên có đăng ký cả hai học kỳ '2025_Spring' và '2025_Fall'.",
+    "options": [
+      "πSID(σSemester=′2025_Spring′(ENROLL))∩πSID(σSemester=′2025_Fall′(ENROLL))π_{SID}(σ_{Semester='2025\\_Spring'}(ENROLL)) ∩ π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))πSID(σSemester=′2025_Spring′(ENROLL))∩πSID(σSemester=′2025_Fall′(ENROLL))",
+      "πSID(σSemester=′2025_Spring′(ENROLL))∪πSID(σSemester=′2025_Fall′(ENROLL))π_{SID}(σ_{Semester='2025\\_Spring'}(ENROLL)) ∪ π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))πSID(σSemester=′2025_Spring′(ENROLL))∪πSID(σSemester=′2025_Fall′(ENROLL))",
+      "πSID(σSemester=′2025_Spring′∧Semester=′2025_Fall′(ENROLL))π_{SID}(σ_{Semester='2025\\_Spring' ∧ Semester='2025\\_Fall'}(ENROLL))πSID(σSemester=′2025_Spring′∧Semester=′2025_Fall′(ENROLL))",
+      "πSID(ENROLL)−πSID(σSemester=′2025_Fall′(ENROLL))π_{SID}(ENROLL) − π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))πSID(ENROLL)−πSID(σSemester=′2025_Fall′(ENROLL))"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: πSID(σSemester=′2025_Spring′(ENROLL))∩πSID(σSemester=′2025_Fall′(ENROLL))π_{SID}(σ_{Semester='2025\\_Spring'}(ENROLL)) ∩ π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))πSID(σSemester=′2025_Spring′(ENROLL))∩πSID(σSemester=′2025_Fall′(ENROLL)). Để tìm SID đăng ký CẢ HAI kỳ dùng phép GIAO (∩): πSID(σSpring(ENROLL)) ∩ πSID(σFall(ENROLL)). UNION cho ít nhất 1 kỳ, DIFFERENCE loại bỏ."
+  },
+  {
+    "id": 113,
+    "question": "Mô hình CSDL phân cấp là mô hình",
+    "options": [
+      "Dữ liệu được biểu diễn bằng mối quan hệ thực thể",
+      "Dữ liệu được biểu diễn bằng cấu trúc cây",
+      "Dữ liệu được biểu diễn bằng bảng",
+      "Dữ liệu được biểu diễn bằng con trỏ"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: Dữ liệu được biểu diễn bằng cấu trúc cây. Mô hình phân cấp tổ chức dữ liệu theo cấu trúc cây, mỗi nút cha có thể có nhiều nút con nhưng mỗi nút con chỉ có một nút cha. Mô hình mạng mở rộng điều này cho phép nút con có nhiều nút cha, dùng con trỏ để liên kết."
+  },
+  {
+    "id": 114,
+    "question": "F={A→BC, C→D, D→E}. A+A^+A+ là?",
+    "options": [
+      "{A,B,C,D,E}",
+      "{A,D,E}",
+      "{A,B,C}",
+      "{A,B,D}"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: {A,B,C,D,E}. Tính A+: {A}→BC: {A,B,C}→C→D: {A,B,C,D}→D→E: {A,B,C,D,E}. Vậy A+={A,B,C,D,E}."
+  },
+  {
+    "id": 115,
+    "question": "Let R(A,B,C,D), F = {AB→C, C→D}. What is (AB)+? ( Cho R(A,B,C,D), F = {AB→C, C→D}. Bao đóng (AB)+ là: )",
+    "options": [
+      "{A, B}",
+      "{A, B, C}",
+      "{A, B, C, D}",
+      "{A, C, D}"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: {A, B, C, D}. Tính (AB)+: {A,B}→AB→C: {A,B,C}→C→D: {A,B,C,D}. (AB)+={A,B,C,D}."
+  },
+  {
+    "id": 116,
+    "question": "Nếu NK->ME là một phụ thuộc hàm của lược đồ quan hệ H(N,K,M,E), thì:",
+    "options": [
+      "NK là khóa của H",
+      "Tất cả các câu đều đúng.",
+      "Không thể tồn tại 2 bộ trong H mà có cùng giá trị của N và K.",
+      "NK là khóa chính của H."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Nếu NK -> ME thì bao đóng (NK)⁺ chứa toàn bộ thuộc tính của quan hệ H. Do đó, NK là một siêu khóa và có thể làm khóa chính. Theo định nghĩa của khóa, sẽ không thể tồn tại hai bộ (dòng) dữ liệu khác nhau mà lại có cùng giá trị trên cặp thuộc tính N và K. Nên tất cả các phương án đều đúng."
+  },
+  {
+    "id": 117,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Có rất nhiều cách nhìn dữ liệu ở mô hình ngoài, nhưng biểu diễn toàn bộ thông tin trong CSDL là duy nhất tại:",
+    "options": [
+      "Mô hình quan niệm",
+      "Mô hình trong",
+      "Mô hình khái niệm",
+      "Mô hình ngoài"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Theo kiến trúc 3 lược đồ ANSI-SPARC: (1) Mô hình ngoài (External Level) có nhiều khung nhìn khác nhau cho từng nhóm người dùng. (2) Mô hình quan niệm / khái niệm (Conceptual Level) là sự biểu diễn logic, thống nhất và duy nhất của toàn bộ cấu trúc cơ sở dữ liệu. (3) Mô hình trong (Internal Level) quy định cách lưu trữ vật lý."
+  },
+  {
+    "id": 118,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Nếu quan hệ là dạng chuẩn 1NF và không tồn tại các phụ thuộc hàm sao cho thuộc tính về vế trái là một tập con thực sự của khóa và thuộc tính về vế phải ..........",
+    "options": [
+      "Phụ thuộc hàm vào thuộc tính vế trái",
+      "Là thuộc tính dư thừa về trái",
+      "Phụ thuộc hàm vào thuộc tính không khóa",
+      "Là thuộc tính không khóa của quan hệ"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Đây là định nghĩa của Dạng chuẩn 2 (2NF). Một quan hệ đạt 2NF nếu nó đã đạt 1NF và KHÔNG tồn tại phụ thuộc hàm mà vế trái là một tập con thực sự của khóa chính, còn vế phải là một 'thuộc tính không khóa' (tức là không có phụ thuộc bộ phận của thuộc tính không khóa vào khóa)."
+  },
+  {
+    "id": 119,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Người sử dụng được quyền ghi và đọc bao gồm các quyền như chèn, xóa và sửa đổi........",
+    "options": [
+      "GRANT ALL ON R TO GROUP/WORLD",
+      "GRANT READ ON R TO GROUP/WORLD",
+      "GRANT READ/WRITE ON R TO GROUP/WORLD",
+      "GRANT SELECT ON R TO GROUP/WORLD"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Để cấp quyền 'ghi và đọc' (bao gồm chèn - INSERT, xóa - DELETE, sửa đổi - UPDATE, và đọc - SELECT) cho người dùng hoặc nhóm người dùng, ta sử dụng lệnh GRANT ALL PRIVILEGES. (Lệnh GRANT SELECT chỉ cấp quyền đọc, không cho phép thay đổi dữ liệu)."
+  },
+  {
+    "id": 120,
+    "question": "Given R(A,B,C,D,E), F = {A→BC, C→D, D→E}. Which FD set is equivalent to F? (Cho R(A,B,C,D,E), F = {A→BC, C→D, D→E}. Tập FD nào tương đương với F?)",
+    "options": [
+      "{A→BC, C→DE}",
+      "{A→BC, C→D, E→A}",
+      "{A→B, B→C, C→D, D→E}",
+      "{A→B, A→C, C→D, D→E}"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: {A→B, A→C, C→D, D→E}. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+  },
+  {
+    "id": 121,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. ENROLL(SID, CID, Semester, Grade): Chứa thông tin đăng ký môn học của sinh viên. SID tham chiếu SID của STUDENT, CID tham chiếu tới CID của COURSE. Lấy CID của các môn Dept='CS' có đăng ký trong '2025_Fall' nhưng không có đăng ký trong '2025_Spring'.",
+    "options": [
+      "πCID(σDept=′CS′(COURSE))−πCID(σSemester=′2025_Spring′(ENROLL))π_{CID}(σ_{Dept='CS'}(COURSE)) − π_{CID}(σ_{Semester='2025\\_Spring'}(ENROLL))πCID(σDept=′CS′(COURSE))−πCID(σSemester=′2025_Spring′(ENROLL))",
+      "πCID(σDept=′CS′∧Semester=′2025_Fall′(COURSE⋈ENROLL))∩πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Fall'}(COURSE ⋈ ENROLL)) ∩ π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept=′CS′∧Semester=′2025_Fall′(COURSE⋈ENROLL))∩πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))",
+      "πCID(σSemester=′2025_Fall′(ENROLL))−πCID(σDept=′CS′(COURSE))π_{CID}(σ_{Semester='2025\\_Fall'}(ENROLL)) − π_{CID}(σ_{Dept='CS'}(COURSE))πCID(σSemester=′2025_Fall′(ENROLL))−πCID(σDept=′CS′(COURSE))",
+      "πCID(σDept=′CS′∧Semester=′2025_Fall′(COURSE⋈ENROLL))−πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Fall'}(COURSE ⋈ ENROLL)) − π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept=′CS′∧Semester=′2025_Fall′(COURSE⋈ENROLL))−πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: πCID(σDept=′CS′∧Semester=′2025_Fall′(COURSE⋈ENROLL))−πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Fall'}(COURSE ⋈ ENROLL)) − π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept=′CS′∧Semester=′2025_Fall′(COURSE⋈ENROLL))−πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL)). CS courses trong Fall nhưng KHÔNG Spring: πCID(σCS∧Fall(COURSE⋈ENROLL)) − πCID(σCS∧Spring(COURSE⋈ENROLL)). Phải join COURSE để lọc Dept và dùng phép HIỆU."
+  },
+  {
+    "id": 122,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. INSTRUCTOR(IID, IName, Dept): Chứa thông tin giảng viên COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. ADVISE(SID, IID): Chứa thông tin cố vấn học tập, SID tham chiếu tới SID của STUDENTS, IID tham chiếu tới IID của INSTRUCTOR. ENROLL(SID, CID, Semester, Grade): Chứa thông tin đăng ký môn học của sinh viên. SID tham chiếu SID của STUDENT, CID tham chiếu tới CID của COURSE. Lấy Title của các môn được đăng ký bởi sinh viên được cố vấn bởi giảng viên có IID='I01'.",
+    "options": [
+      "πTitle(COURSE)−πTitle((σIID=′I01′(ADVISE))⋈ENROLL⋈COURSE)π_{Title}(COURSE) − π_{Title}((σ_{IID='I01'}(ADVISE)) ⋈ ENROLL ⋈ COURSE)πTitle(COURSE)−πTitle((σIID=′I01′(ADVISE))⋈ENROLL⋈COURSE)",
+      "πTitle((σIID=′I01′(ADVISE))⋈ENROLL⋈COURSE)π_{Title}((σ_{IID='I01'}(ADVISE)) ⋈ ENROLL ⋈ COURSE)πTitle((σIID=′I01′(ADVISE))⋈ENROLL⋈COURSE)",
+      "πTitle(σIID=′I01′(COURSE⋈ENROLL))π_{Title}(σ_{IID='I01'}(COURSE ⋈ ENROLL))πTitle(σIID=′I01′(COURSE⋈ENROLL))",
+      "πTitle(ADVISE⋈σIID=′I01′(ENROLL)⋈COURSE)π_{Title}(ADVISE ⋈ σ_{IID='I01'}(ENROLL) ⋈ COURSE)πTitle(ADVISE⋈σIID=′I01′(ENROLL)⋈COURSE)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: πTitle((σIID=′I01′(ADVISE))⋈ENROLL⋈COURSE)π_{Title}((σ_{IID='I01'}(ADVISE)) ⋈ ENROLL ⋈ COURSE)πTitle((σIID=′I01′(ADVISE))⋈ENROLL⋈COURSE). Lược đồ quan hệ R(A1,A2,...,An) định nghĩa cấu trúc của một quan hệ gồm tên quan hệ và danh sách các thuộc tính. Quan hệ (instance) là tập hữu hạn các bộ thỏa mãn lược đồ tại một thời điểm cụ thể."
+  },
+  {
+    "id": 123,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. PREREQ(CID, PreCID); Chứa thông tin môn tiên quyết. CID khác PreCID, đều tham chiếu tới CID của COURSE. ENROLL(SID, CID, Semester, Grade): Chứa thông tin đăng ký môn học của sinh viên. SID tham chiếu SID của STUDENT, CID tham chiếu tới CID của COURSE. Lấy CID của các môn có ít nhất một đăng ký và không phải là môn tiên quyết của bất kỳ môn nào (tức không xuất hiện ở PreCID).",
+    "options": [
+      "πCID(ENROLL)∪ρCID(πPreCID(PREREQ))π_{CID}(ENROLL) ∪ ρ_{CID}(π_{PreCID}(PREREQ))πCID(ENROLL)∪ρCID(πPreCID(PREREQ))",
+      "πCID(ENROLL)∩ρCID(πPreCID(PREREQ))π_{CID}(ENROLL) ∩ ρ_{CID}(π_{PreCID}(PREREQ))πCID(ENROLL)∩ρCID(πPreCID(PREREQ))",
+      "πCID(ENROLL)−ρCID(πPreCID(PREREQ))π_{CID}(ENROLL) − ρ_{CID}(π_{PreCID}(PREREQ))πCID(ENROLL)−ρCID(πPreCID(PREREQ))",
+      "πCID(ENROLL)−πPreCID(PREREQ)π_{CID}(ENROLL) − π_{PreCID}(PREREQ)πCID(ENROLL)−πPreCID(PREREQ)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: πCID(ENROLL)−ρCID(πPreCID(PREREQ))π_{CID}(ENROLL) − ρ_{CID}(π_{PreCID}(PREREQ))πCID(ENROLL)−ρCID(πPreCID(PREREQ)). Môn có đăng ký nhưng không là tiên quyết: πCID(ENROLL) − ρCID(πPreCID(PREREQ)). Dùng ρ để đổi tên PreCID thành CID trước khi trừ."
+  },
+  {
+    "id": 124,
+    "question": "Nếu lược đồ R(A,B,C), có phụ thuộc hàm A->B và B->C. Thuộc tính nào mang ý nghĩa quyết định?",
+    "options": [
+      "B, C",
+      "A",
+      "A, B, C",
+      "A, B"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Thuộc tính 'mang ý nghĩa quyết định' (hay khóa) là thuộc tính có thể xác định được tất cả các thuộc tính còn lại. Từ phụ thuộc hàm A -> B và B -> C, theo luật bắc cầu ta suy ra A -> C. Vậy bao đóng A⁺ = {A, B, C}, nghĩa là A quyết định toàn bộ quan hệ."
+  },
+  {
+    "id": 125,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất",
+    "options": [
+      "Mục tiêu của các hệ CSDL là: tính bất biến của các hệ ứng dụng đối với sự thay đổi trong cấu trúc lưu trữ và chiến lược truy nhập dữ liệu",
+      "Dữ liệu được biểu diễn, mô tả nhiều cách khác nhau",
+      "Cấu trúc lưu trữ và các hệ chương trình ứng dụng trên độc lập với nhau",
+      "Người sử dụng khi thao tác trên các cơ sở dữ liệu có thể làm thay đổi cấu trúc lưu trữ dữ liệu và chiến lược truy nhập cơ sở dữ liệu"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Một trong những mục tiêu quan trọng nhất của các Hệ quản trị Cơ sở dữ liệu (DBMS) là đảm bảo tính độc lập dữ liệu (Data Independence) - hay tính 'bất biến' của chương trình ứng dụng. Khi ta thay đổi cấu trúc lưu trữ vật lý bên dưới, các chương trình ứng dụng bên trên không cần phải viết lại."
+  },
+  {
+    "id": 126,
+    "question": "Let R(A,B,C), F = {A→B}. The candidate key of R is: ( Cho R(A,B,C), F = {A→B}. Khóa ứng viên của R là: )",
+    "options": [
+      "AC",
+      "A",
+      "BC",
+      "AB"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: AC. R(A,B,C), F={A→B}. AC+: A→B→{A,B,C}=Ω → AC là khóa ứng viên. A+={A,B}≠Ω, C+={C}≠Ω nên AC tối thiểu."
+  },
+  {
+    "id": 127,
+    "question": "Một lược đồ quan hệ đạt BCNF thì sẽ đạt chuẩn:",
+    "options": [
+      "Lựa chọn khác",
+      "Dạng chuẩn 3 (3NF)",
+      "Dạng chuẩn Boyce-Codd (BCNF)",
+      "Cả 2 phương án: 1 và 2"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Các dạng chuẩn được định nghĩa theo cấp bậc bao hàm nhau: BCNF ⊂ 3NF ⊂ 2NF ⊂ 1NF. Do đó, nếu một lược đồ quan hệ đã đạt Dạng chuẩn Boyce-Codd (BCNF), thì về mặt toán học, nó chắc chắn đã thỏa mãn các điều kiện để đạt Dạng chuẩn 3 (3NF) và dĩ nhiên là đạt BCNF."
+  },
+  {
+    "id": 128,
+    "question": "Một số mô hình dữ liệu sử dụng cho hệ thống cơ sở dữ liệu là?",
+    "options": [
+      "Mô hình dữ liệu mạng, phân cấp, hướng đối tượng",
+      "Mô hình dữ liệu quan hệ",
+      "Mô hình E-R",
+      "Tất cả các phương án trên."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Tất cả các phương án trên.. Tất cả đều là mô hình dữ liệu hợp lệ: mạng, phân cấp, hướng đối tượng, quan hệ, E-R."
+  },
+  {
+    "id": 129,
+    "question": "Cho các phụ thuộc hàm (H I -> D, D -> P) của lược đồ quan hệ N(H I D P), phụ thuộc hàm H -> P có thể được suy ra nhờ vào:",
+    "options": [
+      "Luật thêm vào",
+      "Luật bắc cầu",
+      "Luật phản xạ",
+      "Tất cả điều sai."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Từ HI -> D và D -> P, bằng luật bắc cầu ta chỉ có thể suy ra HI -> P. Để suy ra được H -> P, ta cần phải có thêm phụ thuộc hàm H -> I. Do không có đủ dữ kiện, H -> P là một phụ thuộc hàm sai và không có luật nào có thể suy diễn ra nó."
+  },
+  {
+    "id": 130,
+    "question": "Gỉa sử bảng Employee có n dòng dữ liệu (n>1). Hãy cho biết kết quả lệnh truy vấn sau có bao nhiêu dòng? SELECT e1.name, e2.name FROM employee e1, employee e2",
+    "options": [
+      ">n",
+      "0",
+      "n",
+      "< n"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: >n. Câu lệnh SELECT trong SQL theo thứ tự xử lý: FROM (chọn bảng) → WHERE (lọc hàng) → GROUP BY (gộp nhóm) → HAVING (lọc nhóm) → SELECT (chọn cột) → ORDER BY (sắp xếp). Cú pháp và điều kiện lọc phải chính xác để cho kết quả đúng."
+  },
+  {
+    "id": 131,
+    "question": "Một quan hệ dạng chuẩn 1NF có thể chuyển đổi về nhóm các quan hệ 3NF bằng cách",
+    "options": [
+      "Loại bỏ các phụ thuộc không đầy đủ vào khóa và bắc cầu vào khóa",
+      "Loại bỏ các phụ thuộc bắc cầu vào khóa",
+      "Loại bỏ các phụ thuộc không đầy đủ vào khóa",
+      "Loại bỏ các phụ thuộc đầy đủ vào khóa và bắc cầu vào khóa"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: Loại bỏ các phụ thuộc không đầy đủ vào khóa và bắc cầu vào khóa. 1NF→3NF cần loại bỏ: phụ thuộc bộ phận (partial) → đạt 2NF; phụ thuộc bắc cầu (transitive) → đạt 3NF. Cả hai phải được xử lý."
+  },
+  {
+    "id": 132,
+    "question": "Trong mô hình ER, ràng buộc toàn bộ của thực thể X vào quan hệ 1–N với thực thể Y có nghĩa là gì?",
+    "options": [
+      "Mọi thể hiện của Y đều phải tham gia vào quan hệ với X",
+      "Mỗi thể hiện của X chỉ được tham gia tối đa một lần với Y",
+      "Mọi thể hiện của X phải tham gia ít nhất một lần vào quan hệ với Y",
+      "Không có thể hiện nào của X được tham gia vào quan hệ với Y"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: Mọi thể hiện của X phải tham gia ít nhất một lần vào quan hệ với Y. Ràng buộc toàn bộ (total participation): MỌI thể hiện của X phải tham gia ít nhất một lần vào quan hệ với Y. Ký hiệu bằng đường đôi trong ERD."
+  },
+  {
+    "id": 133,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. ENROLL(SID, CID, Semester, Grade): Chứa thông tin đăng ký môn học của sinh viên. SID tham chiếu SID của STUDENT, CID tham chiếu tới CID của COURSE. Lấy CID của các môn không thuộc Dept='CS' nhưng có ít nhất một đăng ký trong Semester='2025_Spring'.",
+    "options": [
+      "πCID(σSemester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σSemester=′2025_Spring′(COURSE⋈ENROLL))",
+      "πCID(σDept<>′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept<>'CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept<>′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))",
+      "πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept='CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept=′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))",
+      "πCID(σDept<>′CS′(COURSE))∪πCID(σSemester=′2025_Spring′(ENROLL))π_{CID}(σ_{Dept<>'CS'}(COURSE)) ∪ π_{CID}(σ_{Semester='2025\\_Spring'}(ENROLL))πCID(σDept<>′CS′(COURSE))∪πCID(σSemester=′2025_Spring′(ENROLL))"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: πCID(σDept<>′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL))π_{CID}(σ_{Dept<>'CS' ∧ Semester='2025\\_Spring'}(COURSE ⋈ ENROLL))πCID(σDept<>′CS′∧Semester=′2025_Spring′(COURSE⋈ENROLL)). Môn không thuộc CS có đăng ký Spring: πCID(σDept<>'CS' ∧ Semester='2025_Spring'(COURSE⋈ENROLL)). Phải kết hợp cả hai điều kiện trong một phép chọn."
+  },
+  {
+    "id": 134,
+    "question": "Cho R(A,B,C,D,E), F = {AB→C, A→C, C→D, D→E}. Phụ thuộc hàm nào dư thừa?",
+    "options": [
+      "C→D",
+      "A→C",
+      "AB→C",
+      "D→E"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là B: A→C. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+  },
+  {
+    "id": 135,
+    "question": "Trong mô hình ERD, thực thể yếu (weak entity) được xác định bởi:",
+    "options": [
+      "Không có thuộc tính khóa riêng",
+      "Có thuộc tính đa trị",
+      "Có thuộc tính khóa riêng",
+      "Chỉ có quan hệ 1–1"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Trong mô hình ERD, thực thể yếu (weak entity) là thực thể KHÔNG CÓ đủ thuộc tính để tạo thành một khóa chính duy nhất (không có thuộc tính khóa riêng). Nó phải phụ thuộc vào một thực thể mạnh khác thông qua mối quan hệ định danh (identifying relationship) để tồn tại."
+  },
+  {
+    "id": 136,
+    "question": "Cho lược đồ quan hệ R(Emp#,Dept#,City) và khóa K(Emp#,Dept#), tập phụ thuộc hàm F: F = {Emp# -> City, Emp# -> Dept#, Dept# -> City, Emp#,Dept# -> City}, Tập phụ thuộc hàm nào sau đây là phủ tối thiểu của F?",
+    "options": [
+      "{Emp# -> City, Emp# -> Dept#}",
+      "{Emp# -> City, Dept# -> City}",
+      "{Emp#, Dept# -> City, Emp# -> Dept}",
+      "{Emp# -> Dept#, Dept# -> City}"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: {Emp# -> Dept#, Dept# -> City}. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+  },
+  {
+    "id": 137,
+    "question": "Cho quan hệ R(A,B,C,D), F={A→B, B→C, C→D}. Dạng chuẩn cao nhất mà quan hệ đáp ứng?",
+    "options": [
+      "3NF (không BCNF)",
+      "1NF",
+      "2NF",
+      "BCNF"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: 2NF. R(A,B,C,D), F={A→B,B→C,C→D}. Khóa=A. B→C: B không siêu khóa, C không prime → vi phạm 3NF. Khóa đơn A → không có partial dep → 2NF ✓. Cao nhất: 2NF."
+  },
+  {
+    "id": 138,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Có nhiều kỹ thuật tối ưu hoá các câu hỏi, trong đó có kỹ thuật phân rã câu hỏi dựa trên.........",
+    "options": [
+      "Suy dẫn logic từ các tiên đề Armstrong",
+      "Ngôn ngữ dữ liệu",
+      "Biểu thức đại số quan hệ",
+      "Ngôn ngữ của đại số quan hệ"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là D: Ngôn ngữ của đại số quan hệ. Tối ưu hóa truy vấn thực hiện phép chọn (σ) và chiếu (π) trước để giảm kích thước quan hệ trung gian, sau đó mới thực hiện phép kết nối (join) tốn kém. Chiến lược này giảm đáng kể lượng dữ liệu cần xử lý."
+  },
+  {
+    "id": 139,
+    "question": "Cho R(A,B,C,D,E,F), F = {A→BC, C→D, E→F}. Phụ thuộc hàm nào suy ra được?",
+    "options": [
+      "D→A",
+      "A→D",
+      "A→F",
+      "C→B"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: A→D. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+  },
+  {
+    "id": 140,
+    "question": "R(A,B,C,D,E), F={A→B, B→C, C→D, AD→E}. FD nào suy ra được?",
+    "options": [
+      "D→E",
+      "A→E",
+      "B→E",
+      "C→E"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: A→E. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+  }
+]

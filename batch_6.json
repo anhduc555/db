@@ -1,0 +1,422 @@
+[
+  {
+    "id": 176,
+    "question": "Cho bảng NhanVien(MaNV, HoTenNV, MaPB, Luong). Liệt kê danh sách tất cả các nhân viên và được sắp xếp giảm dần theo lương?",
+    "options": [
+      "SELECT * FROM NhanVien ORDER BY Luong;",
+      "SELECT * FROM NhanVien SORT BY Luong DESCENDING;",
+      "SELECT * FROM NhanVien ORDER BY Luong DESC;",
+      "SELECT * FROM NhanVien IN ORDER OF Luong;"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là D: SELECT * FROM NhanVien IN ORDER OF Luong;. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 177,
+    "question": "Những đặc tính cơ bản để phân biệt DBMS với các hệ thống lập trình khác?",
+    "options": [
+      "Quản lý giao tác",
+      "Tất cả các phương án trên.",
+      "Khả năng truy xuất dữ liệu",
+      "Khả năng quản lý dữ liệu"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Hệ quản trị cơ sở dữ liệu (DBMS) khác biệt với các hệ thống lập trình và quản lý tệp thông thường ở chỗ nó cung cấp đồng bộ: khả năng quản lý lưu trữ dữ liệu phức tạp, truy xuất dữ liệu hiệu quả qua ngôn ngữ SQL, và đặc biệt là khả năng quản lý giao tác (Transaction Management) đảm bảo tính toàn vẹn (ACID)."
+  },
+  {
+    "id": 178,
+    "question": "Câu truy vấn nào sau đây chứa một lỗi?",
+    "options": [
+      "SELECT empid WHERE empid = 56949 AND lastname = 'SMITH';",
+      "SELECT empid FROM emp;",
+      "SELECT empid FROM emp WHERE empid= 493945;",
+      "SELECT * FROM emp WHERE empid = 493945;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là D: SELECT * FROM emp WHERE empid = 493945;. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 179,
+    "question": "Cho R(A,B,C,D), F = {A→B, B→A, AB→C}. Giả sử R ở 1NF. Dạng chuẩn cao nhất là:",
+    "options": [
+      "3NF",
+      "2NF",
+      "chỉ 1NF",
+      "BCNF"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Khóa ứng viên là AD và BD (vì A->B, B->A và AB->C nên A và B xác định C). Thuộc tính khóa: A, B, D. Không khóa: C. Từ A->B và AB->C ta suy ra A->C. Phụ thuộc hàm A->C có vế trái A là một phần của khóa AD, vế phải C là không khóa. Đây là phụ thuộc bộ phận, vi phạm 2NF. Nên dạng chuẩn cao nhất chỉ là 1NF."
+  },
+  {
+    "id": 180,
+    "question": "Cho R(A,B), S(B,C), phép chiếu π_{A,C}(R ⋈ S) tương đương với đáp án nào dưới đây",
+    "options": [
+      "π_{A,C}(R × S) = (π_{A,B}R) ⋈ (π_{B,C}S)",
+      "π_{A,C}(R ⋈ S) = (π_A R) ⋈ (π_C S)",
+      "π_{A,C}(R ⋈ S) = π_{A,C}((π_{A,B}R) ⋈ (π_{B,C}S))",
+      "π_{A,C}(R ⋈ S) = (π_A R) × (π_C S)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: π_{A,C}(R ⋈ S) = π_{A,C}((π_{A,B}R) ⋈ (π_{B,C}S)). Phép chiếu (π) trong đại số quan hệ chọn ra một tập con các cột (thuộc tính) từ một quan hệ, loại bỏ các hàng trùng lặp. Kết quả của phép chiếu π_{A1,A2,...}(R) chỉ chứa các cột được liệt kê."
+  },
+  {
+    "id": 181,
+    "question": "Nguyên tắc đánh giá tối ưu hóa biểu thức quan hệ",
+    "options": [
+      "Thực hiện phép tích Đề các",
+      "Thực hiện các phép kết nối bằng nhau",
+      "Ưu tiên thực hiện các phép chiếu và chọn",
+      "Nhóm các phép tích và chiếu liên tiếp thành một phép toán duy nhất"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Một trong những nguyên tắc quan trọng nhất trong tối ưu hóa truy vấn đại số quan hệ (và SQL) là 'đẩy các phép Chọn (σ) và Chiếu (π) xuống thực hiện càng sớm càng tốt'. Việc này giúp thu gọn kích thước các bảng (giảm số hàng, số cột) trước khi thực hiện các phép Kết nối (Join) đắt đỏ."
+  },
+  {
+    "id": 182,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Người quản trị CSDL bảo đảm việc truy nhập CSDL. Kiểm tra, kiểm soát các quyền truy nhập của ........ Ngăn chặn các truy nhập trái phép, sai quy định từ trong ra hoặc từ ngoài vào…",
+    "options": [
+      "Người quản trị cơ sở dữ liệu",
+      "Hệ ứng dụng",
+      "Hệ quản trị cơ sở dữ liệu",
+      "Người sử dụng"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là A: Người quản trị cơ sở dữ liệu. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 183,
+    "question": "Cho lược đồ quan hệ R(B,K,Q,A,O) với tập phụ thuộc hàm F={BK->QO, K->A, A- >B}. Phụ thuộc hàm nào sau đây không được dẫn xuất ra từ F?",
+    "options": [
+      "K->B",
+      "A->QO",
+      "B->KQO",
+      "K->AQO"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Ta tìm bao đóng của B: B⁺ = {B}. Vì B⁺ chỉ chứa B, không chứa K, Q hay O nên B không thể xác định KQO (B -> KQO là sai). Lựa chọn C (B -> KQO) hiển nhiên không thể dẫn xuất."
+  },
+  {
+    "id": 184,
+    "question": "Cho R(A,B,C,D), F = {A→B, B→A, C→D, D→C}. Giả sử R ở 1NF. Dạng chuẩn cao nhất là:",
+    "options": [
+      "chỉ 1NF",
+      "2NF (nhưng không phải 3NF)",
+      "3NF (nhưng không phải BCNF)",
+      "BCNF"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: 3NF (nhưng không phải BCNF). Quan hệ đạt chuẩn 1NF khi mỗi giá trị trong mỗi ô là nguyên tử (không thể chia nhỏ hơn), mỗi cột chứa cùng loại dữ liệu và mỗi hàng là duy nhất. 1NF loại bỏ các thuộc tính đa trị và thuộc tính phức hợp."
+  },
+  {
+    "id": 185,
+    "question": "INSTRUCTOR(IID, IName, Dept): Chứa thông tin giảng viên TEACH(IID, CID, Semester,Room): Chứa thông tin giảng viện dạy, môn, kỳ và phòng nào, IID tham chiếu tới IID của INSTRUCTOR, CID tham chiếu tới CID của COURSE, Room tham chiếu tới Room của ROOM. ROOM(Room, Building, Capacity): Chứa thông tn phòng COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. Lấy Title của các môn được dạy tại Building='A' trong Semester='2025_Fall'.",
+    "options": [
+      "πTitle(σBuilding=′A′(ROOM)⋈σSemester=′2025_Fall′(COURSE)⋈TEACH)π_{Title}(σ_{Building='A'}(ROOM) ⋈ σ_{Semester='2025\\_Fall'}(COURSE) ⋈ TEACH)πTitle(σBuilding=′A′(ROOM)⋈σSemester=′2025_Fall′(COURSE)⋈TEACH)",
+      "πTitle(σBuilding=′A′∧Semester=′2025_Fall′(TEACH⋈ROOM⋈COURSE))π_{Title}(σ_{Building='A' ∧ Semester='2025\\_Fall'}(TEACH ⋈ ROOM ⋈ COURSE))πTitle(σBuilding=′A′∧Semester=′2025_Fall′(TEACH⋈ROOM⋈COURSE))",
+      "σBuilding=′A′∧Semester=′2025_Fall′(πTitle(TEACH⋈ROOM⋈COURSE))σ_{Building='A' ∧ Semester='2025\\_Fall'}(π_{Title}(TEACH ⋈ ROOM ⋈ COURSE))σBuilding=′A′∧Semester=′2025_Fall′(πTitle(TEACH⋈ROOM⋈COURSE))",
+      "πTitle(σSemester=′2025_Fall′(TEACH⋈COURSE))−πTitle(σBuilding=′A′(ROOM))π_{Title}(σ_{Semester='2025\\_Fall'}(TEACH ⋈ COURSE)) − π_{Title}(σ_{Building='A'}(ROOM))πTitle(σSemester=′2025_Fall′(TEACH⋈COURSE))−πTitle(σBuilding=′A′(ROOM))"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Để lấy được Title của môn học theo các điều kiện liên quan đến phòng và học kỳ, ta cần kết nối tự nhiên 3 bảng TEACH, ROOM, và COURSE (để ghép thông tin). Sau đó dùng phép chọn (σ) với điều kiện Building='A' VÀ Semester='2025_Fall'. Cuối cùng chiếu (π) để trích xuất Title."
+  },
+  {
+    "id": 186,
+    "question": "Cho câu vấn tin SELECT * FROM R₁, R₂ WHERE R₁.A₁ = R₂.A₂ Hãy chọn một khẳng định đúng sau đây",
+    "options": [
+      "σR₁.A₁=R₂.A₂(R₁ ⋈ R₂)",
+      "πA₁, A₂(σR₁.A₁=R₂.A₂(R₁ ⋈ R₂))",
+      "πA₁, A₂(R₁) ⋈ πA₁, A₂(R₂)",
+      "σR₁.A₁=R₂.A₂(R₁) ⋈ σR₁.A₁=R₂.A₂(R₂)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Câu lệnh SELECT * FROM R1, R2 WHERE R1.A1 = R2.A2 thực hiện phép kết nối bằng (Equi-Join). Trong đại số quan hệ, nó tương đương với phép chọn (σ) áp dụng trên tích Đề-các (thường ký hiệu là × hoặc ⋈ với điều kiện) của R1 và R2."
+  },
+  {
+    "id": 187,
+    "question": "Tích Đê Các các quan hệ",
+    "options": [
+      "R₁ × R₂ = P(ΩSigma) := {t | t[Ω] ∈ R₁ and t[Sigma] ∈ R₂}",
+      "R₁ × R₂ = P(ΩSigma) := {t | t[Ω] ∈ R₁ or t[Sigma] ∉ R₂}",
+      "R₁ × R₂ = P(ΩSigma) := {t | t[Ω] ∈ R₁ and t[Sigma] ∉ R₂}",
+      "R₁ × R₂ = P(ΩSigma) := {t | t[Ω] ∈ R₁ or t[Sigma] ∈ R₂}"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Tích Đề các (Cartesian Product) của hai quan hệ R1 (trên tập thuộc tính Ω) và R2 (trên tập thuộc tính Sigma) tạo ra một quan hệ mới chứa tất cả tổ hợp. Một bộ t thuộc kết quả khi và chỉ khi phần của t tương ứng Ω thuộc R1 VÀ (and) phần tương ứng Sigma thuộc R2."
+  },
+  {
+    "id": 188,
+    "question": "Mapping quan hệ ISA (có giao thoa): PERSON có STUDENT và EMPLOYEE. Thiết kế nào sau đây hỗ trợ giao thoa tốt?",
+    "options": [
+      ". Bảng PERSON + bảng STUDENT + bảng EMPLOYEE, mỗi bảng con dùng PK/FK về PERSON.",
+      "Một bảng PERSON với cột Type nhận 1 giá trị duy nhất.",
+      "Chỉ tạo 2 bảng STUDENT và EMPLOYEE, không cần bảng PERSON.",
+      "Một bảng PERSON(PID, Name, IsStudent BOOLEAN, IsEmployee BOOLEAN) không lưu thuộc tính riêng như Major hay Salary."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Khi phân cấp ISA có tính giao thoa (overlap - một người có thể vừa là sinh viên vừa là nhân viên), cách ánh xạ tốt nhất là tạo bảng cha (PERSON) và các bảng con (STUDENT, EMPLOYEE) dùng khóa ngoại trỏ về bảng cha. Cách này cho phép một ID tồn tại đồng thời ở cả hai bảng con."
+  },
+  {
+    "id": 189,
+    "question": "Cho lược đồ Cơ sở dữ liệu sau: SinhVien(MaSV, HoSV, TenSV, Phai, NgaySinh, DiaChi, DienThoai, MaLop) Lop(MaLop, TenLop, MaKhoa, GVCN) KetQua(MaSV, MaMH, LanThi, Diem) MonHoc(MaMH, TenMH, SoTinChi) Liệt kê danh sách các sinh viên có điểm điểm trung bình cao nhất. Danh sách gồm (MaSV, HoSV, TenSV,DiemTrungBinh)?",
+    "options": [
+      "Select K.MaSV, HoSV, TenSV,DiemTrungBinh=Avg(Diem) From SinhVien S, KetQua K Where S.MASV=K.MASV And DiemTrungBinh>=ALL(Select Avg(Diem) From KetQua Group by MaSV ) Group by K.MaSV, HoSV, TenSV",
+      "Select K.MaSV, HoSV, TenSV,DiemTrungBinh=Avg(Diem) From SinhVien S, KetQua K Where S.MASV=K.MASV And DiemTrungBinh>=ALL(Select Avg(Diem) From KetQua Group by MaSV )",
+      "Select K.MaSV, HoSV, TenSV,DiemTrungBinh=Avg(Diem)",
+      "Select Top 1 K.MaSV, HoSV, TenSV,DiemTrungBinh=Avg(Diem) From SinhVien S, KetQua K Where S.MASV=K.MASV Group by K.MaSV, HoSV, TenSV"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: Select K.MaSV, HoSV, TenSV,DiemTrungBinh=Avg(Diem) From SinhVien S, KetQua K Where S.MASV=K.MASV And DiemTrungBinh>=ALL(Select Avg(Diem) From KetQua Group by MaSV ) Group by K.MaSV, HoSV, TenSV. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 190,
+    "question": "Cho lược đồ quan hệ Q(A,B,C,D) và tập phụ thuộc hàm F={AB->CD, B->C,C->D}. Phụ thuộc hàm nào là dư thưà?",
+    "options": [
+      "C->D",
+      "Không có phụ thuộc hàm dư thưà.",
+      "AB->CD",
+      "B->C"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Từ B -> C và C -> D, theo luật bắc cầu ta suy ra được B -> D. Như vậy, B xác định cả C và D (B -> CD). Theo luật gia tăng, nếu B -> CD thì AB -> CD. Do phụ thuộc hàm AB -> CD có thể được suy ra từ các phụ thuộc hàm khác trong F, nên nó là phụ thuộc hàm dư thừa."
+  },
+  {
+    "id": 191,
+    "question": "Thực thể là:",
+    "options": [
+      "Các mối liên kết giữa các đối tượng.",
+      "Các quan hệ",
+      "Các đối tượng và mối liên kết giữa các đối tượng.",
+      "Các đối tượng dữ liệu"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Trong mô hình ER, một Thực thể (Entity) đại diện cho một đối tượng cụ thể trong thế giới thực hoặc một khái niệm (đối tượng dữ liệu) tồn tại độc lập mà ta cần quản lý và lưu trữ thông tin về nó."
+  },
+  {
+    "id": 192,
+    "question": "Trong mô hình cơ sở dữ liệu quan hệ:",
+    "options": [
+      "Thứ tự của các quan hệ quan trọng.",
+      "Thứ tự của các cột là không quan trọng.",
+      "Thứ tự của các cột là quan trọng.",
+      "Thứ tự của các hàng là quan trọng."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Theo định nghĩa toán học của mô hình cơ sở dữ liệu quan hệ (do E.F. Codd đề xuất), một quan hệ (bảng) là một tập hợp các bộ (hàng), mỗi bộ là một ánh xạ từ thuộc tính (cột) sang miền giá trị. Dựa trên lý thuyết tập hợp, thứ tự của các hàng và các cột đều KHÔNG quan trọng."
+  },
+  {
+    "id": 193,
+    "question": "Hàm dùng để tính tổng các giá trị của cột kiểu number là:",
+    "options": [
+      "AVERAGE",
+      "SUM",
+      "TOTAL",
+      "ADD"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Hàm SUM() trong SQL được sử dụng để tính tổng các giá trị của một cột có kiểu dữ liệu số (number)."
+  },
+  {
+    "id": 194,
+    "question": "F = {AB → C, D → EG, C → A, BE → C, BC → D, CG → BD, ACD → B, CE → AG}",
+    "options": [
+      "AB, CG, CD là khóa của lược đồ quan hệ",
+      "EC, CE, BC là khóa của lược đồ quan hệ",
+      "AB, CG, CD không là khóa của lược đồ quan hệ",
+      "EB, CE, BC không là khóa của lược đồ quan hệ"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Thử tính bao đóng của các tập: (AB)⁺ = {A,B,C,D,E,G} (vì AB->C, BC->D, D->EG). (CG)⁺ = {A,B,C,D,E,G} (vì CG->BD, D->EG, C->A). (CD)⁺ = {A,B,C,D,E,G} (vì D->EG, C->A, ACD->B). Tất cả các tập này đều có bao đóng chứa toàn bộ thuộc tính và tối thiểu, nên chúng đều là các khóa."
+  },
+  {
+    "id": 195,
+    "question": "Cơ sở dữ liệu cần thiết phải bảo vệ, vì",
+    "options": [
+      "Truy xuất vào cơ sở dữ liệu bằng nhiều ngôn ngữ thao tác dữ liệu khác nhau",
+      "Rất nhiều loại dữ liệu được tải về giữ trên các máy cục bộ để khai thác",
+      "Một bộ sưu tập rất lớn về các loại dữ liệu tác nghiệp",
+      "Tài nguyên chung, nhiều người cùng sử dụng"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là B: Rất nhiều loại dữ liệu được tải về giữ trên các máy cục bộ để khai thác. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 196,
+    "question": "Loại dữ liệu nào là loại dữ liệu hợp lệ trong ngôn ngữ SQL?",
+    "options": [
+      "Tất cả đáp án đều đúng",
+      "NUMERIC",
+      "FLOAT",
+      "CHARACTER"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Tất cả các kiểu dữ liệu NUMERIC (số định dạng), FLOAT (số thực dấu phẩy động) và CHARACTER (chuỗi ký tự) đều là các kiểu dữ liệu hợp lệ trong ngôn ngữ chuẩn SQL."
+  },
+  {
+    "id": 197,
+    "question": "Given COURSE(CID, Title), ENROLL(SID, CID), and assume course titles are unique. Retrieve SIDs of students who enrolled in BOTH courses titled 'Database' and 'AI'. Which expression is correct? (Cho COURSE(CID, Title), ENROLL(SID, CID), và giả sử Title là duy nhất. Lấy SID của sinh viên đã đăng ký CẢ HAI môn có Title là 'Database' và 'AI'. Biểu thức đúng là?)",
+    "options": [
+      "πSID(ENROLL)−(πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE)))π_{SID}(ENROLL) − (π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)) ∩ π_{SID}(ENROLL ⋈ σ_{Title='AI'}(COURSE)))πSID(ENROLL)−(πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE)))",
+      "πSID(ENROLL⋈σTitle=′Database′(COURSE))∪πSID(ENROLL⋈σTitle=′AI′(COURSE))π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)) ∪ π_{SID}(ENROLL ⋈ σ_{Title='AI'}(COURSE))πSID(ENROLL⋈σTitle=′Database′(COURSE))∪πSID(ENROLL⋈σTitle=′AI′(COURSE))",
+      "πSID(σTitle=′Database′∧Title=′AI′(ENROLL⋈COURSE))π_{SID}(σ_{Title='Database' ∧ Title='AI'}(ENROLL ⋈ COURSE))πSID(σTitle=′Database′∧Title=′AI′(ENROLL⋈COURSE))",
+      "πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE))π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)) ∩ π_{SID}(ENROLL ⋈ σ_{Title='AI'}(COURSE))πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE))"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE))π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)) ∩ π_{SID}(ENROLL ⋈ σ_{Title='AI'}(COURSE))πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE)). Sinh viên đăng ký CẢ HAI: GIAO (∩). πSID(ENROLL⋈σ_Database(COURSE)) ∩ πSID(ENROLL⋈σ_AI(COURSE))."
+  },
+  {
+    "id": 198,
+    "question": "Cho R(A,B,C,D), F = {A→B, C→D}. Giả sử R ở 1NF. Dạng chuẩn cao nhất là:",
+    "options": [
+      "2NF",
+      "BCNF",
+      "chỉ 1NF",
+      "3NF"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: chỉ 1NF. R(A,B,C,D), F={A→B,C→D}. Khóa=AC. A→B: A là tập con thực sự của AC → phụ thuộc BỘ PHẬN → vi phạm 2NF. Cao nhất: chỉ 1NF."
+  },
+  {
+    "id": 199,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. INSTRUCTOR(IID, IName, Dept): Chứa thông tin giảng viên ADVISE(SID, IID): Chứa thông tin cố vấn học tập, SID tham chiếu tới SID của STUDENTS, IID tham chiếu tới IID của INSTRUCTOR. Lấy SID của sinh viên được cố vấn bởi giảng viên thuộc Dept='CS'.",
+    "options": [
+      "πIID(ADVISE⋈σDept=′CS′(INSTRUCTOR))π_{IID}(ADVISE ⋈ σ_{Dept='CS'}(INSTRUCTOR))πIID(ADVISE⋈σDept=′CS′(INSTRUCTOR))",
+      "πSID(ADVISE⋈σDept=′CS′(INSTRUCTOR))π_{SID}(ADVISE ⋈ σ_{Dept='CS'}(INSTRUCTOR))πSID(ADVISE⋈σDept=′CS′(INSTRUCTOR))",
+      "πSID(ADVISE)−πSID(σDept=′CS′(INSTRUCTOR))π_{SID}(ADVISE) − π_{SID}(σ_{Dept='CS'}(INSTRUCTOR))πSID(ADVISE)−πSID(σDept=′CS′(INSTRUCTOR))",
+      "πSID(σDept=′CS′(ADVISE))π_{SID}(σ_{Dept='CS'}(ADVISE))πSID(σDept=′CS′(ADVISE))"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là D: πSID(σDept=′CS′(ADVISE))π_{SID}(σ_{Dept='CS'}(ADVISE))πSID(σDept=′CS′(ADVISE)). Lược đồ quan hệ R(A1,A2,...,An) định nghĩa cấu trúc của một quan hệ gồm tên quan hệ và danh sách các thuộc tính. Quan hệ (instance) là tập hữu hạn các bộ thỏa mãn lược đồ tại một thời điểm cụ thể."
+  },
+  {
+    "id": 200,
+    "question": "Một số biện pháp bảo vệ cơ sở dữ liệu",
+    "options": [
+      "Kiểm tra truy nhập người sử dụng",
+      "Kiểm tra Password",
+      "Người quản trị cơ sở dữ liệu cấp phép truy nhập",
+      "Nhận diện người sử dụng, bảo vệ mức vật lý, kiểm tra truy nhập"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Bảo vệ cơ sở dữ liệu đòi hỏi một hệ thống phòng thủ nhiều lớp toàn diện: Nhận diện người sử dụng (Authentication), Bảo vệ ở mức vật lý (chống phá hoại phần cứng), và Kiểm tra quyền truy nhập (Authorization / Access Control)."
+  },
+  {
+    "id": 201,
+    "question": "Hai biểu thức E1 và E2 tương đương với nhau, ký hiệu là E1 ≅ E2, nếu",
+    "options": [
+      "Các kết quả giống nhau",
+      "Các quan hệ giống nhau trong biểu thức",
+      "Các quan hệ trong các biểu thức cùng miền xác định",
+      "Chúng biểu diễn cùng một ánh xạ"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là B: Các quan hệ giống nhau trong biểu thức. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 202,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất",
+    "options": [
+      "CREATE TABLE mô tả các phụ thuận hàm",
+      "CREATE TABLE mô tả quan hệ",
+      "CREATE TABLE mô tả quan hệ và các thuộc tính",
+      "CREATE TABLE mô tả các thuộc tính"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Lệnh CREATE TABLE trong SQL thuộc DDL, được dùng để khởi tạo cấu trúc của một quan hệ (bảng), bao gồm việc định nghĩa tên bảng và liệt kê tất cả các thuộc tính (cột) cùng với kiểu dữ liệu và ràng buộc của chúng."
+  },
+  {
+    "id": 203,
+    "question": "Cho R₁(K#: mã khách, TK: tên khách, DC: địa chỉ khách); R₂(B#: mã báo, MB: tên báo, G: giá báo) và R₃(K#, B#, SL: số lượng). Chọn câu đúng sau đây khi in các khách hàng mua các loại báo mà khách hàng K# = \"K99\" đặt mua",
+    "options": [
+      "SELECT K#, TK, DC FROM R1, R2, R3 WHERE R3.K# = \"K99\" AND R2.B# = R3.B# AND R1.K# = R3.K#",
+      "SELECT K#, TK, DC FROM R1, R2, R3 WHERE R1.K# = \"K99\" AND R1.K# = R3.K#",
+      "SELECT * FROM R1 WHERE (SELECT B# FROM R1 GROUP BY K#) = (SELECT B# FROM R3 WHERE K# = \"K99\")",
+      "SELECT K#, TK, DC FROM R1, R2, R3 WHERE R1.K# = \"K99\" AND R2.B# = R3.B#"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là D: SELECT K#, TK, DC FROM R1, R2, R3 WHERE R1.K# = \"K99\" AND R2.B# = R3.B#. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 204,
+    "question": "F={AB→C, C→D, D→E}. Mệnh đề nào không suy ra từ F?",
+    "options": [
+      "C→E",
+      "AB→D",
+      "AB→E",
+      "A→E"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là B: AB→D. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+  },
+  {
+    "id": 205,
+    "question": "Cho lược đồ quan hệ Q(A,B,C,D,E,G,H) và tập phụ thuộc hàm F={A->BC,D->E,H- >G}. Hỏi Q đạt dạng chuẩn nào?",
+    "options": [
+      "Dạng chuẩn 1 (1NF)",
+      "Dạng chuẩn 3 (3NF)",
+      "Dạng chuẩn 2 (2NF)",
+      "Dạng chuẩn Boyee-Codd (BCNF)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Các thuộc tính không xuất hiện ở vế phải của F là A, D, H. Bao đóng (ADH)⁺ chứa toàn bộ thuộc tính nên ADH là khóa duy nhất. Các phụ thuộc hàm A -> BC, D -> E, H -> G đều có vế trái là một tập con thực sự của khóa chính ADH. Đây là phụ thuộc bộ phận, vi phạm 2NF, nên chỉ đạt 1NF."
+  },
+  {
+    "id": 206,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất khi định nghĩa phép chọn",
+    "options": [
+      "σ_F(R) := {t | t ∈ R and t_F = \"True\"}",
+      "σ_F(R) := {t | t_F = \"True\"}",
+      "σ_F(R) := {t ∈ R}",
+      "σ_F(R) := {t | t_F = \"True\"}"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là D: σ_F(R) := {t | t_F = \"True\"}. Phép chọn (σ) trong đại số quan hệ lọc các bộ (hàng) thỏa mãn điều kiện predicate cho trước. Kết quả σ_{điều_kiện}(R) là tập các hàng của R thỏa mãn điều kiện, giữ nguyên tất cả các cột."
+  },
+  {
+    "id": 207,
+    "question": "Kết quả của các phép thao tác dữ liệu là",
+    "options": [
+      "Cơ sở dữ liệu",
+      "Quan hệ",
+      "Chuỗi dữ liệu",
+      "Tệp dữ liệu"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: Quan hệ. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 208,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. INSTRUCTOR(IID, IName, Dept): Chứa thông tin giảng viên ADVISE(SID, IID): Chứa thông tin cố vấn học tập, SID tham chiếu tới SID của STUDENTS, IID tham chiếu tới IID của INSTRUCTOR. Lấy IName của giảng viên cố vấn ít nhất một sinh viên có GPA",
+    "options": [
+      "πIName(INSTRUCTOR⋈ADVISE)−πIName(σGPA<2.0(STUDENT))π_{IName}(INSTRUCTOR ⋈ ADVISE) − π_{IName}(σ_{GPA<2.0}(STUDENT))πIName(INSTRUCTOR⋈ADVISE)−πIName(σGPA<2.0(STUDENT))",
+      "πIName(σGPA<2.0(INSTRUCTOR⋈ADVISE⋈STUDENT))π_{IName}(σ_{GPA<2.0}(INSTRUCTOR ⋈ ADVISE ⋈ STUDENT))πIName(σGPA<2.0(INSTRUCTOR⋈ADVISE⋈STUDENT))",
+      "πIName(INSTRUCTOR)−πIName(σGPA<2.0(ADVISE⋈STUDENT))π_{IName}(INSTRUCTOR) − π_{IName}(σ_{GPA<2.0}(ADVISE ⋈ STUDENT))πIName(INSTRUCTOR)−πIName(σGPA<2.0(ADVISE⋈STUDENT))",
+      "σGPA<2.0(πIName(INSTRUCTOR⋈ADVISE⋈STUDENT))σ_{GPA<2.0}(π_{IName}(INSTRUCTOR ⋈ ADVISE ⋈ STUDENT))σGPA<2.0(πIName(INSTRUCTOR⋈ADVISE⋈STUDENT))"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Ta cần tìm tên giảng viên (IName) dựa trên điều kiện của sinh viên (GPA < 2.0). Cần kết nối 3 bảng: INSTRUCTOR, ADVISE (biết ai cố vấn ai) và STUDENT (lấy điểm). Sau đó dùng phép chọn σ với điều kiện GPA < 2.0, rồi dùng phép chiếu π trích xuất cột IName."
+  },
+  {
+    "id": 209,
+    "question": "Mệnh đề nào trong câu truy vấn giới hạn số cột sẽ trả về?",
+    "options": [
+      "FROM",
+      "SELECT",
+      "WHERE",
+      "ORDER BY"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: SELECT. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 210,
+    "question": "Mức độ nhận diện người sử dụng",
+    "options": [
+      "Xác định cho hệ thống những thao tác",
+      "Người quản trị cung cấp phương tiện cho người sử dụng để hệ thống nhận biết chính xác",
+      "Nhận diện bằng cách kiểm tra",
+      "Cho phép người sử dụng truy nhập nếu được phép của người quản trị CSDL"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: Người quản trị cung cấp phương tiện cho người sử dụng để hệ thống nhận biết chính xác. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  }
+]

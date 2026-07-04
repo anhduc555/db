@@ -1,0 +1,422 @@
+[
+  {
+    "id": 281,
+    "question": "Bao đóng của tập các thuộc tính X ứng với tập F",
+    "options": [
+      "X⁺ := X ∪ {I | A → B ∈ F⁺, A ⊆ X₀, B ∉ X₀}",
+      "X⁺ := {Y | X → Y ∈ F⁺}",
+      "X₀ ⊆ X₁ ⊆ X₂ ⊆ ... ⊆ X_n ⊆ Xn+1 ⊆ Xn+2",
+      "X⁺ := X ∪ {B | A → B ∈ F⁺}"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Bao đóng của tập thuộc tính X đối với tập phụ thuộc hàm F, ký hiệu là X⁺, được định nghĩa toán học là tập hợp tất cả các thuộc tính sao cho phụ thuộc hàm X -> Y (hoặc X -> B) có thể được suy dẫn logic từ F."
+  },
+  {
+    "id": 282,
+    "question": "Trong SQL làm thế nào để chọn tất cả các bản ghi từ bảng Persons với giá trị trong cột FirstName là Peter:",
+    "options": [
+      "Selet * From Persons Where FirstName is 'Peter'",
+      "Selet [all] From Persons Where FirstName like 'Peter*'",
+      "Selet * From Persons Where FirstName <> '*Peter*'",
+      "Selet * From Persons Where FirstName = 'Peter'"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Selet * From Persons Where FirstName = 'Peter'. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 283,
+    "question": "F = {A → B, C → X, BX → Z}",
+    "options": [
+      "AC ⇌ Z⁺",
+      "AC → Z ∈ F",
+      "AC → Z",
+      "AC → Z ∉ F⁺"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Bằng cách áp dụng các luật Armstrong: Từ A -> B và C -> X, theo luật gia tăng ta có thể gộp lại thành AC -> BX. Đề bài đã cho BX -> Z. Áp dụng luật bắc cầu giữa AC -> BX và BX -> Z, ta suy luận được phụ thuộc hàm AC -> Z."
+  },
+  {
+    "id": 284,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Nếu 2 bộ bất kỳ trùng nhau trên các thành phần của khóa thì ..........",
+    "options": [
+      "Khác nhau trên các thành phần tất cả các bộ",
+      "Khác nhau trên các thành phần không khóa",
+      "Cũng trùng nhau trên các thành phần không khóa",
+      "Cũng trùng nhau trên các thành phần của tất cả các bộ"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Theo định nghĩa của khóa chính, không thể có hai bản ghi (bộ) khác biệt nào mang cùng một giá trị khóa. Nếu có 2 bản ghi trùng giá trị trên tất cả các thuộc tính khóa, thực chất chúng chỉ là một bản ghi, nghĩa là chúng cũng bắt buộc phải trùng nhau trên các thành phần không khóa."
+  },
+  {
+    "id": 285,
+    "question": "Cho F = {T → (Y,D), M → (C,G,N), (T,M) → (L,I)}, Chọn một khẳng định đúng sau đây",
+    "options": [
+      "Y, D, L là các thuộc tính khóa và (T,D)⁺ = Ω",
+      "T → D và D⁺ = Ω hoặc (G,L,D) → I",
+      "T và M là các thuộc tính khóa và (T,M)⁺ = Ω",
+      "T, D, M là các thuộc tính khóa và (T,D)⁺ = Ω"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Tính bao đóng để tìm khóa: (T, M)⁺ sẽ bao gồm: T, M. Có T -> Y,D thêm Y, D. Có M -> C,G,N thêm C, G, N. Có TM -> L,I thêm L, I. Vậy (T, M)⁺ chứa toàn bộ thuộc tính (Ω). Do đó, T và M là các thuộc tính khóa và (T, M) là khóa duy nhất."
+  },
+  {
+    "id": 286,
+    "question": "Khi thực hiện các phép toán trong một biểu thức quan hệ, thứ tự ưu tiên là",
+    "options": [
+      "Các phép toán một ngôi có thứ tự ưu tiên cao hơn so với phép toán hai ngôi",
+      "Phép kết nối được ưu tiên hơn so với phép chọn và chiếu",
+      "Phụ thuộc vào vị trí của các phép toán",
+      "Phép kết nối được ưu tiên hơn so với phép hợp, phép giao"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Theo quy ước chuẩn trong đại số quan hệ, các phép toán một ngôi (Unary operations) như Chọn (σ) và Chiếu (π) luôn có thứ tự ưu tiên thực hiện cao hơn so với các phép toán hai ngôi (Binary operations) như Kết nối (⋈), Hợp (∪), Giao (∩), và Hiệu (-)."
+  },
+  {
+    "id": 287,
+    "question": "COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. CLUB(ClubID, ClubName): Chứa thông tin câu lạc bộ, (giả sử ClubName là duy nhất). MEMBER(SID, ClubID): Chứa thông tin thành viên của các câu lạc bộ. SID tham chiếu tới SID của STUDENT, ClubID tham chiếu thới ClubID của CLUB ENROLL(SID, CID, Semester, Grade): Chứa thông tin đăng ký môn học của sinh viên. SID tham chiếu SID của STUDENT, CID tham chiếu tới CID của COURSE. Lấy Name của sinh viên vừa là thành viên CLB nào đó vừa có đăng ký học kỳ '2025_Fall'.",
+    "options": [
+      "πName(STUDENT)−πName(STUDENT⋈πSID(MEMBER))π_{Name}(STUDENT) − π_{Name}(STUDENT ⋈ π_{SID}(MEMBER))πName(STUDENT)−πName(STUDENT⋈πSID(MEMBER))",
+      "πName(STUDENT⋈(πSID(MEMBER)∩πSID(σSemester=′2025_Fall′(ENROLL))))π_{Name}(STUDENT ⋈ (π_{SID}(MEMBER) ∩ π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))))πName(STUDENT⋈(πSID(MEMBER)∩πSID(σSemester=′2025_Fall′(ENROLL))))",
+      "πName(σSemester=′2025_Fall′(STUDENT⋈MEMBER))π_{Name}(σ_{Semester='2025\\_Fall'}(STUDENT ⋈ MEMBER))πName(σSemester=′2025_Fall′(STUDENT⋈MEMBER))",
+      "πName(STUDENT⋈(πClubID(MEMBER)∩πSID(σSemester=′2025_Fall′(ENROLL))))π_{Name}(STUDENT ⋈ (π_{ClubID}(MEMBER) ∩ π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))))πName(STUDENT⋈(πClubID(MEMBER)∩πSID(σSemester=′2025_Fall′(ENROLL))))"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Sinh viên cần thỏa mãn 2 điều kiện: là thành viên CLB (trong MEMBER) VÀ có đăng ký học kỳ '2025_Fall' (trong ENROLL). Ta chiếu lấy SID từ MEMBER và chiếu SID từ ENROLL (đã lọc Fall), rồi dùng phép Giao (∩) để lấy SID thỏa mãn cả hai. Cuối cùng kết nối STUDENT lấy Name."
+  },
+  {
+    "id": 288,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất khi xác định các thuộc tính dư thừa trong phụ thuộc A₁A₂A₃...A_n → B ∈ F",
+    "options": [
+      "Kiểm tra B ⊆ (A₁A₂...Ai-1Ai+1...A_n)⁺, i = 1 ÷ n",
+      "Loại bỏ tạm thời A_i, i = 1 ÷ n kiểm tra (A₁A₂...Ai-1Ai+1...A_n → B) ∉ F",
+      "Kiểm tra (A₁A₂...Ai-1Ai+1...A_n → B) ∈ F",
+      "Kiểm tra (A₁A₂...Ai-1Ai+1...A_n)⁺ ⊆ B, i = 1 ÷ n"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Để kiểm tra xem thuộc tính A_i ở vế trái có dư thừa hay không, ta tạm bỏ nó đi và tính bao đóng của phần còn lại: (A₁...A_{i-1} A_{i+1}...A_n)⁺. Nếu bao đóng này vẫn chứa B, nghĩa là phần còn lại đã đủ khả năng xác định B mà không cần tới A_i."
+  },
+  {
+    "id": 289,
+    "question": "Thực thể được biểu diễn trong lược đồ ERD thông qua:",
+    "options": [
+      "Hình chữ nhật",
+      "Hình tam giác",
+      "Hình elip",
+      "Hình thoi"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Trong Mô hình Thực thể - Liên kết (ERD), một Thực thể (Entity) chuẩn luôn được biểu diễn bằng một Hình chữ nhật có chứa tên của thực thể đó bên trong (ví dụ: NHANVIEN, PHONGBAN)."
+  },
+  {
+    "id": 290,
+    "question": "Cho lược đồ quan hệ R(W,B,F,K,A) với tập phụ thuộc hàm F={WB->F, FK->A, F->W, A->K}. Bao đóng của tập thuộc tính {W, B, A} đối với F là:",
+    "options": [
+      "{W B F K A}",
+      "{W B A}",
+      "{W B A F}",
+      "{W B A K}"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Tính bao đóng của {W, B, A}⁺: Ban đầu có {W, B, A}. Dùng WB -> F, ta thêm F (thành {W, B, A, F}). Dùng A -> K, ta thêm K (thành {W, B, A, F, K}). Lúc này tập bao đóng đã chứa toàn bộ 5 thuộc tính của quan hệ, do đó đáp án là {W B F K A} (hoặc có chứa các thuộc tính này)."
+  },
+  {
+    "id": 291,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Biến đổi một quan hệ chưa chuẩn hoá về nhóm các quan hệ 3NF ..........",
+    "options": [
+      "Không tổn thất thông tin",
+      "Bảo đảm tính độc lập dữ liệu",
+      "Tổn thất thông tin",
+      "Bảo toàn phụ thuộc"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Một trong những tính chất quan trọng nhất khi áp dụng thuật toán phân rã (hoặc tổng hợp) một quan hệ về Dạng chuẩn 3 (3NF) là nó luôn đảm bảo được tính 'Bảo toàn phụ thuộc' (Dependency Preservation) và đồng thời 'Không tổn thất thông tin' (Lossless Join)."
+  },
+  {
+    "id": 292,
+    "question": "Cho R(A,B,C,D), F = {A→B, B→C, C→A}. Giả sử R ở 1NF. Dạng chuẩn cao nhất là:",
+    "options": [
+      "3NF (nhưng không phải BCNF)",
+      "chỉ 1NF",
+      "2NF (nhưng không phải 3NF)",
+      "BCNF"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: 3NF (nhưng không phải BCNF). R(A,B,C,D), F={A→B,B→C,C→A}: A↔B↔C. Khóa: AD, BD, CD. FD A→B: A không siêu khóa nhưng B là prime (B∈BD) → 3NF ✓ BCNF ✗. Cao nhất: 3NF (không BCNF)."
+  },
+  {
+    "id": 293,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất",
+    "options": [
+      "Phụ thuộc dư thừa có thể là phụ thuộc có vế trái dư thừa",
+      "Phụ thuộc dư thừa là phụ thuộc có vế trái dư thừa",
+      "Phụ thuộc có vế trái dư thừa là phụ thuộc bắc cầu",
+      "Phụ thuộc có vế trái dư thừa là phụ thuộc đầy đủ"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Khái niệm 'phụ thuộc dư thừa' bao hàm nhiều trường hợp: có thể là toàn bộ một phụ thuộc hàm bị dư thừa (suy diễn được từ F), hoặc chỉ dư thừa ở bên trong bản thân nó, tức là phụ thuộc hàm có vế trái dư thừa (có chứa thuộc tính không cần thiết)."
+  },
+  {
+    "id": 294,
+    "question": "Mô hình thực thể - liên kết cơ bản bao gồm các lớp đối tượng:",
+    "options": [
+      "Thực thể, mối quan hệ và thuộc tính.",
+      "Môi trường và ranh giới môi trường",
+      "Các mối quan hệ.",
+      "Thực thể và thuộc tính."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Mô hình Thực thể - Liên kết (ER Model) cơ bản nhất được cấu thành từ 3 thành phần cốt lõi: (1) Thực thể (Entity) - các đối tượng; (2) Thuộc tính (Attribute) - đặc điểm của thực thể; và (3) Mối quan hệ (Relationship) - sự liên kết giữa các thực thể."
+  },
+  {
+    "id": 295,
+    "question": "F={A→B, C→D}. Tính (AC)⁺.",
+    "options": [
+      "{A,C}",
+      "{B,C}",
+      "{A,C,D}",
+      "{A,B,C,D}"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: {A,B,C,D}. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+  },
+  {
+    "id": 296,
+    "question": "Cho R(A,B,C,D,E), F = {A→B, BC→D, D→E}. Khóa ứng viên (khoá dự bị) của R là:",
+    "options": [
+      "AB",
+      "AC",
+      "AD",
+      "BC"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Các thuộc tính không xuất hiện ở vế phải của F là A và C, nên A và C phải nằm trong mọi khóa ứng viên. Tính (AC)⁺: Dùng A -> B thêm B. Dùng BC -> D thêm D. Dùng D -> E thêm E. Vì (AC)⁺ chứa tất cả thuộc tính, AC chính là khóa."
+  },
+  {
+    "id": 297,
+    "question": "Đáp án nào dưới đây không phải là một hàm tổng hợp hợp lệ?",
+    "options": [
+      "SUM",
+      "COUNT",
+      "MAX",
+      "COMPUTE"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Trong SQL chuẩn, SUM, COUNT, MAX, MIN, AVG là các hàm tổng hợp (aggregate functions) hợp lệ. COMPUTE không phải là hàm tổng hợp chuẩn."
+  },
+  {
+    "id": 298,
+    "question": "Cho lược đồ quan hệ R(V,Z,W,Y,F) với tập phụ thuộc hàm F={UX->VB, X->N, N->U}. Phụ thuộc hàm nào sau đây không được suy diễn từ F:",
+    "options": [
+      "VY->WZ",
+      "ZW->YF",
+      "Z->F",
+      "VZ->V"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng (nếu câu hỏi là 'được suy diễn'). Thực chất, phụ thuộc hàm VZ -> V là một phụ thuộc hàm hiển nhiên (trivial FD) luôn đúng theo quy tắc phản xạ của Armstrong (V là tập con của VZ), nên nó chắc chắn được suy diễn từ F. Các phương án khác đều sai hoàn toàn."
+  },
+  {
+    "id": 299,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. ENROLL(SID, CID, Semester, Grade): Chứa thông tin đăng ký môn học của sinh viên. SID tham chiếu SID của STUDENT, CID tham chiếu tới CID của COURSE. Lấy CID của các môn thuộc Dept='CS' hoặc Dept='SE' mà không có đăng ký trong '2025_Fall'.",
+    "options": [
+      "πCID(σDept=′CS′∨Dept=′SE′(COURSE⋈ENROLL))−πCID(σSemester=′2025_Fall′(ENROLL))π_{CID}(σ_{Dept='CS' ∨ Dept='SE'}(COURSE ⋈ ENROLL)) − π_{CID}(σ_{Semester='2025\\_Fall'}(ENROLL))πCID(σDept=′CS′∨Dept=′SE′(COURSE⋈ENROLL))−πCID(σSemester=′2025_Fall′(ENROLL))",
+      "πCID(σDept=′CS′∨Dept=′SE′(COURSE))−πCID(σSemester=′2025_Fall′∧(Dept=′CS′∨Dept=′SE′)(COURSE⋈ENROLL))π_{CID}(σ_{Dept='CS' ∨ Dept='SE'}(COURSE)) − π_{CID}(σ_{Semester='2025\\_Fall' ∧ (Dept='CS' ∨ Dept='SE')}(COURSE ⋈ ENROLL))πCID(σDept=′CS′∨Dept=′SE′(COURSE))−πCID(σSemester=′2025_Fall′∧(Dept=′CS′∨Dept=′SE′)(COURSE⋈ENROLL))",
+      "πCID(σDept=′CS′∨Dept=′SE′(COURSE))∩πCID(σSemester<>′2025_Fall′(ENROLL))π_{CID}(σ_{Dept='CS' ∨ Dept='SE'}(COURSE)) ∩ π_{CID}(σ_{Semester<>'2025\\_Fall'}(ENROLL))πCID(σDept=′CS′∨Dept=′SE′(COURSE))∩πCID(σSemester<>′2025_Fall′(ENROLL))",
+      "πCID(σSemester=′2025_Fall′(ENROLL))−πCID(σDept=′CS′∨Dept=′SE′(COURSE))π_{CID}(σ_{Semester='2025\\_Fall'}(ENROLL)) − π_{CID}(σ_{Dept='CS' ∨ Dept='SE'}(COURSE))πCID(σSemester=′2025_Fall′(ENROLL))−πCID(σDept=′CS′∨Dept=′SE′(COURSE))"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Để tìm các môn thuộc CS hoặc SE mà KHÔNG đăng ký Fall: Ta lấy tập hợp tất cả các môn thuộc CS hoặc SE. Sau đó, lấy tập hợp các môn thuộc CS/SE CÓ đăng ký Fall (dùng kết nối và chọn). Cuối cùng, dùng phép Hiệu (-) lấy tập 1 trừ đi tập 2."
+  },
+  {
+    "id": 300,
+    "question": "Cho lược đồ quan hệ gồm: NhaCungCap(MaNCC,TenNCC,ThanhPho) HangHoa(MaHang,TenHang,MauSac) CungUng(MaNCC,MaHang,SoLuong) Tạo câu truy vấn SQL để tính tổng số lượng của từng sản phẩm đã cung ứng?",
+    "options": [
+      "Select MaHang,SoLuong From CungUng;",
+      "Select MaHang,sum(SoLuong) From CungUng Group By MaHang;",
+      "Select MaNCC, MaHang, sum(SoLuong) From HangHoa H, CungUng C Where H.MaHang = C.MaHang Group by MaNCC, MaHang;",
+      "Select sum(SoLuong) From CungUng;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: Select MaHang,sum(SoLuong) From CungUng Group By MaHang;. Câu lệnh SELECT trong SQL theo thứ tự xử lý: FROM (chọn bảng) → WHERE (lọc hàng) → GROUP BY (gộp nhóm) → HAVING (lọc nhóm) → SELECT (chọn cột) → ORDER BY (sắp xếp). Cú pháp và điều kiện lọc phải chính xác để cho kết quả đúng."
+  },
+  {
+    "id": 301,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất khi nói về tính nhất quán và tính toàn vẹn của dữ liệu",
+    "options": [
+      "Tiết kiệm bộ nhớ và các thiết bị lưu trữ",
+      "Tránh dư thừa dữ liệu trong lưu trữ",
+      "Một thuộc tính được mô tả lặp lại nhiều lần",
+      "Tránh được dị thường thông tin"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Mục tiêu của các quy tắc chuẩn hóa nhằm loại bỏ dư thừa, từ đó duy trì tính nhất quán và toàn vẹn của dữ liệu, giúp cơ sở dữ liệu tránh được các dị thường thông tin (anomalies) khi thêm, xóa, sửa."
+  },
+  {
+    "id": 302,
+    "question": "Author has a multivalued attribute Education (composite: Degree, University, Year). Author writes Book (N-N relationship), the relationship has a multivalued attribute Contribution (Role, Percentage). The correct mapping to the relational model is: ( Author có thuộc tính đa trị Education (composite: Degree, University, Year). Author viết Book (N-N), quan hệ có thuộc tính đa trị Contribution (Role, Percentage). Ánh xạ đúng sang mô hình quan hệ là: )",
+    "options": [
+      "AUTHOR(AuthorID PK, Name, Education TEXT) BOOK(BookID PK, Title) WRITES(AuthorID FK, BookID FK, Contributions TEXT, PK(AuthorID, BookID))",
+      "AUTHOR(AuthorID PK, Name) EDUCATION(Degree, University, Year, AuthorID FK, PK(Degree, University, Year)) BOOK(BookID PK, Title) WRITES(AuthorID FK, BookID FK, PK(AuthorID, BookID)) CONTRIBUTION(Role, Percentage, AuthorID FK, BookID FK, PK(Role))",
+      "AUTHOR(AuthorID PK, Name) AUTHOR_EDUCATION(AuthorID FK, Degree, University, Year, PK(AuthorID, Degree, University)) BOOK(BookID PK, Title) WRITES(AuthorID FK, BookID FK, Role, Percentage, PK(AuthorID, BookID, Role), FK(AuthorID,BookID) forms composite)",
+      "AUTHOR(AuthorID PK, Name) AUTHOR_EDUCATION(AuthorID FK, Degree, University, Year, PK(AuthorID, Degree, University)) BOOK(BookID PK, Title) WRITES(AuthorID FK, BookID FK, PK(AuthorID, BookID)) CONTRIBUTION(AuthorID FK, BookID FK, Role, Percentage, PK(AuthorID, BookID, Role))"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Thuộc tính đa trị Education tách thành bảng AUTHOR_EDUCATION. Quan hệ N-N WRITES tạo bảng riêng với PK(AuthorID, BookID). Thuộc tính đa trị Contribution trên WRITES cũng phải tách thành bảng riêng CONTRIBUTION, lấy PK của WRITES làm FK, và Role tham gia vào khóa chính."
+  },
+  {
+    "id": 303,
+    "question": "X → Y ∈ F là phụ thuộc hàm không đầy đủ khi và chỉ khi",
+    "options": [
+      "∀ A' ⊂ A suy ra A' → B ∈ F⁺",
+      "∀ A' ⊂ A suy ra A' → B ∉ F⁺",
+      "∃ A' ⊂ A suy ra A' → B ∉ F⁺",
+      "∃ A' ⊂ A suy ra A' → B ∈ F⁺"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: ∃ A' ⊂ A suy ra A' → B ∈ F⁺. Partial FD A→B (A tổ hợp): TỒN TẠI A'⊂A sao cho A'→B ∈ F+. Ngược lại, phụ thuộc ĐẦY ĐỦ: không tồn tại tập con thực sự nào của A vẫn xác định B."
+  },
+  {
+    "id": 304,
+    "question": "Ngôn ngữ thao tác dữ liệu là",
+    "options": [
+      "Một tập các phép toán dùng để thao tác trên các hệ cơ sở dữ liệu",
+      "Một tập các phép toán dùng để cập nhật, bổ sung trên các hệ cơ sở dữ liệu",
+      "Một tập các quy tắc biểu diễn dữ liệu",
+      "Một tập các ký hiệu biểu diễn dữ liệu"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Ngôn ngữ thao tác dữ liệu (DML) cung cấp tập hợp các phép toán cho phép người dùng thao tác trực tiếp trên dữ liệu: bao gồm việc truy vấn (tìm kiếm) và thay đổi dữ liệu (chèn thêm, sửa đổi, xóa bỏ)."
+  },
+  {
+    "id": 305,
+    "question": "Mệnh đề SQL nào được dùng để trích xuất dữ liệu từ cơ sở dữ liệu",
+    "options": [
+      "Select",
+      "Open",
+      "Get",
+      "Extract"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: Select. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 306,
+    "question": "Một kết hợp giữa các thực thể được gọi là một _____.",
+    "options": [
+      "Ràng buộc về tính nguyên vẹn",
+      "File dữ liệu",
+      "mối quan hệ",
+      "Cơ sở dữ liệu"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Trong mô hình Thực thể - Liên kết (ER Model), sự liên kết, tương tác hoặc kết hợp giữa hai hay nhiều thực thể với nhau được gọi là 'mối quan hệ' (Relationship)."
+  },
+  {
+    "id": 307,
+    "question": "cho biết ý nghĩa của đoạn mã lệnh sau: select * From ds Where hoten Like \"H_\"",
+    "options": [
+      "Hiện tất cả những thí sinh trong bảng ds có hoten chỉ có chữ H",
+      "Hiện tất cả những thí sinh trong bảng ds",
+      "Hiện tất cả những thí sinh trong bảng ds có hoten chứa chữ H",
+      "Hiện tất cả những thí sinh trong bảng ds có hoten bắt đầu bằng chữ H"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Trong SQL, toán tử LIKE kết hợp với ký tự gạch dưới '_' dùng để đại diện cho đúng MỘT ký tự bất kỳ. Vậy 'H_' sẽ khớp với các chuỗi có đúng 2 ký tự và bắt đầu bằng chữ H."
+  },
+  {
+    "id": 308,
+    "question": "Cho quan hệ R gồm các thuộc tính: Num mã thuê bao, TB tên thuê bao, SDT số điện thoại, DC điạ chỉ. Chọn câu đúng sau đây khi tính tổng có bao nhiêu thuê bao trên “Đường Nguyễn Trãi”",
+    "options": [
+      "SELECT COUNT( *) FROM R WHERE DC = “Đường Nguyễn Trãi”",
+      "SELECT * FROM R WHERE DC = “Đường Nguyễn Trãi”",
+      "SELECT * FROM R GROUP BY TB HAVING DC = “Đường Nguyễn Trãi”",
+      "SELECT * FROM R"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Để đếm tổng số lượng thuê bao thỏa mãn một điều kiện, ta sử dụng hàm tập hợp COUNT(*). Đi kèm với mệnh đề WHERE để lọc ra những khách hàng có địa chỉ (DC) là “Đường Nguyễn Trãi”."
+  },
+  {
+    "id": 309,
+    "question": "Mất thông tin khi xóa bản ghi phụ thuộc trong trường hợp",
+    "options": [
+      "Xóa tất cả các bản ghi phụ thuộc",
+      "Xóa bản ghi phụ thuộc duy nhất",
+      "Xóa cấu trúc cây phân cấp",
+      "Xóa bản ghi gốc"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: Xóa bản ghi phụ thuộc duy nhất. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 310,
+    "question": "Với R(A,B) và S(B), biểu thức trả về các bộ của R không có B khớp trong S :",
+    "options": [
+      "π_A(R) − π_A(S)",
+      "R − π_{A,B}(R ⋈ S)",
+      "σ_{B ∉ S}(R)",
+      "R ÷ S"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Để tìm các bộ của R không có giá trị B khớp với S (Anti-Join), ta lấy toàn bộ R trừ đi (-) những bộ của R CÓ khớp với S. Các bộ khớp chính là kết quả của phép kết nối tự nhiên R ⋈ S."
+  },
+  {
+    "id": 311,
+    "question": "Mục tiêu của chuẩn hóa dữ liệu là",
+    "options": [
+      "Triệt tiêu mức cao nhất khả năng xuất hiện các dị thường thông tin",
+      "Đảm bảo tính bảo mật dữ liệu",
+      "Đảm bảo tính nhất quán dữ liệu",
+      "Đảm bảo cho việc lưu trữ dữ liệu"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Mục tiêu cốt lõi của chuẩn hóa CSDL (Normalization) là tổ chức lại các bảng nhằm loại bỏ sự dư thừa thông tin, qua đó triệt tiêu đến mức cao nhất khả năng xuất hiện dị thường dữ liệu (anomalies) khi thêm, sửa, xóa."
+  },
+  {
+    "id": 312,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: F là tập các phụ thuộc hàm. Khi đó bao đóng của X ứng với tập F là...........",
+    "options": [
+      "X⁺ := {A ∩ B | A → B ∈ F⁺}",
+      "X⁺ := {B | A → B ∈ F⁺}",
+      "X⁺ := {A | A → B ∈ F⁺}",
+      "X⁺ := {A ∩ B | A → B ∈ F⁺}"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Bao đóng của tập thuộc tính X đối với tập F (ký hiệu X⁺) là tập hợp tất cả các thuộc tính B sao cho phụ thuộc hàm X -> B có thể được suy dẫn logic từ F (tức là X -> B thuộc F⁺)."
+  },
+  {
+    "id": 313,
+    "question": "Cho R(A,B,C), F = {AB→C, C→A}. Một khóa ứng viên của R là:",
+    "options": [
+      "B",
+      "AB",
+      "AC",
+      "C"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Tính bao đóng để tìm khóa: (AB)⁺ = {A,B,C} nên AB là siêu khóa. Vì không thể bỏ A hay B (A⁺={A}, B⁺={B}) nên AB là khóa ứng viên. (BC cũng là khóa, nhưng trong các lựa chọn thì AB đúng)."
+  },
+  {
+    "id": 314,
+    "question": "Cho lược đồ quan hệ R(A,B,C,D) và tập phụ thuộc hàm F={AB->C,D->B,C->ABD}. Xác định dạng chuẩn cao nhất cuả lược đồ quan hệ R.",
+    "options": [
+      "Dạng chuẩn 1 (1NF)",
+      "Dạng chuẩn Boyce-Codd (BCNF)",
+      "Dạng chuẩn 3 (3NF)",
+      "Dạng chuẩn 2 (2NF)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: Dạng chuẩn 3 (3NF). R(A,B,C,D), F={AB→C,D→B,C→ABD}. C là khóa. AB là khóa. DB là khóa. D→B: D không siêu khóa, B là prime (B∈AB) → 3NF ✓ BCNF ✗. Cao nhất: 3NF."
+  },
+  {
+    "id": 315,
+    "question": "Cho R(A,B,C,D,E), F = {A→BC, C→D, D→E}. Phân rã nào sau đây là đúng về BCNF (lossless) và bảo toàn phụ thuộc hàm?",
+    "options": [
+      "{R1(A,B,C), R2(C,D,E)}",
+      "{R1(A,B,C), R2(C,D), R3(C,E)}",
+      "{R1(A,B,C,D), R2(D,E)}",
+      "{R1(D,E), R2(C,D), R3(A,B,C)}"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: {R1(D,E), R2(C,D), R3(A,B,C)}. Phân rã BCNF (Boyce-Codd Normal Form) yêu cầu mỗi quan hệ kết quả phải có khóa phủ mọi phụ thuộc hàm, đồng thời đảm bảo tính không mất thông tin (lossless join). Phương án đúng thoả mãn cả hai điều kiện này."
+  }
+]

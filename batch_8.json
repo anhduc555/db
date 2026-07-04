@@ -1,0 +1,422 @@
+[
+  {
+    "id": 246,
+    "question": "Dạng thu hồi quyền truy nhập",
+    "options": [
+      "REVOKE \\ ON \\ FROM \\",
+      "REVOKE \\ ON \\ FROM \\",
+      "REVOKE SELECT ON \\ FROM \\",
+      "REVOKE \\ ON \\ FROM \\"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Cú pháp cơ bản của lệnh thu hồi quyền (REVOKE) trong SQL là: REVOKE <quyền> ON <đối tượng> FROM <người_dùng>. Ví dụ: REVOKE SELECT, INSERT ON NhanVien FROM UserA. Nó có tác dụng tước bỏ các quyền đã cấp trước đó bằng lệnh GRANT."
+  },
+  {
+    "id": 247,
+    "question": "Phương pháp nào dưới đây là phương pháp cơ bản để join các table với nhau",
+    "options": [
+      "Natural JOIN",
+      "Subqueries",
+      "Tất cả đáp án đều đúng",
+      "Union JOIN"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Kết nối tự nhiên (Natural JOIN) là một trong những phương pháp cơ bản và phổ biến nhất trong đại số quan hệ và SQL để kết nối các bảng. Nó tự động ghép các hàng từ hai bảng dựa trên các cột có cùng tên, và loại bỏ cột trùng lặp."
+  },
+  {
+    "id": 248,
+    "question": "Cho R(A,B,C,D,E), F = {A→BC, B→D, D→E}. Giả sử R ở 1NF. Dạng chuẩn cao nhất là:",
+    "options": [
+      "3NF (nhưng không phải BCNF)",
+      "chỉ 1NF",
+      "2NF (nhưng không phải 3NF)",
+      "BCNF"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: 2NF (nhưng không phải 3NF). R(A,B,C,D,E), F={A→BC,B→D,D→E}. Khóa=A (đơn). B→D: B không siêu khóa, D không prime → vi phạm 3NF. 2NF ✓ (khóa đơn). Cao nhất: 2NF."
+  },
+  {
+    "id": 249,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất khi nói về thuộc tính dư thừa",
+    "options": [
+      "A₁A₂ → B, A₁ dư thừa khi A₂ → B phụ thuộc đầy đủ",
+      "A₁A₂ → B, A₁ dư thừa khi A₂ không xác định B",
+      "A₁A₂ → B, A₁ dư thừa khi A₂ → B",
+      "A₁A₂ → B, A₁ dư thừa khi A₁A₂ → B phụ thuộc đầy đủ"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Một thuộc tính (ví dụ A1) trong vế trái của một phụ thuộc hàm (A1A2 -> B) được gọi là dư thừa nếu như ta bỏ nó đi mà phụ thuộc hàm vẫn đúng. Nghĩa là chỉ cần một mình A2 cũng đủ để xác định B (A2 -> B). Khi đó, việc thêm A1 là không cần thiết."
+  },
+  {
+    "id": 250,
+    "question": "Thuộc tính của thực thể được biểu diễn trong lược đồ ERD thông qua:",
+    "options": [
+      "Hình chữ nhật",
+      "Hình elip",
+      "Hình thoi",
+      "Mũi tên"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: Hình elip. Mô hình thực thể - quan hệ (ERM/ERD) là công cụ thiết kế CSDL mức khái niệm. Thực thể (entity) là đối tượng cần quản lý, thuộc tính (attribute) mô tả đặc điểm, và liên kết (relationship) thể hiện mối quan hệ giữa các thực thể."
+  },
+  {
+    "id": 251,
+    "question": "Các phép toán gộp nhóm được sử dụng sau mệnh đề",
+    "options": [
+      "WHERE",
+      "FROM",
+      "GROUP BY",
+      "SELECT"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Các phép toán gộp nhóm (nhóm các bản ghi có chung đặc điểm để tính toán) được thực hiện thông qua mệnh đề GROUP BY trong câu lệnh SQL. Mệnh đề GROUP BY luôn được đặt sau mệnh đề WHERE và trước mệnh đề HAVING hoặc ORDER BY."
+  },
+  {
+    "id": 252,
+    "question": "Hệ quản trị CSDL - HQTCSDL (DataBase Management System - DBMS) là:",
+    "options": [
+      "Các phần mềm ứng dụng.",
+      "Phần mềm điều khiển các chiến lược truy nhập CSDL.",
+      "Hệ điều hành",
+      "Các phần mềm hệ thống."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Hệ quản trị Cơ sở dữ liệu (DBMS) được phân loại là Các phần mềm hệ thống (System Software). Nó cung cấp môi trường trung gian giữa người sử dụng với hệ điều hành và phần cứng, nhằm mục đích tổ chức, quản lý và truy xuất dữ liệu."
+  },
+  {
+    "id": 253,
+    "question": "Cho hình ERD, hỏi đây là loại mối quan hệ nào? \\rule{1.5cm}{0.4pt} \\fbox{\\textbf{DUAN}}\">NHANVIENthamgia>DUAN\\fbox{\\textbf{NHANVIEN}} \\rule{1.5cm}{0.4pt} \\Big \\rule{1.5cm}{0.4pt} \\fbox{\\textbf{DUAN}}NHANVIEN⟨thamgia⟩DUAN Trong đó:\">XXXX>\\Big⟨XXXX⟩: quan hệ",
+    "options": [
+      "N–N",
+      "1–N",
+      "Tự liên kết",
+      "1–1"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Mối kết hợp 'Tham gia' giữa hai thực thể NHÂN VIÊN và DỰ ÁN điển hình là mối quan hệ Nhiều - Nhiều (N-N hay M-N). Lý do: Một nhân viên có thể tham gia vào nhiều dự án khác nhau cùng lúc, và một dự án quy mô lớn cũng cần nhiều nhân viên tham gia."
+  },
+  {
+    "id": 254,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. ENROLL(SID, CID, Semester, Grade): Chứa thông tin đăng ký môn học của sinh viên. SID tham chiếu SID của STUDENT, CID tham chiếu tới CID của COURSE. Lấy CID của các môn có sinh viên Major='CS' đăng ký trong Semester='2025_Spring'.",
+    "options": [
+      "πCID(σMajor=′CS′∧Semester=′2025_Spring′(STUDENT⋈ENROLL))π_{CID}(σ_{Major='CS' ∧ Semester='2025\\_Spring'}(STUDENT ⋈ ENROLL))πCID(σMajor=′CS′∧Semester=′2025_Spring′(STUDENT⋈ENROLL))",
+      "πCID(σMajor=′CS′(STUDENT))∩πCID(σSemester=′2025_Spring′(ENROLL))π_{CID}(σ_{Major='CS'}(STUDENT)) ∩ π_{CID}(σ_{Semester='2025\\_Spring'}(ENROLL))πCID(σMajor=′CS′(STUDENT))∩πCID(σSemester=′2025_Spring′(ENROLL))",
+      "πCID(σMajor=′CS′(ENROLL))π_{CID}(σ_{Major='CS'}(ENROLL))πCID(σMajor=′CS′(ENROLL))",
+      "πCID(σSemester=′2025_Spring′(STUDENT))⋈ENROLLπ_{CID}(σ_{Semester='2025\\_Spring'}(STUDENT)) ⋈ ENROLLπCID(σSemester=′2025_Spring′(STUDENT))⋈ENROLL"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Để lấy được mã môn học (CID) dựa trên chuyên ngành (Major='CS') và thời gian đăng ký (Semester='2025_Spring'), ta cần kết nối tự nhiên bảng STUDENT và ENROLL. Sau đó áp dụng phép chọn (σ) với hai điều kiện trên (dùng AND ∧). Cuối cùng chiếu (π) lấy cột CID."
+  },
+  {
+    "id": 255,
+    "question": "Quy tắc bắc cầu trong hệ tiên đề Armstrong:",
+    "options": [
+      "Nếu A --> B và BC --> D thì A --> D",
+      "Nếu A --> B và B --> A thì A --> C",
+      "Nếu A --> BC và BD --> E thì A --> E",
+      "Nếu A --> B và B --> C thì A --> C"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Nếu A --> B và B --> C thì A --> C. Quy tắc bắc cầu Armstrong: Nếu A→B và B→C thì A→C. Đây là một trong 3 quy tắc cơ sở (cùng phản xạ và gia tăng)."
+  },
+  {
+    "id": 256,
+    "question": "Cho R(A,B,C,D,E), F = {AB→C, C→B, B→D, D→E}. Giả sử R ở 1NF. Dạng chuẩn cao nhất là:",
+    "options": [
+      "2NF (nhưng không phải 3NF)",
+      "BCNF",
+      "3NF",
+      "chỉ 1NF"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: chỉ 1NF. Quan hệ đạt chuẩn 1NF khi mỗi giá trị trong mỗi ô là nguyên tử (không thể chia nhỏ hơn), mỗi cột chứa cùng loại dữ liệu và mỗi hàng là duy nhất. 1NF loại bỏ các thuộc tính đa trị và thuộc tính phức hợp."
+  },
+  {
+    "id": 257,
+    "question": "Quan hệ N–N Enroll giữa Student và Course, có thuộc tính Grade. Ánh xạ đúng là:",
+    "options": [
+      "STUDENT(SID PK); COURSE(CID PK); ENROLL(SID FK, CID FK, Grade, PK(SID,CID))",
+      "STUDENT(SID PK, CID FK, Grade); COURSE(CID PK)",
+      "COURSE(CID PK, SID FK, Grade); STUDENT(SID PK)",
+      "ENROLL(SID PK, CID PK, Grade), không FK"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là D: ENROLL(SID PK, CID PK, Grade), không FK. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 258,
+    "question": "Mệnh đề nào sau đây được dùng để nhập dữ liệu vào bảng publishers",
+    "options": [
+      "insert into publishers data ('0010', 'Pragmatics', '4 4th ln.', 'Chicago', 'IL')",
+      "insert into publishers tuples ('0010', 'Pragmatics', '4 4th ln.', 'Chicago', 'IL')",
+      "insert into publishers entities ('0010', 'Pragmatics', '4 4th ln.', 'Chicago', 'IL')",
+      "insert into publishers values ('0010', 'Pragmatics', '4 4th ln.', 'Chicago', 'IL')"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: insert into publishers values ('0010', 'Pragmatics', '4 4th ln.', 'Chicago', 'IL'). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 259,
+    "question": "Cho R(A,B,C,D,E), F = {AB→C, C→D, D→E}. Phụ thuộc hàm nào suy ra được?",
+    "options": [
+      "AB→E",
+      "E→A",
+      "A→E",
+      "B→E"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: AB→E. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+  },
+  {
+    "id": 260,
+    "question": "R(A,B,C,D,E,F), F={A→BC, C→D, E→F}. FD nào suy ra được?",
+    "options": [
+      "A→F",
+      "C→B",
+      "D→A",
+      "A→D"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: A→D. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+  },
+  {
+    "id": 261,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Trong CSDL quan hệ, các phép toán lưu trữ là các phép chèn thêm, sửa đổi và loại bỏ. Khi thao tác ....... và đảm bảo tính nhất quán dữ liệu và tính toàn vẹn dữ liệu.",
+    "options": [
+      "Tổn thất thông tin",
+      "Độc lập dữ liệu",
+      "Bảo mật thông tin",
+      "Không dị thường thông tin"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Không dị thường thông tin. Phép chèn (INSERT) thêm một bộ (bản ghi) mới vào quan hệ. Trong mô hình quan hệ, thao tác INSERT phải thỏa mãn mọi ràng buộc toàn vẹn: khóa chính không NULL và duy nhất, khóa ngoại tham chiếu hợp lệ."
+  },
+  {
+    "id": 262,
+    "question": "Câu nào sau đây dùng để xoá bảng KhachHang ra khỏi một lược đồ cơ sở dữ liệu?",
+    "options": [
+      "Remove table KhachHang",
+      "Cả 2 phương án: 1 và 2",
+      "Drop table Khachhang",
+      "Delete table Khachhang"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Để xóa hoàn toàn cấu trúc của một bảng (cùng với toàn bộ dữ liệu, chỉ mục, và các ràng buộc bên trong nó) ra khỏi lược đồ cơ sở dữ liệu, ta bắt buộc phải dùng lệnh DROP TABLE (DDL). Lệnh DELETE chỉ dùng để xóa dữ liệu mà vẫn giữ lại cấu trúc."
+  },
+  {
+    "id": 263,
+    "question": "Let R(A,B,C), F = {AB→C, C→A}. What is C+? ( Cho R(A,B,C), F = {AB→C, C→A}. Bao đóng C+ là: )",
+    "options": [
+      "{C}",
+      "{A, C}",
+      "{A, B, C}",
+      "{B, C}"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: {A, C}. C+ với F={AB→C,C→A}: C→A→{A,C}. AB→C cần B (chưa có) → dừng. C+={A,C}."
+  },
+  {
+    "id": 264,
+    "question": "Cơ sở dữ liệu là tài nguyên thông tin chung, nghĩa là:",
+    "options": [
+      "Nhiều người sử dụng.",
+      "Truy nhập trực tuyến.",
+      "Nhiều người sử dụng, không phụ thuộc vị trí địa lý, có phân quyền.",
+      "Nhiều người sử dụng, có phân quyền."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Tính chất 'tài nguyên thông tin chung' của CSDL thể hiện ở việc nó cho phép rất nhiều người sử dụng cùng truy cập đồng thời, thường thông qua mạng nên không phụ thuộc vị trí địa lý, và quan trọng nhất là phải có cơ chế phân quyền chặt chẽ để đảm bảo an toàn."
+  },
+  {
+    "id": 265,
+    "question": "Mô hình dữ liệu tốt nhất",
+    "options": [
+      "Khi thao tác dễ dàng nhất",
+      "Độc lập dữ liệu",
+      "Phụ thuộc vào yêu cầu truy xuất và khai thác thông tin",
+      "Không tổn thất thông tin"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Không có một mô hình dữ liệu nào là 'tuyệt đối tốt nhất' cho mọi bài toán. Việc lựa chọn mô hình dữ liệu tốt nhất phụ thuộc hoàn toàn vào bản chất của dữ liệu, quy mô hệ thống, và đặc biệt là yêu cầu truy xuất và khai thác thông tin thực tế của tổ chức."
+  },
+  {
+    "id": 266,
+    "question": "Nếu một lược đồ quan hệ có 5 thuộc tính, khóa của lược đồ gồm 3 thuộc tính. Khi đó ta sẽ có bao nhiêu siêu khóa:",
+    "options": [
+      "3",
+      "4",
+      "2",
+      "5"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: 4. Siêu khóa (superkey) là tập thuộc tính bao đóng chứa toàn bộ thuộc tính quan hệ. Khóa ứng viên là siêu khóa tối thiểu (không có tập con nào cũng là siêu khóa). Khóa chính (primary key) là khóa ứng viên được chọn để xác định hàng."
+  },
+  {
+    "id": 267,
+    "question": "Cho R(A,B,C,D,E,F), F = {B→D, D→E, AE→F, C→A}. Bao đóng (BC)+ là:",
+    "options": [
+      "{A, B, C, D, E}",
+      "{B, C, D, E, F}",
+      "{A, B, C, D}",
+      "{A, B, C, D, E, F}"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: {A, B, C, D, E, F}. (BC)+: B→D→{B,C,D}, D→E→{A,B,C,D,E} (sai - D→E not D→A, let me recalc). BC: B→D:{B,C,D}. D→E:{B,C,D,E}. C→A:{A,B,C,D,E}. AE→F:{A,B,C,D,E,F}=Ω. (BC)+={A,B,C,D,E,F}."
+  },
+  {
+    "id": 268,
+    "question": "Cho lược đồ CSDL gồm các bảng sau: KhachHang(MaKH, TenKH, ThanhPho) SanPham(MaSP, TenSP, SoLuong, DonGia) DaiLy (MaDL, TenDL, ThanhPho, HueHong) DatHang(MaDH, NgayDH, MaKH, MaDL, MaSP, SoLuong, ThanhTien) Chọn câu lệnh SQL để giải quyết câu truy vấn sau. Liệt kê tên các sản phẩm mà có từ hai khách hàng trở lên đặt hàng.",
+    "options": [
+      "Select TenSP from SanPham where MaSP in (select MaSP from DatHang where MaKH = 'c01' and MaKH = 'c02');",
+      "Select TenSP from SanPham p, DatHang o1, DatHang o2 where p.MaSP = o1.MaSP and p.MaSP = o2.MaSP;",
+      "Select distinct TenSP from SanPham p, DatHang o1, DatHang o2 where",
+      "Select TenSP from SanPham where MaSP in (select o1.MaSP from DatHang o1, DatHang o2 where o1.MaKH = 'c01' and o2.MaKH = 'c02' and o1.MaSP = o2.MaSP);"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Dựa vào các phương án, truy vấn này thực chất đang tìm các sản phẩm được đặt bởi CẢ HAI khách hàng cụ thể là 'c01' và 'c02'. Phép tự kết nối (Self-join) bảng DatHang (o1 và o2) dựa trên cùng MaSP nhưng khác MaKH là một cách tiếp cận đúng."
+  },
+  {
+    "id": 269,
+    "question": "Cho R(A,B,C,D,E), F = {A→BC, B→D, CD→E}. Phụ thuộc hàm không tầm thường nào suy ra được?",
+    "options": [
+      "A→E",
+      "B→E",
+      "E→A",
+      "D→E"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Đề bài hỏi phụ thuộc hàm không tầm thường có thể suy ra. Từ A -> BC, ta suy ra A -> B và A -> C. Từ A -> B và B -> D, ta có A -> D. Vì A có thể xác định cả C và D, nên A -> CD. Áp dụng luật bắc cầu với CD -> E, ta suy ra được A -> E."
+  },
+  {
+    "id": 270,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất:",
+    "options": [
+      "A --> BC và BC --> Z thì AC -->Z",
+      "A --> BC và B --> Z thì AC -->Z",
+      "AC --> B và B --> Z thì A-->Z",
+      "A --> B và BC --> Z thì AC -->Z"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Đây chính là Luật tựa bắc cầu (Pseudo-transitivity Rule) được suy dẫn từ hệ tiên đề Armstrong: Nếu A -> B và BC -> Z, thì ta suy ra được AC -> Z. Chứng minh: Từ A -> B, dùng luật gia tăng thêm C ta có AC -> BC. Bắc cầu giữa AC -> BC và BC -> Z, ta có AC -> Z."
+  },
+  {
+    "id": 271,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất",
+    "options": [
+      "Biểu diễn toàn bộ thông tin trong mô hình quan niệm là duy nhất",
+      "Chỉ có nhiều cách nhìn dữ liệu ở mô hình quan niệm",
+      "Mô hình quan niệm là cách nhìn dữ liệu của người sử dụng",
+      "Mô hình dữ liệu là nội dung thông tin của người sử dụng"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là D: Mô hình dữ liệu là nội dung thông tin của người sử dụng. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 272,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Trong biểu thức quan hệ các toán hạng là ..........",
+    "options": [
+      "Các phụ thuộc hàm",
+      "Các thuộc tính",
+      "Các phần tử",
+      "Các quan hệ trong một CSDL"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Các quan hệ trong một CSDL. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 273,
+    "question": "Cấu trúc của một mô hình quan hệ được định nghĩa bởi:",
+    "options": [
+      "Bảng, dòng và cột",
+      "Tất cả đều đúng.",
+      "Quan hệ, bộ và thuộc tính",
+      "Tập tin, mẫu tin và trường."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Cấu trúc của mô hình cơ sở dữ liệu quan hệ (Relational Model) được định nghĩa dựa trên các khái niệm toán học cốt lõi: Quan hệ (Relation - tương ứng với bảng), Bộ (Tuple - tương ứng với hàng), và Thuộc tính (Attribute - tương ứng với cột)."
+  },
+  {
+    "id": 274,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Bao đóng tập các phụ thuộc hàm gồm các phụ thuộc…",
+    "options": [
+      "Bắc cầu được suy dẫn logic",
+      "Đầy đủ được suy dẫn logic",
+      "Được suy dẫn bằng cách áp dụng liên tiếp các hệ tiên đề Armstrong",
+      "Được suy dẫn bằng định nghĩa"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Bao đóng của tập phụ thuộc hàm F (ký hiệu là F⁺) được định nghĩa là tập hợp tất cả các phụ thuộc hàm có thể được suy dẫn logic từ F bằng cách áp dụng liên tiếp và lặp đi lặp lại các quy tắc trong hệ tiên đề Armstrong (Phản xạ, Gia tăng, Bắc cầu)."
+  },
+  {
+    "id": 275,
+    "question": "Ràng buộc kiểu",
+    "options": [
+      "Quy tắc đặt tên cơ sở dữ liệu",
+      "Mô tả tính chất của các thuộc tính khi tạo lập CSDL",
+      "Mối quan hệ giữa các thực thể dữ liệu",
+      "Quy tắc truy nhập cơ sở dữ liệu"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: Mô tả tính chất của các thuộc tính khi tạo lập CSDL. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 276,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. ENROLL(SID, CID, Semester, Grade): Chứa thông tin đăng ký môn học của sinh viên. SID tham chiếu SID của STUDENT, CID tham chiếu tới CID của COURSE. Lấy SID của sinh viên có đăng ký '2025_Spring' nhưng KHÔNG đăng ký '2025_Fall'.",
+    "options": [
+      "πSID(σSemester=′2025_Spring′(ENROLL))∪πSID(σSemester=′2025_Fall′(ENROLL))π_{SID}(σ_{Semester='2025\\_Spring'}(ENROLL)) ∪ π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))πSID(σSemester=′2025_Spring′(ENROLL))∪πSID(σSemester=′2025_Fall′(ENROLL))",
+      "πSID(σSemester=′2025_Fall′(ENROLL))−πSID(σSemester=′2025_Spring′(ENROLL))π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL)) − π_{SID}(σ_{Semester='2025\\_Spring'}(ENROLL))πSID(σSemester=′2025_Fall′(ENROLL))−πSID(σSemester=′2025_Spring′(ENROLL))",
+      "πSID(σSemester=′2025_Spring′(ENROLL))∩πSID(σSemester=′2025_Fall′(ENROLL))π_{SID}(σ_{Semester='2025\\_Spring'}(ENROLL)) ∩ π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))πSID(σSemester=′2025_Spring′(ENROLL))∩πSID(σSemester=′2025_Fall′(ENROLL))",
+      "πSID(σSemester=′2025_Spring′(ENROLL))−πSID(σSemester=′2025_Fall′(ENROLL))π_{SID}(σ_{Semester='2025\\_Spring'}(ENROLL)) − π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))πSID(σSemester=′2025_Spring′(ENROLL))−πSID(σSemester=′2025_Fall′(ENROLL))"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: πSID(σSemester=′2025_Spring′(ENROLL))−πSID(σSemester=′2025_Fall′(ENROLL))π_{SID}(σ_{Semester='2025\\_Spring'}(ENROLL)) − π_{SID}(σ_{Semester='2025\\_Fall'}(ENROLL))πSID(σSemester=′2025_Spring′(ENROLL))−πSID(σSemester=′2025_Fall′(ENROLL)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 277,
+    "question": "một thuộc tính nguyên tố là một thuộc tính mà:",
+    "options": [
+      "Là thành phần cuả một khoá ngoại",
+      "Là một giá trị đơn",
+      "Là thành phần cuả ít nhất một khoá dự tuyển.",
+      "Là thành phần cuả khoá chính."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Trong lý thuyết thiết kế cơ sở dữ liệu quan hệ, một 'thuộc tính nguyên tố' (prime attribute / key attribute) được định nghĩa là thuộc tính tham gia vào (là thành phần của) ÍT NHẤT MỘT khóa dự tuyển (candidate key) của quan hệ đó."
+  },
+  {
+    "id": 278,
+    "question": "Khi thực hiện câu lệnh SQL để xóa cấu trúc của một bảng, điều gì xảy ra đối với dữ liệu chứa trong bảng đó?",
+    "options": [
+      "Không thể xóa được. Chỉ xóa được cấu trúc của bảng khi tất cả dữ liệu trong bảng đó đã bị xóa.",
+      "Dữ liệu trong bảng đó cũng bị xóa theo.",
+      "Nếu bảng bị xóa là bảng cha, thì dữ liệu sẽ được đưa vào bảng con tương ứng.",
+      "Nếu bảng bị xóa là bảng con, thì dữ liệu sẽ đưa vào bảng cha tương ứng."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Lệnh DROP TABLE trong SQL là một thao tác rất nguy hiểm. Khi thực thi lệnh này, không chỉ cấu trúc của bảng (schema) bị hủy bỏ, mà TOÀN BỘ dữ liệu (các hàng) đang được lưu trữ bên trong bảng đó cũng sẽ bị xóa vĩnh viễn không thể khôi phục."
+  },
+  {
+    "id": 279,
+    "question": "Để bảo vệ cơ sở dữ liệu, phải thực hiện biện pháp an toàn",
+    "options": [
+      "Mạng",
+      "An toàn hệ thống điều hành",
+      "Hệ thống, người quản trị cấp phép, an toàn mạng",
+      "Người quản trị cơ sở dữ liệu cấp phép truy nhập"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Để bảo vệ cơ sở dữ liệu một cách toàn diện khỏi các nguy cơ đánh cắp hoặc phá hoại, cần áp dụng đồng bộ các biện pháp: An toàn hệ thống (bảo mật vật lý và hệ điều hành), Cơ chế cấp quyền truy nhập (Authorization do DBA thực hiện), và An toàn mạng."
+  },
+  {
+    "id": 280,
+    "question": "Mối kết hợp “Tham gia” là mối kết hợp (Hình bên)?",
+    "options": [
+      "1-n",
+      "n-n",
+      "n-1",
+      "1-1"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Theo chuẩn mực thiết kế CSDL phổ biến, mối kết hợp 'Tham gia' (thường là giữa Nhân viên và Dự án, hoặc Sinh viên và Câu lạc bộ) là mối quan hệ Nhiều - Nhiều (n-n). Một nhân viên tham gia nhiều dự án, và một dự án có nhiều nhân viên tham gia."
+  }
+]

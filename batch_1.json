@@ -1,0 +1,422 @@
+[
+  {
+    "id": 1,
+    "question": "Trước khi TRANSACTION được thực hiện thành công, hành động được tự động thực hiện nếu máy bị tắt nguồn?",
+    "options": [
+      "COMMIT",
+      "VIEW",
+      "FLASHBACK",
+      "ROLLBACK"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: ROLLBACK. Khi máy tắt đột ngột trước khi TRANSACTION được COMMIT, hệ thống CSDL sẽ tự động thực hiện ROLLBACK để hoàn tác mọi thay đổi chưa được xác nhận, đảm bảo tính nguyên tử (Atomicity) của giao dịch."
+  },
+  {
+    "id": 2,
+    "question": "Cho R(A,B,C,D,E), F = {AB→C, C→D, D→B}. Phân rã BCNF (lossless) đúng là:",
+    "options": [
+      "{R1(A,B,C), R2(C,D), R3(D,E)}",
+      "{R1(A,B,D), R2(B,C), R3(C,E)}",
+      "{R1(A,B,C,D), R2(B,E)}",
+      "{R1(A,B,C), R2(B,C,D), R3(A,B,E)}"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: {R1(A,B,C), R2(B,C,D), R3(A,B,E)}. Phân rã BCNF yêu cầu các lược đồ con phải ở BCNF và không mất thông tin. Lược đồ này thoả mãn vì các phép kết nối tự nhiên giữa chúng bảo toàn thông tin và khóa của mỗi quan hệ con đều thoả mãn BCNF."
+  },
+  {
+    "id": 3,
+    "question": "Mệnh đề GROUP BY ... HAVING",
+    "options": [
+      "Áp dụng các phép toán gộp nhóm",
+      "Phân hoạch các bộ của một quan hệ thành các nhóm riêng biệt và áp dụng các phép toán gộp cho các nhóm",
+      "Phân hoạch các bộ của một quan hệ thành các nhóm riêng biệt",
+      "Tách các quan hệ thành các quan hệ con, không tổn thất thông tin"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: Phân hoạch các bộ của một quan hệ thành các nhóm riêng biệt và áp dụng các phép toán gộp cho các nhóm. Mệnh đề GROUP BY...HAVING phân hoạch các bộ của quan hệ thành các nhóm riêng biệt rồi áp dụng hàm gộp (aggregate) lên từng nhóm. HAVING lọc các nhóm sau khi gộp, khác với WHERE lọc từng bản ghi trước khi gộp."
+  },
+  {
+    "id": 4,
+    "question": "Giá trị các thành phần của khoá quy định:",
+    "options": [
+      "Không thể nhận giá trị null hay các giá trị không xác định.",
+      "Có thể nhận giá trị null",
+      "Không thể nhận giá trị null nhưng có thể nhận các giá trị không xác định",
+      "Có thể nhận giá trị null hay các giá trị không xác định."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: Không thể nhận giá trị null hay các giá trị không xác định.. Theo ràng buộc toàn vẹn thực thể (entity integrity), các thành phần của khóa chính không được phép nhận giá trị NULL hoặc các giá trị không xác định, vì khóa phải định danh duy nhất mỗi bộ trong quan hệ."
+  },
+  {
+    "id": 5,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. ENROLL(SID, CID, Semester, Grade): Chứa thông tin đăng ký môn học của sinh viên. SID tham chiếu SID của STUDENT, CID tham chiếu tới CID của COURSE. (Giả sử Title duy nhất) Lấy (SID, Name) của sinh viên GPA ≥ 3.0 và đã đăng ký môn Title='Database'.",
+    "options": [
+      "σGPA≥3.0∧Title=′Database′(πSID,Name(STUDENT⋈ENROLL⋈COURSE))σ_{GPA≥3.0 ∧ Title='Database'}(π_{SID,Name}(STUDENT ⋈ ENROLL ⋈ COURSE))σGPA≥3.0∧Title=′Database′(πSID,Name(STUDENT⋈ENROLL⋈COURSE))",
+      "πSID,Name(σGPA≥3.0∧Title=′Database′(STUDENT⋈ENROLL⋈COURSE))π_{SID,Name}(σ_{GPA≥3.0 ∧ Title='Database'}(STUDENT ⋈ ENROLL ⋈ COURSE))πSID,Name(σGPA≥3.0∧Title=′Database′(STUDENT⋈ENROLL⋈COURSE))",
+      "πSID,Name(σTitle=′Database′(STUDENT⋈ENROLL))π_{SID,Name}(σ_{Title='Database'}(STUDENT ⋈ ENROLL))πSID,Name(σTitle=′Database′(STUDENT⋈ENROLL))",
+      "πSID,Name(σGPA≥3.0(STUDENT)⋈σTitle=′Database′(COURSE))π_{SID,Name}(σ_{GPA≥3.0}(STUDENT) ⋈ σ_{Title='Database'}(COURSE))πSID,Name(σGPA≥3.0(STUDENT)⋈σTitle=′Database′(COURSE))"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B. Để lấy thông tin sinh viên (SID, Name) cùng với điều kiện về điểm (GPA >= 3.0) và tên môn học (Title = 'Database'), ta cần kết nối (JOIN) 3 bảng STUDENT, ENROLL và COURSE. Sau đó áp dụng phép chọn (σ) với các điều kiện trên, và cuối cùng dùng phép chiếu (π) để chỉ lấy cột SID và Name."
+  },
+  {
+    "id": 6,
+    "question": "Cho quan hệ R(A,B,C,D), F={A↔B, C→D}. Khóa ứng viên là?",
+    "options": [
+      "{C}",
+      "{AC, BC}",
+      "{AB}",
+      "{A}"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B. Các thuộc tính không bao giờ xuất hiện ở vế phải của phụ thuộc hàm là C, do đó mọi khóa đều phải chứa C. Ta tính bao đóng: (AC)⁺ = {A,C,B,D} -> AC là khóa. Thêm B: (BC)⁺ = {B,C,A,D} -> BC là khóa. Do đó có 2 khóa ứng viên là AC và BC."
+  },
+  {
+    "id": 7,
+    "question": "Đặc điểm cần có của liên kết N-M (nhiều - nhiều) trong ERM:",
+    "options": [
+      "Có khóa chính",
+      "Không có thuộc tính mô tả",
+      "Không có tên của liên kết",
+      "Có thuộc tính mô tả"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D. Trong mô hình ER, một liên kết nhiều-nhiều (N-M) hoàn toàn có thể chứa các thuộc tính mô tả (descriptive attributes) để lưu trữ thông tin riêng của mối quan hệ đó (ví dụ: ngày đăng ký, điểm số). Liên kết không có khóa chính độc lập như thực thể."
+  },
+  {
+    "id": 8,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất khi nói về mối liên kết giữa các thực thể trong mô hình thực thể quan hệ",
+    "options": [
+      "Mối quan hệ giữa các thực thể có thể là một - một, một - nhiều và nhiều - nhiều",
+      "Thực thể là những đối tượng dữ liệu cơ bản chứa nội dung các thông tin",
+      "Mối quan hệ giữa các thực thể chỉ có thể là một - một hoặc một - nhiều",
+      "Trong lược đồ quan hệ, cấu trúc dữ liệu nhiều - nhiều không thể chuyển về dạng một - nhiều"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A. Trong mô hình Thực thể - Quan hệ (ER), mối quan hệ (cardinality) giữa hai thực thể có thể là một-một (1-1), một-nhiều (1-N) hoặc nhiều-nhiều (N-M). Các lựa chọn khác sai vì chúng hạn chế loại liên kết hoặc phát biểu sai về cấu trúc."
+  },
+  {
+    "id": 9,
+    "question": "Cho quan hệ R gồm các thuộc tính: Num mã thuê bao, TB tên thuê bao, SDT số điện thoại, DC điạ chỉ. Chọn câu đúng sau đây khi in các thuê bao có cùng tên là Nguyễn Nguyệt Hương:",
+    "options": [
+      "SELECT COUNT( *) FROM R WHERE TB =”Nguyễn Nguyệt Hương”",
+      "SELECT * FROM R WHERE TB =”Nguyễn Nguyệt Hương”",
+      "SELECT SDT FROM R WHERE TB =”Nguyễn Nguyệt Hương”",
+      "SELECT TB FROM R WHERE TB =”Nguyễn Nguyệt Hương”"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B. Lệnh 'SELECT *' sẽ in ra toàn bộ thông tin (các cột) của các dòng thỏa mãn điều kiện. Lệnh A chỉ đếm số lượng, lệnh C chỉ in cột SDT, lệnh D chỉ in cột TB. Đề bài yêu cầu 'in các thuê bao' nên dùng SELECT *."
+  },
+  {
+    "id": 10,
+    "question": "ERD: Product có thuộc tính đa trị Tag. Chọn ánh xạ đúng.",
+    "options": [
+      "TAG(Tag PK); PRODUCT(PID PK, Tag FK)",
+      "PRODUCT(PID PK, Tags TEXT)",
+      "PRODUCT(PID PK, Tag1, Tag2, Tag3)",
+      "PRODUCT(PID PK, ...); PRODUCT_TAG(PID FK, Tag, PK(PID,Tag))"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D. Khi chuyển đổi mô hình ER sang mô hình quan hệ, một thuộc tính đa trị (như Tag) phải được tách thành một bảng riêng. Bảng mới này sẽ chứa khóa ngoại tham chiếu đến bảng chính (PID) và bản thân thuộc tính đó. Khóa chính của bảng mới là (PID, Tag)."
+  },
+  {
+    "id": 11,
+    "question": "Chọn một khẳng định nào sau đây là đúng",
+    "options": [
+      "Nếu F = {A → B, C → D}, C ⊂ B khi đó A → D ∈ F⁺",
+      "Nếu F = {A → B, C → X, BX → Z} khi đó A → Z ∈ F⁺",
+      "Nếu F = {A → B, C → D}, C ⊂ B khi đó A → C ∈ F⁺",
+      "Nếu F = {A → B, C → X, BX → Z} khi đó AC → Z ∈ F⁺"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D. Ta tính bao đóng của AC: (AC)⁺. Ban đầu (AC)⁺ = {A, C}. Vì A -> B nên thêm B. Vì C -> X nên thêm X. Ta có {B, X} nằm trong bao đóng, mà BX -> Z nên Z cũng thuộc bao đóng. Do đó AC -> Z là đúng."
+  },
+  {
+    "id": 12,
+    "question": "Trong mô hình phân cấp dữ liệu được biểu diễn",
+    "options": [
+      "Trong mỗi một cây, một bản gốc và bản ghi phụ thuộc",
+      "Trong một tệp duy nhất theo cấu trúc cây",
+      "Trong nhiều cây",
+      "Trong nhiều tệp theo cấu trúc cây"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: Trong mỗi một cây, một bản gốc và bản ghi phụ thuộc. Mô hình phân cấp tổ chức dữ liệu theo cấu trúc cây, mỗi nút cha có thể có nhiều nút con nhưng mỗi nút con chỉ có một nút cha. Mô hình mạng mở rộng điều này cho phép nút con có nhiều nút cha, dùng con trỏ để liên kết."
+  },
+  {
+    "id": 13,
+    "question": "Cho quan hệ R gồm các thuộc tính: mã thuê bao (ID), tên thuê bao (NameTB), số điện thoại (SDT), địa chỉ (DC). Chọn câu đúng sau đây khi tính tổng số lượng các thuê bao có cùng địa chỉ:",
+    "options": [
+      "SELECT * FROM R GROUP BY DC",
+      "SELECT COUNT( *) FROM R GROUP BY DC",
+      "SELECT SUM( *) FROM R GROUP BY DC",
+      "SELECT * FROM R GROUP BY DC COUNT( *) >= 1"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B. Để tính tổng 'số lượng' thuê bao theo từng địa chỉ, ta dùng gộp nhóm GROUP BY DC và hàm đếm COUNT(*). SUM(*) sai cú pháp vì SUM dùng cho tính tổng giá trị cột số."
+  },
+  {
+    "id": 14,
+    "question": "Cho CSDL gồm các bảng sau: KhachHang(MaKH, TenKH, ThanhPho) SanPham(MaSP, TenSP, SoLuong, DonGia) DaiLy (MaDL, TenDL, ThanhPho, HueHong) DatHang (MaDH, NgayDH, MaKH, MaDL, MaSP, SoLuong, ThanhTien) Chọn câu lệnh SQL để giải quyết câu truy vấn sau: Liệt kê danh sách tên các khách hàng mua sản phẩm 'P02'",
+    "options": [
+      "Select TenKH from KhachHang c, DatHang o where c.MaKH = o.MaKH and o.MaSP = 'P02';",
+      "Select TenKH from KhachHang c where DatHang.MaSP = 'P02';",
+      "Select TenKH from KhachHang c, DatHang o where o.MaSP = 'P02';",
+      "Select TenKH from SanPham where MaSP = 'P02';"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: Select TenKH from KhachHang c, DatHang o where c.MaKH = o.MaKH and o.MaSP = 'P02';. Câu lệnh SELECT trong SQL theo thứ tự xử lý: FROM (chọn bảng) → WHERE (lọc hàng) → GROUP BY (gộp nhóm) → HAVING (lọc nhóm) → SELECT (chọn cột) → ORDER BY (sắp xếp). Cú pháp và điều kiện lọc phải chính xác để cho kết quả đúng."
+  },
+  {
+    "id": 15,
+    "question": "Cho quan hệ R gồm các thuộc tính: K# mã thuê bao, TB tên thuê bao, SDT số điện thoại, DC địa chỉ. Chọn câu đúng sau đây khi in các thuê bao có cùng tên là Nguyễn Nguyệt Hương, biểu diễn bằng đại số quan hệ",
+    "options": [
+      "πSDT(σTB = \"Nguyễn Nguyệt Hương\"(R))",
+      "πCOUNT(*)(σTB = \"Nguyễn Nguyệt Hương\"(R))",
+      "πTB(σTB = \"Nguyễn Nguyệt Hương\"(R))",
+      "σTB = \"Nguyễn Nguyệt Hương\"(R)"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D. Trong đại số quan hệ, phép chọn (σ) được sử dụng để trích xuất các bộ (dòng) thỏa mãn một điều kiện. Ở đây điều kiện là TB = 'Nguyễn Nguyệt Hương'. Phép chiếu (π) dùng để chọn cột."
+  },
+  {
+    "id": 16,
+    "question": "Cho các phụ thuộc hàm sau F= (Z Q -> A N C, Z -> C), của lược đồ quan hệ B = (Z,Q,A,N,C) ta có thể suy ra:",
+    "options": [
+      "Không có câu nào đúng.",
+      "Q C là khóa của lược đồ quan hệ B",
+      "Z là khóa của lược đồ quan hệ B",
+      "Z Q là khóa của lược đồ quan hệ B"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D. Khóa của quan hệ phải xác định tất cả các thuộc tính còn lại. Xét bao đóng (ZQ)⁺ = {Z, Q, A, N, C} (dựa vào ZQ -> ANC). Do ZQ xác định toàn bộ các thuộc tính và không có tập con nào làm được điều này, nên ZQ là khóa."
+  },
+  {
+    "id": 17,
+    "question": "Mức ngoài là:",
+    "options": [
+      "Nội dung thông tin của toàn bộ CSDL dưới cách nhìn của người sử dụng.",
+      "Nội dung thông tin của một phần dữ liệu dưới cách nhìn của người sử dụng.",
+      "Nội dung thông tin của một phần cơ sở dữ liệu",
+      "Nội dung thông tin của toàn bộ CSDL"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: Nội dung thông tin của một phần dữ liệu dưới cách nhìn của người sử dụng.. Kiến trúc 3 mức ANSI/SPARC gồm: Mức ngoài (external/view level) - mô tả một phần dữ liệu theo góc nhìn người dùng cụ thể; Mức khái niệm (conceptual) - mô tả toàn bộ CSDL; Mức trong (internal/physical) - mô tả cách lưu trữ vật lý."
+  },
+  {
+    "id": 18,
+    "question": "Cậu lệnh sử dụng để thay đổi thông tin trường \"LastName\" từ \"Thomas\" thành \"Michel\" trong bảng \"Users\"?",
+    "options": [
+      "MODIFY Users SET LastName = 'Thomas' INTO LastName = 'Michel'",
+      "MODIFY Users SET LastName = 'Michel' WHERE LastName = 'Thomas'",
+      "UPDATE User SET LastName = 'Thomas' INTO LastName = 'Michel'",
+      "UPDATE Users SET LastName = 'Michel' WHERE LastName = 'Thomas'"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: UPDATE Users SET LastName = 'Michel' WHERE LastName = 'Thomas'. Lệnh UPDATE trong SQL dùng để sửa đổi dữ liệu hiện có trong bảng. Cú pháp đúng: UPDATE tên_bảng SET cột = giá_trị WHERE điều_kiện. Thiếu mệnh đề WHERE sẽ cập nhật tất cả các hàng trong bảng."
+  },
+  {
+    "id": 19,
+    "question": "Cho Ω = {A, B, C} và F = {A → C, A → B}",
+    "options": [
+      "Không tồn tại các thuộc tính không khóa",
+      "Quan hệ trên có dạng chuẩn không phải 2NF",
+      "{A, C}, {B, E} là khóa của quan hệ trên",
+      "Tồn tại các thuộc tính không khóa"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D. Trong lược đồ này, khóa duy nhất là A vì A⁺ = {A, B, C}. Các thuộc tính B và C không tham gia vào khóa nào, do đó chúng được gọi là các thuộc tính không khóa (non-prime attributes)."
+  },
+  {
+    "id": 20,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất",
+    "options": [
+      "A → B và A → C ⇒ B → BC",
+      "Tên thuê bao → Số điện thoại thuê bao",
+      "A → B và A → C ⇒ A → BC",
+      "AA → AB và AA → C suy ra A → BC"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C. Đây là quy tắc gộp (Union Rule) trong hệ tiên đề Armstrong: Nếu X -> Y và X -> Z thì X -> YZ. Suy ra A -> B và A -> C thì A -> BC."
+  },
+  {
+    "id": 21,
+    "question": "Xét R(K,G,B,H,Z,C) Với tập phụ thuộc hàm F={K -> G, K -> B, B H -> Z, B H -> C, G -> Z}. Phụ thuộc hàm nào sau đây không được suy ra từ F?",
+    "options": [
+      "B H -> Z C",
+      "K H -> C",
+      "G -> B H",
+      "K -> Z"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C. Phụ thuộc hàm G -> BH không thể được suy ra. Bao đóng của G là G⁺ = {G, Z}. Vì G⁺ không chứa B và H, nên G không xác định được BH. Các phụ thuộc còn lại đều có thể suy dẫn được."
+  },
+  {
+    "id": 22,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. ENROLL(SID, CID, Semester, Grade): Chứa thông tin đăng ký môn học của sinh viên. SID tham chiếu SID của STUDENT, CID tham chiếu tới CID của COURSE. Lấy CID của các môn Dept='CS' mà có ít nhất một sinh viên GPA",
+    "options": [
+      "πCID(σDept=′CS′(COURSE))−πCID(σGPA<2.0(STUDENT⋈ENROLL))π_{CID}(σ_{Dept='CS'}(COURSE)) − π_{CID}(σ_{GPA<2.0}(STUDENT ⋈ ENROLL))πCID(σDept=′CS′(COURSE))−πCID(σGPA<2.0(STUDENT⋈ENROLL))",
+      "πCID(σGPA<2.0(STUDENT))π_{CID}(σ_{GPA<2.0}(STUDENT))πCID(σGPA<2.0(STUDENT))",
+      "πCID(σDept=′CS′∧GPA<2.0(COURSE⋈ENROLL))π_{CID}(σ_{Dept='CS' ∧ GPA<2.0}(COURSE ⋈ ENROLL))πCID(σDept=′CS′∧GPA<2.0(COURSE⋈ENROLL))",
+      "πCID(σDept=′CS′∧GPA<2.0(STUDENT⋈ENROLL⋈COURSE))π_{CID}(σ_{Dept='CS' ∧ GPA<2.0}(STUDENT ⋈ ENROLL ⋈ COURSE))πCID(σDept=′CS′∧GPA<2.0(STUDENT⋈ENROLL⋈COURSE))"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D. Để có thông tin về khoa (COURSE) và điểm của sinh viên (STUDENT), ta phải kết nối ba bảng STUDENT, ENROLL và COURSE. Sau đó áp dụng phép chọn (σ) với điều kiện, và dùng phép chiếu (π) để lấy cột CID."
+  },
+  {
+    "id": 23,
+    "question": "Để sửa đổi cấu trúc của bảng ta sử dụng lệnh:",
+    "options": [
+      "ALTER COLUMN",
+      "Lựa chọn khác",
+      "ALTER DATABASE",
+      "ALTER TABLE"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D. Lệnh ALTER TABLE được sử dụng trong SQL để sửa đổi cấu trúc của một bảng đã tồn tại (thêm, xóa cột...). Lệnh UPDATE chỉ dùng để sửa đổi dữ liệu (bản ghi)."
+  },
+  {
+    "id": 24,
+    "question": "Phép chèn thêm là phép toán",
+    "options": [
+      "Chèn vào CSDL các thuộc tính mới",
+      "Chèn vào CSDL một số thông tin tùy ý",
+      "Chèn vào CSDL một số thông tin về một đối tượng",
+      "Chèn vào CSDL từ vùng đệm chứa các thông tin về một bản ghi cụ thể"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Chèn vào CSDL từ vùng đệm chứa các thông tin về một bản ghi cụ thể. Phép chèn (INSERT) thêm một bộ (bản ghi) mới vào quan hệ. Trong mô hình quan hệ, thao tác INSERT phải thỏa mãn mọi ràng buộc toàn vẹn: khóa chính không NULL và duy nhất, khóa ngoại tham chiếu hợp lệ."
+  },
+  {
+    "id": 25,
+    "question": "Tối ưu hóa câu hỏi bằng cách",
+    "options": [
+      "Thực hiện các phép chiếu và chọn, tiếp sau mới thực hiện phép kết nối",
+      "Thực hiện các phép toán đại số quan hệ",
+      "Thực hiện biến đổi không làm tổn thất thông tin",
+      "Bỏ đi các phép kết nối hoặc tích Đề các có chi phí lớn"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: Thực hiện các phép chiếu và chọn, tiếp sau mới thực hiện phép kết nối. Tối ưu hóa truy vấn thực hiện phép chọn (σ) và chiếu (π) trước để giảm kích thước quan hệ trung gian, sau đó mới thực hiện phép kết nối (join) tốn kém. Chiến lược này giảm đáng kể lượng dữ liệu cần xử lý."
+  },
+  {
+    "id": 26,
+    "question": "Cho quan hệ R(A,B,C), F={AB→C, C→A}. Khóa là?",
+    "options": [
+      "AC",
+      "AB",
+      "BC",
+      "AB, BC"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D. B là thuộc tính không xuất hiện ở vế phải nên phải thuộc mọi khóa. Tính bao đóng: (AB)⁺ = {A, B, C} -> AB là khóa. (BC)⁺ = {B, C, A} -> BC là khóa. Quan hệ có 2 khóa là AB và BC."
+  },
+  {
+    "id": 27,
+    "question": "Một công ty triển khai các Dự án lớn, mỗi dự án được chia thành nhiều Hạng mục. Mỗi hạng mục được giao cho một chi nhánh quản lý. Nhân viên có thể tham gia nhiều hạng mục của nhiều dự án. Mỗi nhân viên thuộc một chi nhánh, mối chi nhánh có nhiều nhân viên. Các hạng mục có thể sử dụng các Tài nguyên chung của công ty. Thiết kế nào sau đây là phù hợp?",
+    "options": [
+      "ERD có 4 tập thực thể, 2 liên kết 1–N và 1 liên kết M–N",
+      "ERD có 4 tập thực thể, 3 liên kết 1–N và 1 liên kết M–N",
+      "ERD có 5 tập thực thể, 3 liên kết 1–N và 1 liên kết M–N",
+      "ERD có 4 tập thực thể, 2 liên kết 1–N và 2 liên kết M–N"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng (4 thực thể, 3 liên kết 1-N, 1 liên kết M-N). Các thực thể gồm: Dự án, Hạng mục, Chi nhánh, Nhân viên. Liên kết 1-N gồm: Dự án - Hạng mục, Chi nhánh - Hạng mục, Chi nhánh - Nhân viên. Liên kết M-N là Nhân viên - Hạng mục."
+  },
+  {
+    "id": 28,
+    "question": "Phép toán nào trong đại số quan hệ được sử dụng để lấy một tập kết hợp gồm mọi dòng trong bảng thứ nhất với mọi dòng trong bảng thứ hai.",
+    "options": [
+      "Union (Phép hợp)",
+      "Intersection (Phép giao)",
+      "Difference (Phép trừ)",
+      "Product (Phép tích Descartes)"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D. Phép tích Descartes (Cartesian Product) kết hợp mỗi dòng của bảng 1 với tất cả các dòng của bảng 2, tạo ra mọi tổ hợp có thể. Intersection (phép giao) chỉ lấy các dòng giống nhau."
+  },
+  {
+    "id": 29,
+    "question": "Hệ quản trị CSDL - HQTCSDL (DataBase Management System - DBMS) là",
+    "options": [
+      "Hệ điều hành",
+      "Các phần mềm ứng dụng",
+      "Phần mềm điều khiển các chiến lược truy nhập CSDL",
+      "Các phần mềm hệ thống"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C. Hệ quản trị CSDL (DBMS) là phần mềm cung cấp môi trường để tạo lập, quản lý và truy xuất dữ liệu. Nó là phần mềm hệ thống chuyên dụng điều khiển các chiến lược truy nhập CSDL."
+  },
+  {
+    "id": 30,
+    "question": "Xét lược đồ quan hệ R(A,B,C,D) với tập phụ hàm F={A->BCD}. Gỉa sử tập khóa K={A}. R sẽ đạt thấp nhất là dạng chuẩn nào?",
+    "options": [
+      "Dạng chuẩn 2 (2NF)",
+      "Dạng chuẩn 3 (3NF)",
+      "Dạng chuẩn 1 (1NF)",
+      "Dạng chuẩn Boyce-Codd (BCNF)"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D. Khóa của quan hệ là A vì A -> BCD. Mọi phụ thuộc hàm không tầm thường trong F đều có vế trái là siêu khóa, nên quan hệ R đạt dạng chuẩn Boyce-Codd (BCNF). Do đó nó cũng đạt 1NF, 2NF và 3NF."
+  },
+  {
+    "id": 31,
+    "question": "Cho R(A,B,C,D,E,F), F = {AB→C, AC→D, D→E, E→F}. Khóa ứng viên (khoá dự bị) của R là:",
+    "options": [
+      "AD",
+      "AC",
+      "AB",
+      "ABC"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C. Khóa ứng viên là tập thuộc tính tối thiểu xác định tất cả. A và B không có ở vế phải nên phải thuộc khóa. Bao đóng (AB)⁺ = {A, B, C, D, E, F}. Vậy AB là khóa duy nhất."
+  },
+  {
+    "id": 32,
+    "question": "Cho quan hệ R gồm các thuộc tính: K# mã khách hàng, KH tên khách hàng, DC địa chỉ và TK tài khoản. Chọn câu đúng sau đây khi in các khách hàng có số dư tài khoản nhỏ hơn của \"Nga\"",
+    "options": [
+      "SELECT * FROM R WHERE KH = \"Nga\"",
+      "SELECT * FROM R a, R b WHERE a.TK \\le b.TK AND b.KH = \"Nga\"",
+      "SELECT a.K#, a.KH, a.DC FROM R a, R b WHERE a.TK \\le b.TK AND b.KH = \"Nga\"",
+      "SELECT * FROM R WHERE TK \\le b.TK AND b.KH = \"Nga\""
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C. Để tìm các KH có số dư nhỏ hơn của 'Nga', ta cần tự kết nối (self-join) bảng R với chính nó (a và b). Bảng b dùng để tìm tài khoản của 'Nga', bảng a lấy những KH có tài khoản nhỏ hơn hoặc bằng (a.TK <= b.TK)."
+  },
+  {
+    "id": 33,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất khi nói về các phụ thuộc đầy đủ:",
+    "options": [
+      "Các thuộc tính vế trái xác định vế phải.",
+      "Các thuộc tính vế trái không xác định các thuộc tính thuộc vế phải.",
+      "Các thuộc tính vế trái không xác định vế phải.",
+      "Các thuộc tính vế phải không xác định vế trái."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Mặc dù không có lựa chọn nào diễn đạt hoàn hảo 'Phụ thuộc đầy đủ X -> Y là Y phụ thuộc vào toàn bộ X, không phụ thuộc vào bất kỳ tập con nào của X', lựa chọn A mô tả bản chất của phụ thuộc hàm (vế trái xác định vế phải)."
+  },
+  {
+    "id": 34,
+    "question": "Mô hình ngoài là",
+    "options": [
+      "Nội dung thông tin của toàn bộ CSDL dưới cách nhìn của người sử dụng",
+      "Nội dung thông tin của một phần dữ liệu dưới cách nhìn của người sử dụng",
+      "Nội dung thông tin của toàn bộ CSDL",
+      "Nội dung thông tin của một phần cơ sở dữ liệu"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: Nội dung thông tin của một phần dữ liệu dưới cách nhìn của người sử dụng. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 35,
+    "question": "Cho lược đồ quan hệ R(I,Q,N,C,H) và tập phụ thuộc hàm F={IQ->NH, Q->C, C->I}. Phụ thuộc hàm nào sau đây không được suy diễn ra từ tập F?",
+    "options": [
+      "QN->CH",
+      "IQ->I",
+      "IC->NH",
+      "Q->H"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C. Tính bao đóng của IC: (IC)⁺ = {I, C}. Bao đóng này không chứa N và H, do đó IC -> NH sai. Các phụ thuộc còn lại đều đúng."
+  }
+]

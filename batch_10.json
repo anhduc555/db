@@ -1,0 +1,422 @@
+[
+  {
+    "id": 316,
+    "question": "Loại dữ liệu nào là loại dữ liệu không hợp lệ trong ngôn ngữ SQL?",
+    "options": [
+      "FLOAT",
+      "NUMERIC",
+      "DECIMAL",
+      "CHARACTER"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Mặc dù CHARACTER có tồn tại trong tiêu chuẩn ANSI SQL (thường được viết tắt là CHAR), nhưng trong nhiều Hệ quản trị cơ sở dữ liệu phổ biến (như SQL Server, MS Access), người ta hay dùng VARCHAR, NVARCHAR hoặc TEXT thay vì chữ CHARACTER. Các kiểu FLOAT, NUMERIC, DECIMAL được hỗ trợ chuẩn xác."
+  },
+  {
+    "id": 317,
+    "question": "R(A,B,C,D,E,F), F={AC→D, D→E, E→B, B→F}. Bao đóng (AC)+ là:",
+    "options": [
+      "{A, C, D, F}",
+      "{A, C}",
+      "{A, C, D, E}",
+      "{A, B, C, D, E, F}"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: {A, B, C, D, E, F}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
+  },
+  {
+    "id": 318,
+    "question": "cho hai quan hệ C (N, W) và A (W, D) và các câu query sau: P: SELECT N FROM C, A WHERE C.W=A.W; và T: SELECT N FROM C WHERE W in (SELECT W From A); Câu nào sau đây là đúng?",
+    "options": [
+      "Kết quả cuả T luôn luôn chứa kết quả cuả P.",
+      "Kết quả cuả P luôn luôn chứa kết quả cuả T.",
+      "P và T trả về kết quả khác nhau",
+      "P và T trả về kết quả như nhau."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Trong trường hợp lý tưởng (mặc định thuộc tính W trong bảng A là khóa chính và không có giá trị trùng lặp), thì câu P (sử dụng INNER JOIN) và câu T (sử dụng truy vấn con IN) sẽ trả về tập kết quả N hoàn toàn giống nhau. (Nếu W trùng lặp, P có thể trả về bản ghi nhân bản)."
+  },
+  {
+    "id": 319,
+    "question": "R(A,B,C), F={A→B, B→C}. Dạng chuẩn cao nhất của R là?",
+    "options": [
+      "BCNF",
+      "3NF nhưng không BCNF",
+      "1NF",
+      "2NF nhưng không 3NF"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: 2NF nhưng không 3NF. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+  },
+  {
+    "id": 320,
+    "question": "Cho R(A,B,C,D,E), F = {A→B, B→C, A→C, C→D, D→E}. Phụ thuộc hàm nào dư thừa?",
+    "options": [
+      "C→D",
+      "A→B",
+      "B→C",
+      "A→C"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Trong tập F đã cho, ta có phụ thuộc hàm A -> B và B -> C. Theo luật bắc cầu của hệ tiên đề Armstrong, ta hoàn toàn có thể suy luận ra A -> C. Do đó, việc tồn tại sẵn phụ thuộc hàm A -> C ở trong tập F là dư thừa và có thể bị loại bỏ."
+  },
+  {
+    "id": 321,
+    "question": "Câu lệnh để tìm số lượng giá trị trong cột?",
+    "options": [
+      "TOTAL",
+      "COUNT",
+      "ADD",
+      "SUM"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Để đếm số lượng các giá trị (số lượng bản ghi/hàng) tồn tại trong một cột, ta sử dụng hàm tập hợp COUNT. Hàm SUM dùng để tính tổng các giá trị số, không dùng để đếm số lượng."
+  },
+  {
+    "id": 322,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Hợp các quan hệ khả hợp trên cùng tập các thuộc tính A là một quan hệ trên A, các bộ là .......... bỏ đi các bộ trùng nhau, chỉ giữ lại những bộ đại diện.",
+    "options": [
+      "Các bộ của các quan hệ nguồn",
+      "Các bộ của các quan hệ nguồn được tách không tổn thất thông tin",
+      "Các bộ có mặt trong các quan hệ nguồn",
+      "Các bộ của các quan hệ nguồn thỏa điều kiện hợp"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Phép hợp (Union) của hai quan hệ khả hợp sẽ tạo ra một quan hệ mới. Tập hợp các bộ kết quả chính là tất cả 'Các bộ của các quan hệ nguồn' (có mặt ở bảng này hoặc bảng kia). Đồng thời, nó tự động loại bỏ đi các bộ trùng lặp, chỉ giữ lại những bộ đại diện duy nhất."
+  },
+  {
+    "id": 323,
+    "question": "F={A→B, B→C}. Mệnh đề suy ra đúng?",
+    "options": [
+      "A→C",
+      "C→A",
+      "C→B",
+      "AB↛C"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Dựa vào luật bắc cầu (Transitivity Rule) trong hệ tiên đề Armstrong, nếu thuộc tính A xác định thuộc tính B (A -> B) và thuộc tính B xác định thuộc tính C (B -> C), thì ta có thể chắc chắn suy ra được phụ thuộc hàm A -> C."
+  },
+  {
+    "id": 324,
+    "question": "Cho R(A,B,C,D,E), F = {A→B, BC→D, D→E}. Phụ thuộc hàm nào suy ra được?",
+    "options": [
+      "AC→E",
+      "C→E",
+      "AB→E",
+      "A→E"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Từ A -> B, áp dụng luật gia tăng ta thêm C vào hai vế thu được AC -> BC. Áp dụng luật bắc cầu giữa AC -> BC và BC -> D, ta có AC -> D. Tiếp tục bắc cầu giữa AC -> D và D -> E, ta cuối cùng suy ra được phụ thuộc hàm AC -> E."
+  },
+  {
+    "id": 325,
+    "question": "Dữ liệu trong mô hình quan hệ",
+    "options": [
+      "Được biểu diễn nhiều kiểu khác nhau",
+      "Được biểu diễn theo cấu trúc hình cây",
+      "Được biểu diễn theo cấu trúc mô hình mạng",
+      "Được biểu diễn một cách duy nhất"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Được biểu diễn một cách duy nhất. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 326,
+    "question": "Phụ thuộc X → Y ∈ F là phụ thuộc dư thừa, khi và chỉ khi",
+    "options": [
+      "X → Y không suy dẫn logic từ tập các phụ thuộc G := F - {X → Y}",
+      "X → Y không suy dẫn logic từ tập các phụ thuộc F",
+      "X → Y được suy dẫn logic từ tập các phụ thuộc F",
+      "X → Y được suy dẫn logic từ tập các phụ thuộc G := F - {X → Y}"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: X → Y được suy dẫn logic từ tập các phụ thuộc G := F - {X → Y}. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+  },
+  {
+    "id": 327,
+    "question": "F={AB→C, C→A}. Phụ thuộc nào suy ra được?",
+    "options": [
+      "AB→A",
+      "B→A",
+      "A→B",
+      "C→B"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Phụ thuộc hàm AB -> A là một phụ thuộc hiển nhiên (trivial) và luôn luôn đúng theo luật phản xạ của Armstrong, bởi vì vế phải (A) là tập con của vế trái (AB). Do đó, nó chắc chắn có thể được suy ra (hoặc tự nó đã đúng) mà không cần F."
+  },
+  {
+    "id": 328,
+    "question": "Không có mệnh đề Where trong một câu lệnh Delete có ảnh hưởng gì?",
+    "options": [
+      "Câu lệnh Delete sẽ lỗi do sai cú pháp.",
+      "Câu lệnh Delete sẽ thông báo cho người sử dụng nhập điều kiện để xóa.",
+      "Câu lệnh Delete sẽ xóa tất cả các mẩu tin trong bảng.",
+      "Câu lệnh Delete sẽ lỗi do không có dòng nào được xóa."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Lệnh DELETE trong SQL được dùng để xóa dữ liệu. Nếu bạn thực thi lệnh DELETE FROM TenBang mà quên không đi kèm mệnh đề WHERE, hệ quản trị cơ sở dữ liệu sẽ tiến hành xóa TẤT CẢ các mẩu tin hiện có trong bảng. Cấu trúc bảng vẫn được giữ nguyên."
+  },
+  {
+    "id": 329,
+    "question": "STUDENT(SID, Name, Major, GPA): Chứa thông tin sinh viên. COURSE(CID, Title, Dept, Credits): Chứa thông tin môn học. ENROLL(SID, CID, Semester, Grade): Chứa thông tin đăng ký môn học của sinh viên. SID tham chiếu SID của STUDENT, CID tham chiếu tới CID của COURSE. Giả sử Title là duy nhất, lấy Name của sinh viên đã đăng ký môn 'Database' nhưng KHÔNG đăng ký môn 'AI'.",
+    "options": [
+      "πName(STUDENT)−πName(STUDENT⋈πSID(ENROLL⋈σTitle=′Database′(COURSE)))π_{Name}(STUDENT) − π_{Name}(STUDENT ⋈ π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)))πName(STUDENT)−πName(STUDENT⋈πSID(ENROLL⋈σTitle=′Database′(COURSE)))",
+      "πName(STUDENT⋈(πSID(ENROLL⋈σTitle=′Database′(COURSE))∪πSID(ENROLL⋈σTitle=′AI′(COURSE))))π_{Name}(STUDENT ⋈ (π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)) ∪ π_{SID}(ENROLL ⋈ σ_{Title='AI'}(COURSE))))πName(STUDENT⋈(πSID(ENROLL⋈σTitle=′Database′(COURSE))∪πSID(ENROLL⋈σTitle=′AI′(COURSE))))",
+      "πName(STUDENT⋈(πSID(ENROLL⋈σTitle=′Database′(COURSE))−πSID(ENROLL⋈σTitle=′AI′(COURSE))))π_{Name}(STUDENT ⋈ (π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)) − π_{SID}(ENROLL ⋈ σ_{Title='AI'}(COURSE))))πName(STUDENT⋈(πSID(ENROLL⋈σTitle=′Database′(COURSE))−πSID(ENROLL⋈σTitle=′AI′(COURSE))))",
+      "πName(STUDENT⋈(πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE))))π_{Name}(STUDENT ⋈ (π_{SID}(ENROLL ⋈ σ_{Title='Database'}(COURSE)) ∩ π_{SID}(ENROLL ⋈ σ_{Title='AI'}(COURSE))))πName(STUDENT⋈(πSID(ENROLL⋈σTitle=′Database′(COURSE))∩πSID(ENROLL⋈σTitle=′AI′(COURSE))))"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Để tìm sinh viên đăng ký môn 'Database' nhưng KHÔNG đăng ký môn 'AI': Ta chiếu lấy tập SID đã đăng ký 'Database'. Sau đó, chiếu lấy tập SID đã đăng ký 'AI'. Áp dụng phép Hiệu (-) để lọc danh sách. Cuối cùng, kết nối với bảng STUDENT và chiếu lấy Name."
+  },
+  {
+    "id": 330,
+    "question": "Cho R(A,B,C,D,E,F), F = {A→BC, C→D, BD→E, E→F}. Bao đóng A+ là:",
+    "options": [
+      "{A, B, C, D, F}",
+      "{A, B, C, D, E}",
+      "{A, B, C, D}",
+      "{A, B, C, D, E, F}"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: {A, B, C, D, E, F}. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
+  },
+  {
+    "id": 331,
+    "question": "Cho R(A,B,C,D,E), F = {CD→E, E→A, A→B}. Khóa ứng viên ( khoá dự bị) của R là:",
+    "options": [
+      "BD",
+      "AD",
+      "CE",
+      "CD"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: CD. Khóa ứng viên (candidate key) là tập thuộc tính tối thiểu mà bao đóng của nó chứa toàn bộ thuộc tính của quan hệ. Cần kiểm tra bao đóng của từng tập và chọn tập nhỏ nhất thỏa mãn điều kiện siêu khóa."
+  },
+  {
+    "id": 332,
+    "question": "Cho R(A,B,C,D,E), F = {AB→C, C→D, D→E, E→C}. Giả sử R ở 1NF. Dạng chuẩn cao nhất là:",
+    "options": [
+      "3NF",
+      "BCNF",
+      "2NF (nhưng không phải 3NF)",
+      "chỉ 1NF"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: 2NF (nhưng không phải 3NF). R(A,B,C,D,E), F={AB→C,C→D,D→E,E→C}. Khóa=AB. C→D: C không siêu khóa, D không prime → vi phạm 3NF. 2NF ✓ (khóa đơn AB, không có partial dep). Cao nhất: 2NF."
+  },
+  {
+    "id": 333,
+    "question": "Cho quan hệ STUDENT(SID, Name, Major, GPA) lưu trữ thông tin của sinh viên, COURSE(CID, Title, Dept) lưu trữ thông tin môn học, ENROLL(SID, CID, Semester, Grade) lưu trữ thông tin đăng ký học. Lấy SID của các sinh viên đã đăng ký ít nhất một học phần thuộc khoa Dept = 'CS'. Biểu thức đại số quan hệ nào sau đây là đúng?",
+    "options": [
+      "πSID(σDept=′CS′(ENROLL⋈COURSE))π_{SID}(σ_{Dept=′CS′}(ENROLL⋈COURSE))πSID(σDept=′CS′(ENROLL⋈COURSE))",
+      "πSID(σDept=′CS′(STUDENT⋈ENROLL))π_{SID}(σ_{Dept='CS'}(STUDENT⋈ENROLL))πSID(σDept=′CS′(STUDENT⋈ENROLL))",
+      "πSID(σDept=′CS′(COURSE))π_{SID}(σ_{Dept='CS'}(COURSE))πSID(σDept=′CS′(COURSE))",
+      "πSID(ENROLL⋈COURSE)π_{SID}(ENROLL⋈COURSE)πSID(ENROLL⋈COURSE)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Để lấy danh sách sinh viên (mã SID) đăng ký các môn học thuộc khoa 'CS', ta cần phải kết nối bảng ENROLL và bảng COURSE. Sau đó, dùng phép chọn (σ) với điều kiện Dept='CS' để lọc ra các dòng phù hợp, và cuối cùng chiếu (π) để lấy cột SID."
+  },
+  {
+    "id": 334,
+    "question": "Quá trình tối ưu hóa các câu hỏi truy vấn dữ liệu là quá trình",
+    "options": [
+      "Chi phí thời gian thực hiện các phép toán là ít nhất",
+      "Cần thiết phải biến đổi các câu hỏi hợp lý",
+      "Biến đổi câu hỏi sao cho chi phí thời gian và sử dụng bộ nhớ là ít nhất",
+      "Kết quả của các phép toán được biểu diễn duy nhất bằng một quan hệ"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Quá trình tối ưu hóa các câu lệnh truy vấn thực chất là hệ thống phân tích và biến đổi biểu thức đại số quan hệ ban đầu thành các biểu thức tương đương, nhằm tìm ra kế hoạch thực thi có chi phí về thời gian (CPU, I/O) và bộ nhớ sử dụng là thấp nhất."
+  },
+  {
+    "id": 335,
+    "question": "Khi ánh xạ mối quan hệ N–N có thuộc tính mô tả (như Quantity), lựa chọn đúng là?",
+    "options": [
+      "Tạo bảng quan hệ trung gian với khóa là (FK1, FK2) và thêm các thuộc tính mô tả",
+      "Dùng một khóa ngoại chuỗi để tham chiếu cả hai bảng",
+      "Tạo cột lặp (repeating groups) trong một bảng",
+      "Gộp thuộc tính mô tả vào một trong hai bảng thực thể"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Theo quy tắc chuyển đổi mô hình ER sang mô hình quan hệ, đối với một mối kết hợp N-N, ta phải tạo một bảng trung gian mới. Khóa chính của bảng này thường là tổ hợp khóa ngoại của hai bảng (FK1, FK2), và các thuộc tính mô tả sẽ được thêm vào làm các cột."
+  },
+  {
+    "id": 336,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất khi nói về các phụ thuộc hàm gia tăng",
+    "options": [
+      "Có thể mở rộng vế trái hoặc cả hai vế phụ thuộc hàm cùng một thuộc tính",
+      "Có thể mở rộng vế trái, không mở rộng vế phải",
+      "A → B ⇒ AC → B và A → BC",
+      "A → B ⇒ A → BC"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Trong hệ tiên đề Armstrong, luật gia tăng (Augmentation Rule) được phát biểu là: Nếu X -> Y, thì ta có thể thêm (mở rộng) cùng tập thuộc tính Z vào cả hai vế để được XZ -> YZ. Tức là mở rộng vế trái hoặc cả hai vế cùng một thuộc tính."
+  },
+  {
+    "id": 337,
+    "question": "Quy tắc phản xạ trong hệ tiên đề Armstrong",
+    "options": [
+      "Nếu A ⊆ B ⇒ A → B",
+      "Nếu B ⊆ A ⇒ A ∩ B",
+      "Nếu B ⊆ A ⇒ A → B",
+      "Nếu B ⊆ A ⇒ B → A"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án đúng là C: Nếu B ⊆ A ⇒ A → B. Phản xạ Armstrong: nếu Y⊆X (Y là tập con của X) thì X→Y. Ví dụ: {A,B}→A vì A⊆{A,B}. Đây là phụ thuộc luôn đúng (trivial FD)."
+  },
+  {
+    "id": 338,
+    "question": "Câu lệnh SQL nào được sử dụng để xóa hoặc loại bỏ mối quan hệ trong cơ sở dữ liệu?",
+    "options": [
+      "DELETE",
+      "ROLLBACK",
+      "DROP",
+      "REMOVE"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Trong SQL, để xóa hoàn toàn cấu trúc của một đối tượng như bảng, khung nhìn, hoặc loại bỏ các ràng buộc mối quan hệ (foreign key constraints), lệnh chuẩn được sử dụng luôn là DROP (ví dụ: DROP TABLE, ALTER TABLE DROP CONSTRAINT)."
+  },
+  {
+    "id": 339,
+    "question": "Hãy chọn từ/cụm từ tương ứng để hoàn thiện khẳng định sau: Các quyền tham chiếu REFERENCE được cấp cho người sử dụng U1 trên thuộc tính branch-name đến quan hệ BRANCH.",
+    "options": [
+      "GRANT REFERENCE (branch-name) TO U",
+      "GRANT REFERENCE (branch-name) ON BRANCH TO U",
+      "GRANT REFERENCE ON BRANCH TO U",
+      "GRANT REFERENCE (branch-name) ON BRANCH"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là D: GRANT REFERENCE (branch-name) ON BRANCH. Trong mô hình dữ liệu quan hệ, thuộc tính (attribute) biểu diễn các đặc trưng riêng của từng đối tượng được quản lý. Mỗi thuộc tính có một miền giá trị (domain) xác định tập hợp các giá trị hợp lệ mà nó có thể nhận."
+  },
+  {
+    "id": 340,
+    "question": "Given R(A,B,C,D) with F = { AB→C, B→C, C→D }. Considering the functional dependencies in F, which of the following attributes is extraneous on the left-hand side of a functional dependency ? ( Cho R(A,B,C,D) với F = { AB→C, B→C, C→D }. Xét các phụ thuộc hàm trong F, thuộc tính nào sau đây là thừa ở vế trái của một phụ thuộc hàm ? )",
+    "options": [
+      "Không có thuộc tính nào thừa ở vế trái",
+      "A trong AB→C",
+      "C trong C→D",
+      "B trong AB→C"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: A trong AB→C. F={AB→C,B→C,C→D}. A dư thừa trong AB→C vì: loại bỏ A, tính B+={B,C,D}⊇{C} → B→C ∈ F+ → AB→C vẫn suy ra được từ B→C. Vậy A là extraneous."
+  },
+  {
+    "id": 341,
+    "question": "Hãy chuyển từ mô hình ER sang lược đồ Cơ sở dữ liệu? Với mô hình thực thể kết hợp (Mô hình ER) như hình bên.",
+    "options": [
+      "Học Viên (Mã học viên, tên học viên, điạ chỉ, ngày sinh, số điện thoại, ngày nhập học, Mã môn học) Môn học(Mã môn học, tên môn học, thời lượng) GhiDanh(Mã học viên, Mã môn học) Với: khoá chính cuả bảng học viên là Mã học viên Khoá chính cuả bảng \"Môn học\" là Mã môn học Khoá chính cuả bảng \"Phiếu Ghi Danh\" là Mã học viên, Mã môn học",
+      "Học Viên (Mã học viên, tên học viên, điạ chỉ, ngày sinh, số điện thoại) Môn học(Mã môn học, tên môn học, thời lượng) Phiếu Ghi Danh(Mã học viên,Mã môn học,Ngày nhập học ) Với: khoá chính cuả bảng \"Học Viên\" là Mã học viên Khoá chính cuả bảng \"Môn học\" là Mã môn học Khoá chính cuả bảng \"Phiếu Ghi Danh\" là Mã học viên, Mã môn học",
+      "Học Viên (Mã học viên, tên học viên, điạ chỉ, ngày sinh, số điện thoại, ngày nhập",
+      "Học Viên (Mã học viên, tên học viên, điạ chỉ, ngày sinh, số điện thoại, ngày nhập học, mã môn học) Môn học(Mã môn học, tên môn học, thời lượng) Với: khoá chính cuả bảng học viên là Mã học viên Khoá chính cuả bảng \"Môn học\" là Mã môn học Khoá chính cuả bảng \"Phiếu Ghi Danh\" là Mã học viên, Mã môn học"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Khi chuyển đổi mô hình ER: 'Học Viên' và 'Môn Học' trở thành hai bảng với khóa chính tương ứng. Mối quan hệ N-N 'Ghi danh' biến thành bảng trung gian ('Phiếu Ghi Danh') chứa khóa ngoại từ hai bảng kia hợp thành khóa chính, và chứa các thuộc tính riêng (Ngày nhập học)."
+  },
+  {
+    "id": 342,
+    "question": "Ràng buộc dữ liệu là:",
+    "options": [
+      "Các quy tắc, quy định sự liên quan giữa các dữ liệu",
+      "Mối quan hệ giữa các thực thể dữ liệu.",
+      "Các định nghĩa, tiên đề, định lý",
+      "Quy tắc biểu diễn cấu trúc dữ liệu"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Ràng buộc toàn vẹn dữ liệu trong cơ sở dữ liệu là tập hợp các quy tắc, điều kiện và quy định được đặt ra nhằm đảm bảo tính chính xác, hợp lệ, nhất quán và sự liên quan logic giữa các dữ liệu khi người dùng thực hiện thao tác thêm, xóa hoặc sửa."
+  },
+  {
+    "id": 343,
+    "question": "Với F={A→B, B→C}. Phụ thuộc nào không được suy ra?",
+    "options": [
+      "C→A",
+      "A→C",
+      "A→B",
+      "AB→C"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án A đúng. Bằng cách áp dụng luật bắc cầu, từ A -> B và B -> C ta suy ra được A -> C. Từ A -> C, dùng luật gia tăng thêm B phân rã thu được AB -> C. Các phụ thuộc này đều suy ra được. Chỉ có C -> A là phụ thuộc ngược, không có cơ sở logic nào để suy diễn."
+  },
+  {
+    "id": 344,
+    "question": "Cho CSDL gồm các bảng sau: SinhVien(MaSV,TenSV,DiaChi,MaKhoaHoc) KetQua(MaSV,MaMH,Diem) MonHoc(MaMH,TenMH) Cho câu truy vấn SQL sau: SELECT TenMH FROM MonHoc s,KetQua k WHERE s.MaMH=k.MaMH GROUP BY TenMH HAVING Diem >70 Chọn câu trả lời đúng?",
+    "options": [
+      "Câu truy vấn trên trả về danh sách tất cả các tên môn học mà sinh viên học có",
+      "Câu truy vấn trên bị lỗi.",
+      "Câu truy vấn trên trả về danh sách tất cả các tên môn học.",
+      "Câu truy vấn trên trả về danh sách tất cả các tên môn học mà sinh viên học có điểm lớn hơn 70."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Câu truy vấn này mắc lỗi cú pháp SQL nghiêm trọng. Mệnh đề HAVING được dùng để lọc điều kiện cho CÁC NHÓM sau khi đã GROUP BY, và điều kiện trong HAVING bắt buộc phải là một hàm tập hợp (như AVG, SUM) hoặc là cột nằm trong GROUP BY. Dùng HAVING Diem > 70 sẽ gây lỗi."
+  },
+  {
+    "id": 345,
+    "question": "_____ phổ biến bao gồm Access, Oracle, DB2, và SQL Server.",
+    "options": [
+      "Các biểu đồ E-R",
+      "Các file dữ liệu",
+      "Các DBA",
+      "Các DBMS"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Các DBMS. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 346,
+    "question": "Let R(A,B,C,D) with F = {A→B, B→C}. Which of the following is a correct BCNF decomposition of R? (Cho R(A,B,C,D) với F = {A→B, B→C}. Phương án nào sau đây là một phép phân rã đúng về chuẩn BCNF?)",
+    "options": [
+      "{ R1(A,B,C), R2(A,D) }",
+      "{ R1(B,C), R2(A,B), R3(A,D) }",
+      "{ R1(A,B), R2(B,C), R3(C,D) }",
+      "{ R1(A,B,D), R2(B,C) }"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án đúng là B: { R1(B,C), R2(A,B), R3(A,D) }. BCNF phân rã R(ABCD), F={A→B,B→C}: B→C vi phạm BCNF. Phân rã: R1(B,C) [B là khóa ✓], R2(A,B) [A là khóa ✓], R3(A,D) [AD là khóa ✓]. Lossless ✓, dep-preserving ✓."
+  },
+  {
+    "id": 347,
+    "question": "Cho lược đồ quan hệ Q(A,B,C,D,E,I) và tập phụ thuộc hàm F={ACD->EBI, CE->AD}. Hỏi Q đạt dạng chuẩn nào?",
+    "options": [
+      "Dạng chuẩn 1 (1NF)",
+      "Dạng chuẩn Boyee-Codd (BCNF)",
+      "Dạng chuẩn 2 (2NF)",
+      "Dạng chuẩn 3 (3NF)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Đáp án B đúng. Tìm khóa: (ACD)⁺ chứa tất cả nên ACD là khóa. (CE)⁺ chứa tất cả nên CE cũng là khóa. Kiểm tra tất cả các phụ thuộc hàm trong F: Vế trái của cả hai (ACD và CE) đều là siêu khóa. Vì mọi phụ thuộc hàm đều có vế trái là siêu khóa, quan hệ đạt BCNF."
+  },
+  {
+    "id": 348,
+    "question": "Cho R(A,B,C,D,E,F), F = {AB→C, C→D, D→E, E→A, C→F}. Bao đóng (AB)+ là:",
+    "options": [
+      "{A, B, C, D, E, F}",
+      "{A, B, E, F}",
+      "{A, B, C, D}",
+      "{A, B, C, D, E}"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Đáp án đúng là A: {A, B, C, D, E, F}. (AB)+: AB→C→{A,B,C}, C→D→{...D}, D→E→{...E}, E→A(đã có), C→F→{A,B,C,D,E,F}=Ω. (AB)+={A,B,C,D,E,F}."
+  },
+  {
+    "id": 349,
+    "question": "Kết nối bằng nhau các quan hệ theo thuộc tính là",
+    "options": [
+      "Thực hiện phép chiếu và chia",
+      "Thực hiện phép chiếu và phép chọn",
+      "Thực hiện tích Đề Các và phép chiếu",
+      "Thực hiện tích Đề Các và phép chọn"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Đáp án đúng là D: Thực hiện tích Đề Các và phép chọn. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+  },
+  {
+    "id": 350,
+    "question": "Nếu A → BC suy ra",
+    "options": [
+      "A → C",
+      "AB và AC",
+      "A → B",
+      "AC → B và A → CC"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Dựa vào quy tắc phân rã (Decomposition Rule) từ hệ tiên đề Armstrong: Nếu một tập thuộc tính (A) xác định một tập thuộc tính khác (BC), thì nó cũng xác định từng thuộc tính riêng lẻ bên trong tập đó. Do vậy, từ A -> BC ta chắc chắn suy ra được A -> B và A -> C."
+  }
+]
