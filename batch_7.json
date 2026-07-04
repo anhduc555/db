@@ -21,7 +21,7 @@
       "Các quan hệ"
     ],
     "correctAnswer": 3,
-    "explanation": "Đáp án đúng là C: Các toán hạng. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là D: Các quan hệ. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 213,
@@ -45,7 +45,7 @@
       "Bỏ qua và tính bằng view/truy vấn khi cần"
     ],
     "correctAnswer": 3,
-    "explanation": "Đáp án đúng là B: Ghép vào khóa chính. Trong mô hình dữ liệu quan hệ, thuộc tính (attribute) biểu diễn các đặc trưng riêng của từng đối tượng được quản lý. Mỗi thuộc tính có một miền giá trị (domain) xác định tập hợp các giá trị hợp lệ mà nó có thể nhận."
+    "explanation": "Đáp án đúng là D: Bỏ qua và tính bằng view/truy vấn khi cần. Trong mô hình dữ liệu quan hệ, thuộc tính (attribute) biểu diễn các đặc trưng riêng của từng đối tượng được quản lý. Mỗi thuộc tính có một miền giá trị (domain) xác định tập hợp các giá trị hợp lệ mà nó có thể nhận."
   },
   {
     "id": 215,
@@ -225,7 +225,7 @@
       "Thông tin về đối tượng"
     ],
     "correctAnswer": 1,
-    "explanation": "Đáp án đúng là C: Bao đóng của X ứng với tập F là hợp của vế trái của các phụ thuộc hàm. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
+    "explanation": "Đáp án đúng là B: Bao đóng của X ứng với tập F là hợp của vế phải của các phụ thuộc hàm. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
   },
   {
     "id": 230,

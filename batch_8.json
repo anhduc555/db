@@ -141,7 +141,7 @@
       "ENROLL(SID PK, CID PK, Grade), không FK"
     ],
     "correctAnswer": 0,
-    "explanation": "Đáp án đúng là D: ENROLL(SID PK, CID PK, Grade), không FK. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là A: STUDENT(SID PK); COURSE(CID PK); ENROLL(SID FK, CID FK, Grade, PK(SID,CID)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 258,
@@ -309,7 +309,7 @@
       "Mô hình dữ liệu là nội dung thông tin của người sử dụng"
     ],
     "correctAnswer": 0,
-    "explanation": "Đáp án đúng là D: Mô hình dữ liệu là nội dung thông tin của người sử dụng. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là A: Biểu diễn toàn bộ thông tin trong mô hình quan niệm là duy nhất. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 272,

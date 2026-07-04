@@ -9,7 +9,7 @@
       "SELECT * FROM NhanVien IN ORDER OF Luong;"
     ],
     "correctAnswer": 2,
-    "explanation": "Đáp án đúng là D: SELECT * FROM NhanVien IN ORDER OF Luong;. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là C: SELECT * FROM NhanVien ORDER BY Luong DESC;. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 177,
@@ -33,7 +33,7 @@
       "SELECT * FROM emp WHERE empid = 493945;"
     ],
     "correctAnswer": 0,
-    "explanation": "Đáp án đúng là D: SELECT * FROM emp WHERE empid = 493945;. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là A: SELECT empid WHERE empid = 56949 AND lastname = 'SMITH';. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 179,
@@ -81,7 +81,7 @@
       "Người sử dụng"
     ],
     "correctAnswer": 3,
-    "explanation": "Đáp án đúng là A: Người quản trị cơ sở dữ liệu. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là D: Người sử dụng. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 183,
@@ -237,7 +237,7 @@
       "Tài nguyên chung, nhiều người cùng sử dụng"
     ],
     "correctAnswer": 3,
-    "explanation": "Đáp án đúng là B: Rất nhiều loại dữ liệu được tải về giữ trên các máy cục bộ để khai thác. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là D: Tài nguyên chung, nhiều người cùng sử dụng. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 196,
@@ -285,7 +285,7 @@
       "πSID(σDept=′CS′(ADVISE))π_{SID}(σ_{Dept='CS'}(ADVISE))πSID(σDept=′CS′(ADVISE))"
     ],
     "correctAnswer": 1,
-    "explanation": "Đáp án đúng là D: πSID(σDept=′CS′(ADVISE))π_{SID}(σ_{Dept='CS'}(ADVISE))πSID(σDept=′CS′(ADVISE)). Lược đồ quan hệ R(A1,A2,...,An) định nghĩa cấu trúc của một quan hệ gồm tên quan hệ và danh sách các thuộc tính. Quan hệ (instance) là tập hữu hạn các bộ thỏa mãn lược đồ tại một thời điểm cụ thể."
+    "explanation": "Đáp án đúng là B: πSID(ADVISE⋈σDept=′CS′(INSTRUCTOR))π_{SID}(ADVISE ⋈ σ_{Dept='CS'}(INSTRUCTOR))πSID(ADVISE⋈σDept=′CS′(INSTRUCTOR)). Lược đồ quan hệ R(A1,A2,...,An) định nghĩa cấu trúc của một quan hệ gồm tên quan hệ và danh sách các thuộc tính. Quan hệ (instance) là tập hữu hạn các bộ thỏa mãn lược đồ tại một thời điểm cụ thể."
   },
   {
     "id": 200,
@@ -309,7 +309,7 @@
       "Chúng biểu diễn cùng một ánh xạ"
     ],
     "correctAnswer": 0,
-    "explanation": "Đáp án đúng là B: Các quan hệ giống nhau trong biểu thức. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là A: Các kết quả giống nhau. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 202,
@@ -333,7 +333,7 @@
       "SELECT K#, TK, DC FROM R1, R2, R3 WHERE R1.K# = \"K99\" AND R2.B# = R3.B#"
     ],
     "correctAnswer": 0,
-    "explanation": "Đáp án đúng là D: SELECT K#, TK, DC FROM R1, R2, R3 WHERE R1.K# = \"K99\" AND R2.B# = R3.B#. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là A: SELECT K#, TK, DC FROM R1, R2, R3 WHERE R3.K# = \"K99\" AND R2.B# = R3.B# AND R1.K# = R3.K#. K# = \"K99\" AND R2.B# = R3.B#. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án D là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 204,
@@ -345,7 +345,7 @@
       "A→E"
     ],
     "correctAnswer": 3,
-    "explanation": "Đáp án đúng là B: AB→D. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "explanation": "Đáp án đúng là D: A→E. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
     "id": 205,
@@ -369,7 +369,7 @@
       "σ_F(R) := {t | t_F = \"True\"}"
     ],
     "correctAnswer": 0,
-    "explanation": "Đáp án đúng là D: σ_F(R) := {t | t_F = \"True\"}. Phép chọn (σ) trong đại số quan hệ lọc các bộ (hàng) thỏa mãn điều kiện predicate cho trước. Kết quả σ_{điều_kiện}(R) là tập các hàng của R thỏa mãn điều kiện, giữ nguyên tất cả các cột."
+    "explanation": "Đáp án đúng là A: σ_F(R) := {t | t ∈ R and t_F = \"True\"}. Phép chọn (σ) trong đại số quan hệ lọc các bộ (hàng) thỏa mãn điều kiện predicate cho trước. Kết quả σ_{điều_kiện}(R) là tập các hàng của R thỏa mãn điều kiện, giữ nguyên tất cả các cột."
   },
   {
     "id": 207,

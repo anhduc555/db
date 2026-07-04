@@ -285,7 +285,7 @@
       "GRANT REFERENCE (branch-name) ON BRANCH"
     ],
     "correctAnswer": 1,
-    "explanation": "Đáp án đúng là D: GRANT REFERENCE (branch-name) ON BRANCH. Trong mô hình dữ liệu quan hệ, thuộc tính (attribute) biểu diễn các đặc trưng riêng của từng đối tượng được quản lý. Mỗi thuộc tính có một miền giá trị (domain) xác định tập hợp các giá trị hợp lệ mà nó có thể nhận."
+    "explanation": "Đáp án đúng là B: GRANT REFERENCE (branch-name) ON BRANCH TO U. Trong mô hình dữ liệu quan hệ, thuộc tính (attribute) biểu diễn các đặc trưng riêng của từng đối tượng được quản lý. Mỗi thuộc tính có một miền giá trị (domain) xác định tập hợp các giá trị hợp lệ mà nó có thể nhận."
   },
   {
     "id": 340,

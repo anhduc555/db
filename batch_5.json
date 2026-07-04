@@ -165,7 +165,7 @@
       "Nếu F = {A → B, B → C, A → D, B → D} khi đó C → D ∈ F⁺"
     ],
     "correctAnswer": 0,
-    "explanation": "Đáp án đúng là B: Nếu F = {A → B, B → C, A → D, B → D} khi đó D → A ∈ F⁺. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là A: Nếu F = {A → B, B → C, A → D, B → D} khi đó A → C ∈ F⁺. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 155,
@@ -189,7 +189,7 @@
       "πT#, TC(σ(R₁))"
     ],
     "correctAnswer": 1,
-    "explanation": "Đáp án đúng là A: π(σDAI > 100(R₁)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là B: πT#, TC(σDAI > 100(R₁)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 157,
@@ -237,7 +237,7 @@
       "Toàn bộ cơ sở dữ liệu"
     ],
     "correctAnswer": 0,
-    "explanation": "Đáp án đúng là B: Một phần cơ sở dữ liệu. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là A: Phụ thuộc vào quyền truy nhập. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 161,
@@ -405,7 +405,7 @@
       "Tất cả các bộ dữ liệu phải khác nhau"
     ],
     "correctAnswer": 3,
-    "explanation": "Đáp án đúng là C: Tất cả các phương án trên.. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là D: Tất cả các bộ dữ liệu phải khác nhau. . Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án C là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 175,

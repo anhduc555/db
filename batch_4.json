@@ -57,7 +57,7 @@
       "A→C"
     ],
     "correctAnswer": 3,
-    "explanation": "Đáp án đúng là B: A→B. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "explanation": "Đáp án đúng là D: A→C. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
     "id": 111,
@@ -345,7 +345,7 @@
       "D→E"
     ],
     "correctAnswer": 2,
-    "explanation": "Đáp án đúng là B: A→C. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "explanation": "Đáp án đúng là C: AB→C. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
     "id": 135,
@@ -393,7 +393,7 @@
       "Ngôn ngữ của đại số quan hệ"
     ],
     "correctAnswer": 2,
-    "explanation": "Đáp án đúng là D: Ngôn ngữ của đại số quan hệ. Tối ưu hóa truy vấn thực hiện phép chọn (σ) và chiếu (π) trước để giảm kích thước quan hệ trung gian, sau đó mới thực hiện phép kết nối (join) tốn kém. Chiến lược này giảm đáng kể lượng dữ liệu cần xử lý."
+    "explanation": "Đáp án đúng là C: Biểu thức đại số quan hệ. Tối ưu hóa truy vấn thực hiện phép chọn (σ) và chiếu (π) trước để giảm kích thước quan hệ trung gian, sau đó mới thực hiện phép kết nối (join) tốn kém. Chiến lược này giảm đáng kể lượng dữ liệu cần xử lý."
   },
   {
     "id": 139,

@@ -284,8 +284,8 @@
       "πE1.SID(ρE1(σSemester=′2025_Fall′(ENROLL))⋈E1.SID=E2.SID∧E1.CID≠E2.CIDρE2(σSemester=′2025_Fall′(ENROLL)))π_{E1.SID}( ρ_{E1}(σ_{Semester='2025\\_Fall'}(ENROLL)) ⋈_{E1.SID=E2.SID ∧ E1.CID≠E2.CID} ρ_{E2}(σ_{Semester='2025\\_Fall'}(ENROLL)) )πE1.SID(ρE1(σSemester=′2025_Fall′(ENROLL))⋈E1.SID=E2.SID∧E1.CID=E2.CIDρE2(σSemester=′2025_Fall′(ENROLL)))",
       "πCID(ρE1(σSemester=′2025_Fall′(ENROLL))⋈E1.SID=E2.SIDρE2(σSemester=′202_Fall′(ENROLL)))π_{CID}( ρ_{E1}(σ_{Semester='2025\\_Fall'}(ENROLL)) ⋈_{E1.SID=E2.SID} ρ_{E2}(σ_{Semester='202\\_Fall'}(ENROLL)) )πCID(ρE1(σSemester=′2025_Fall′(ENROLL))⋈E1.SID=E2.SIDρE2(σSemester=′202_Fall′(ENROLL)))"
     ],
-    "correctAnswer": 0,
-    "explanation": "Đáp án A đúng. Để tìm sinh viên đăng ký từ 2 môn trở lên, ta tự kết nối (self-join) bảng đăng ký (với bí danh E1 và E2). Điều kiện kết nối là cùng SID nhưng khác CID (khác môn học) trong cùng kỳ học."
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Để lấy danh sách mã sinh viên đã đăng ký từ 2 môn học khác nhau trở lên trong cùng một học kỳ, ta cần thực hiện phép tự kết nối (self-join) trên bảng ENROLL (được đổi tên thành E1 và E2). Điều kiện kết nối bắt buộc là cùng một mã sinh viên (E1.SID = E2.SID) nhưng phải khác mã môn học (E1.CID ≠ E2.CID). Option C thể hiện chính xác biểu thức đại số quan hệ này."
   },
   {
     "id": 63,
@@ -513,7 +513,7 @@
       "A→C"
     ],
     "correctAnswer": 3,
-    "explanation": "Đáp án đúng là B: A→B. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "explanation": "Đáp án đúng là D: A→C. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
     "id": 111,
@@ -705,7 +705,7 @@
       "D→E"
     ],
     "correctAnswer": 2,
-    "explanation": "Đáp án đúng là B: A→C. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "explanation": "Đáp án đúng là C: AB→C. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
     "id": 136,
@@ -849,7 +849,7 @@
       "Nếu F = {A → B, B → C, A → D, B → D} khi đó C → D ∈ F⁺"
     ],
     "correctAnswer": 0,
-    "explanation": "Đáp án đúng là B: Nếu F = {A → B, B → C, A → D, B → D} khi đó D → A ∈ F⁺. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là A: Nếu F = {A → B, B → C, A → D, B → D} khi đó A → C ∈ F⁺. Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án B là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 156,
@@ -861,7 +861,7 @@
       "πT#, TC(σ(R₁))"
     ],
     "correctAnswer": 1,
-    "explanation": "Đáp án đúng là A: π(σDAI > 100(R₁)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
+    "explanation": "Đáp án đúng là B: πT#, TC(σDAI > 100(R₁)). Đây là khái niệm cơ bản trong cơ sở dữ liệu. Phương án A là phương án chính xác nhất và đầy đủ nhất so với các phương án còn lại dựa trên lý thuyết cơ sở dữ liệu chuẩn."
   },
   {
     "id": 157,
@@ -1089,7 +1089,7 @@
       "πSID(σDept=′CS′(ADVISE))π_{SID}(σ_{Dept='CS'}(ADVISE))πSID(σDept=′CS′(ADVISE))"
     ],
     "correctAnswer": 1,
-    "explanation": "Đáp án đúng là D: πSID(σDept=′CS′(ADVISE))π_{SID}(σ_{Dept='CS'}(ADVISE))πSID(σDept=′CS′(ADVISE)). Lược đồ quan hệ R(A1,A2,...,An) định nghĩa cấu trúc của một quan hệ gồm tên quan hệ và danh sách các thuộc tính. Quan hệ (instance) là tập hữu hạn các bộ thỏa mãn lược đồ tại một thời điểm cụ thể."
+    "explanation": "Đáp án đúng là B: πSID(ADVISE⋈σDept=′CS′(INSTRUCTOR))π_{SID}(ADVISE ⋈ σ_{Dept='CS'}(INSTRUCTOR))πSID(ADVISE⋈σDept=′CS′(INSTRUCTOR)). Lược đồ quan hệ R(A1,A2,...,An) định nghĩa cấu trúc của một quan hệ gồm tên quan hệ và danh sách các thuộc tính. Quan hệ (instance) là tập hữu hạn các bộ thỏa mãn lược đồ tại một thời điểm cụ thể."
   },
   {
     "id": 204,
@@ -1101,7 +1101,7 @@
       "A→E"
     ],
     "correctAnswer": 3,
-    "explanation": "Đáp án đúng là B: AB→D. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
+    "explanation": "Đáp án đúng là D: A→E. Phụ thuộc hàm X→Y có nghĩa là giá trị của X xác định duy nhất giá trị của Y. Để kiểm tra một phụ thuộc hàm có thuộc F⁺ không, ta tính bao đóng của vế trái và kiểm tra vế phải có thuộc bao đóng đó không."
   },
   {
     "id": 205,
@@ -1125,7 +1125,7 @@
       "σ_F(R) := {t | t_F = \"True\"}"
     ],
     "correctAnswer": 0,
-    "explanation": "Đáp án đúng là D: σ_F(R) := {t | t_F = \"True\"}. Phép chọn (σ) trong đại số quan hệ lọc các bộ (hàng) thỏa mãn điều kiện predicate cho trước. Kết quả σ_{điều_kiện}(R) là tập các hàng của R thỏa mãn điều kiện, giữ nguyên tất cả các cột."
+    "explanation": "Đáp án đúng là A: σ_F(R) := {t | t ∈ R and t_F = \"True\"}. Phép chọn (σ) trong đại số quan hệ lọc các bộ (hàng) thỏa mãn điều kiện predicate cho trước. Kết quả σ_{điều_kiện}(R) là tập các hàng của R thỏa mãn điều kiện, giữ nguyên tất cả các cột."
   },
   {
     "id": 208,
@@ -1257,7 +1257,7 @@
       "Thông tin về đối tượng"
     ],
     "correctAnswer": 1,
-    "explanation": "Đáp án đúng là C: Bao đóng của X ứng với tập F là hợp của vế trái của các phụ thuộc hàm. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
+    "explanation": "Đáp án đúng là B: Bao đóng của X ứng với tập F là hợp của vế phải của các phụ thuộc hàm. Bao đóng của một tập thuộc tính X (ký hiệu X⁺) là tập tất cả các thuộc tính có thể được suy diễn từ X bằng cách áp dụng lặp lại các quy tắc Armstrong (phản xạ, tăng, bắc cầu) lên tập phụ thuộc hàm F."
   },
   {
     "id": 230,
