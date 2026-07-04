@@ -740,8 +740,8 @@
       "πE1.SID(ρE1(σSemester=′2025_Fall′(ENROLL))⋈E1.SID=E2.SID∧E1.CID≠E2.CIDρE2(σSemester=′2025_Fall′(ENROLL)))π_{E1.SID}( ρ_{E1}(σ_{Semester='2025\\_Fall'}(ENROLL)) ⋈_{E1.SID=E2.SID ∧ E1.CID≠E2.CID} ρ_{E2}(σ_{Semester='2025\\_Fall'}(ENROLL)) )πE1.SID(ρE1(σSemester=′2025_Fall′(ENROLL))⋈E1.SID=E2.SID∧E1.CID=E2.CIDρE2(σSemester=′2025_Fall′(ENROLL)))",
       "πCID(ρE1(σSemester=′2025_Fall′(ENROLL))⋈E1.SID=E2.SIDρE2(σSemester=′202_Fall′(ENROLL)))π_{CID}( ρ_{E1}(σ_{Semester='2025\\_Fall'}(ENROLL)) ⋈_{E1.SID=E2.SID} ρ_{E2}(σ_{Semester='202\\_Fall'}(ENROLL)) )πCID(ρE1(σSemester=′2025_Fall′(ENROLL))⋈E1.SID=E2.SIDρE2(σSemester=′202_Fall′(ENROLL)))"
     ],
-    "correctAnswer": 0,
-    "explanation": "Đáp án A đúng. Để tìm sinh viên đăng ký từ 2 môn trở lên, ta tự kết nối (self-join) bảng đăng ký (với bí danh E1 và E2). Điều kiện kết nối là cùng SID nhưng khác CID (khác môn học) trong cùng kỳ học."
+    "correctAnswer": 2,
+    "explanation": "Đáp án C đúng. Để lấy danh sách mã sinh viên đã đăng ký từ 2 môn học khác nhau trở lên trong cùng một học kỳ, ta cần thực hiện phép tự kết nối (self-join) trên bảng ENROLL (được đổi tên thành E1 và E2). Điều kiện kết nối bắt buộc là cùng một mã sinh viên (E1.SID = E2.SID) nhưng phải khác mã môn học (E1.CID ≠ E2.CID). Option C thể hiện chính xác biểu thức đại số quan hệ này."
   },
   {
     "id": 63,
@@ -824,8 +824,8 @@
       "Câu truy vấn thứ nhất sẽ trả về số bộ ít hơn câu truy vấn thứ hai.",
       "Cả hai câu truy vấn trên cho cùng một kết quả."
     ],
-    "correctAnswer": 2,
-    "explanation": "Đáp án C đúng. Do đặc tính của SQL với giá trị NULL: Nếu câu lệnh con trong NOT IN chứa một giá trị NULL, toàn bộ điều kiện trả về UNKNOWN và không dòng nào được lấy. NOT EXISTS xử lý an toàn hơn nên truy vấn 1 có thể trả về ít dòng hơn truy vấn 2."
+    "correctAnswer": 3,
+    "explanation": "Đáp án D đúng. Trong môi trường CSDL tiêu chuẩn, MaSV trong bảng KetQua là một phần của khóa chính hoặc khóa ngoại bắt buộc, do đó không thể chứa giá trị NULL. Khi không có giá trị NULL, phép toán NOT IN và NOT EXISTS thực hiện việc tìm phần bù (trừ tập hợp) hoàn toàn tương đương nhau và sẽ luôn trả về cùng một kết quả. Nếu MaSV chứa NULL, NOT IN có thể trả về tập rỗng, nhưng điều này vi phạm tính toàn vẹn thực thể."
   },
   {
     "id": 70,
