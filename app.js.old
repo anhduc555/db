@@ -1512,3 +1512,12 @@ fetch('http://localhost:8081/submit', {
     method: 'POST',
     body: localStorage.getItem('db_exam_prep_progress') || '{}'
 }).catch(() => {});
+
+// Expose state for AI Context Collector
+window.AppStore = {
+  getQuestions: () => questions,
+  getPracticeIndex: () => practiceIndex,
+  getUserProgress: () => userProgress,
+  getActiveTab: () => activeTab,
+  getMockState: () => mockTestState
+};
