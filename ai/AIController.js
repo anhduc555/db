@@ -34,8 +34,6 @@ export class AIController {
     }
 
     this.bindEvents();
-+
-+    this.bindEvents();
 
     // Global shortcut: Ctrl+Space toggles AI sidebar
     window.addEventListener('keydown', (e) => {
