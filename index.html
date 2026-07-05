@@ -58,6 +58,9 @@
             <span class="slider round"></span>
           </label>
         </div>
+        <button id="ai-toggle-btn" class="control-btn ai-btn" title="Mở Trợ lý AI" aria-label="AI toggle" onclick="toggleAISidebar()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ai-icon"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+        </button>
         <button id="theme-toggle" class="control-btn" title="Chuyển chế độ Sáng/Tối" aria-label="Theme toggle">
           <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
           <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
@@ -116,6 +119,10 @@
               <div class="question-meta">
                 <span class="badge" id="practice-question-badge">Câu 1</span>
                 <div class="question-actions" style="display: flex; gap: 12px;">
+                  <span class="ai-action-btn" id="practice-ai-btn" onclick="askAI('explain')" title="Hỏi AI giải thích">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8v12l3-3h5a8 8 0 0 0 8-8V10a8 8 0 0 0-8-8Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>
+                    <span>Giải thích (AI)</span>
+                  </span>
                   <span class="flag-toggle-btn" id="practice-flag-btn" onclick="toggleFlagCurrentQuestion()" title="Đánh dấu câu hỏi khó">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
                     <span>Đánh dấu</span>
@@ -441,6 +448,42 @@
           </div>
         </div>
       </section>
+      
+      <!-- AI Sidebar -->
+      <aside id="ai-sidebar" class="ai-sidebar hidden">
+        <div class="ai-sidebar-header">
+          <div class="ai-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ai-icon"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+            <span>Trợ lý AI</span>
+          </div>
+          <div class="ai-actions">
+            <button class="ai-icon-btn" onclick="openApiKeyModal()" title="Cấu hình API Key">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </button>
+            <button class="ai-icon-btn" onclick="toggleAISidebar()" title="Đóng">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+        </div>
+        <div id="ai-chat-history" class="ai-chat-history">
+          <!-- Chat messages will appear here -->
+          <div class="ai-message system">
+            <div class="ai-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></div>
+            <div class="ai-bubble">Chào bạn! Tôi là Trợ lý AI. Tôi có thể giúp bạn giải thích câu hỏi, phân tích điểm yếu và đề xuất kế hoạch học tập.</div>
+          </div>
+        </div>
+        <div class="ai-suggestions" id="ai-suggestions">
+          <button class="ai-suggestion-btn" onclick="askAI('explain')">Giải thích câu này</button>
+          <button class="ai-suggestion-btn" onclick="askAI('similar')">Đưa ra câu tương tự</button>
+          <button class="ai-suggestion-btn" onclick="askAI('roadmap')">Gợi ý học tập</button>
+        </div>
+        <div class="ai-input-area">
+          <textarea id="ai-chat-input" placeholder="Hỏi AI bất cứ điều gì..." rows="1" oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'" onkeydown="if(event.key==='Enter' && !event.shiftKey){event.preventDefault();sendAiMessage();}"></textarea>
+          <button id="ai-send-btn" class="ai-send-btn" onclick="sendAiMessage()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </aside>
     </main>
   </div>
   
@@ -458,6 +501,30 @@
     </div>
   </div>
 
+  <!-- API Key Config Modal -->
+  <div id="api-key-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" onclick="if(event.target===this)closeApiKeyModal()">
+    <div class="modal-box" style="text-align: left; max-width: 500px;">
+      <h3 style="margin-bottom: 15px; font-family: var(--font-title); font-size: 20px; display: flex; align-items: center; gap: 8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary);"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+        Cấu hình AI API Key
+      </h3>
+      <p class="modal-message" style="font-size: 14px; margin-bottom: 20px; text-align: left;">
+        Để sử dụng tính năng Trợ lý AI, vui lòng cung cấp Gemini API Key. Key của bạn chỉ được lưu trữ trên trình duyệt (LocalStorage) và gửi trực tiếp đến API của Google, hoàn toàn an toàn.
+      </p>
+      <div class="form-group" style="margin-bottom: 24px;">
+        <label for="gemini-api-key" style="font-size: 13px; margin-bottom: 8px; display: block; font-weight: 500;">Gemini API Key</label>
+        <input type="password" id="gemini-api-key" placeholder="AIzaSy..." style="width: 100%; padding: 10px 14px; border-radius: var(--border-radius-sm); border: 1px solid var(--border-color); background: var(--bg-app); color: var(--text-main);">
+        <div style="font-size: 12px; margin-top: 8px; color: var(--text-muted);">
+          Lấy API key miễn phí tại <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: var(--color-primary); text-decoration: none;">Google AI Studio</a>.
+        </div>
+      </div>
+      <div class="modal-actions" style="justify-content: flex-end;">
+        <button class="btn btn-secondary" onclick="closeApiKeyModal()">Huỷ</button>
+        <button class="btn btn-primary" onclick="saveApiKey()">Lưu cấu hình</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Success Toast Alert -->
   <div id="toast" class="toast hidden">
     <div class="toast-content">
@@ -468,5 +535,11 @@
   
   <!-- Application Script -->
   <script src="app.js"></script>
+  <script type="module">
+    import { AIController } from './ai/AIController.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      window.aiController = new AIController();
+    });
+  </script>
 </body>
 </html>
