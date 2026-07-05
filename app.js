@@ -1506,3 +1506,9 @@ function resetMockTestToStart() {
   // Call switchTab to ensure the active Tab state is consistent
   switchTab('mock');
 }
+
+// Auto-export progress
+fetch('http://localhost:8081/submit', {
+    method: 'POST',
+    body: localStorage.getItem('db_exam_prep_progress') || '{}'
+}).catch(() => {});
